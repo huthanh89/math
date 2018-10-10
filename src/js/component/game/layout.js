@@ -3,6 +3,7 @@
 //-----------------------------------------------------------------------------//
 
 import React from 'react';
+import Star  from './component/star/layout.js';
 
 //-----------------------------------------------------------------------------//
 // Component
@@ -27,6 +28,8 @@ class Layout extends React.Component {
 
     return (
       <div id="game-container">
+
+        <Star/>
 
         <div className="row">
           <div className="col-12">
@@ -71,21 +74,6 @@ class Layout extends React.Component {
           </div>
         </div>
         
-        <div className="row">
-          <div className="col-12">
-            <i className="fas fa-star fa-3x game-star-complete"></i>
-            <i className="fas fa-star fa-3x game-star-complete"></i>
-            <i className="fas fa-star fa-3x game-star-complete"></i>
-            <i className="fas fa-star fa-3x game-star-wrong"></i>
-            <i className="fas fa-star fa-3x game-star-complete"></i>
-            <i className="fas fa-star fa-3x game-star-wrong"></i>
-            <i className="fas fa-star fa-3x game-star-wrong"></i>
-            <i className="fas fa-star fa-3x game-star-incomplete"></i>
-            <i className="fas fa-star fa-3x game-star-incomplete"></i>
-            <i className="fas fa-star fa-3x game-star-incomplete"></i>
-          </div>
-        </div>
-
 
       </div>
 

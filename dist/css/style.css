@@ -3922,6 +3922,11 @@ nav {
   margin-top: 15px;
   margin-bottom: 15px;
 }
+.game-star-current {
+  color: #e2d380;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
 .game-star-wrong {
   color: red;
   margin-top: 15px;
