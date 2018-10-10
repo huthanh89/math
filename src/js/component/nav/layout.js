@@ -57,11 +57,14 @@ class Layout extends React.Component {
     return (
       <nav className="navbar">
         <div className="container">
+          <button className="btn float-right">Home</button>
           <a className="navbar-brand">
             <img src="asset/brand.png" alt=""/>
             <span id="brand-name">Math</span>
             <span id="brand-name">Tingz</span>
           </a>
+
+  
         </div>
       </nav>
     );

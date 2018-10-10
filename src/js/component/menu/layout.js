@@ -2,7 +2,8 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import React from 'react';
+import   React  from 'react';
+import { Link } from 'react-router-dom'
 
 //-----------------------------------------------------------------------------//
 // Component
@@ -36,10 +37,17 @@ class Layout extends React.Component {
 
         <div className="row">
           <div className="col-12">
-            <button className="btn btn-primary btn-lg menu-button">
-              <span>Add</span>
-              <i className="fas fa-plus fa-lg"></i>
-            </button>
+
+            <Link to='/game'>
+              <button className="btn btn-primary btn-lg menu-button">
+                <span>Add</span>
+                <i className="fas fa-plus fa-lg"></i>
+              </button>
+            </Link>
+
+          
+          
+          
           </div>
           <div className="col-12">
             <button className="btn btn-primary btn-lg menu-button">

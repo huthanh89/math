@@ -24,8 +24,17 @@ class Layout extends React.Component {
   render() {
 
     return (
-      <div>
-        
+      <div id="game-container">
+
+        <div className="row">
+          <div className="col-12">
+            <p type="text" id="game-timer" > 
+              <span>Time: </span>
+              <span></span>
+            </p>
+          </div>
+        </div>
+
         <div className="row">
           <div className="col-12">
             <p type="text" id="game-question" > 
@@ -58,8 +67,24 @@ class Layout extends React.Component {
               <span>Answer 4</span>
             </button>
           </div>
-      
         </div>
+        
+        <div className="row">
+          <div className="col-12">
+            <i className="fas fa-star fa-3x game-star-complete"></i>
+            <i className="fas fa-star fa-3x game-star-complete"></i>
+            <i className="fas fa-star fa-3x game-star-complete"></i>
+            <i className="fas fa-star fa-3x game-star-wrong"></i>
+            <i className="fas fa-star fa-3x game-star-complete"></i>
+            <i className="fas fa-star fa-3x game-star-wrong"></i>
+            <i className="fas fa-star fa-3x game-star-wrong"></i>
+            <i className="fas fa-star fa-3x game-star-incomplete"></i>
+            <i className="fas fa-star fa-3x game-star-incomplete"></i>
+            <i className="fas fa-star fa-3x game-star-incomplete"></i>
+          </div>
+        </div>
+
+
       </div>
 
     );

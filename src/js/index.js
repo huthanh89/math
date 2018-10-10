@@ -8,6 +8,7 @@ import { createStore } from 'redux';
 import { Provider }    from 'react-redux';
 import   App           from './app.js';
 import   reducer       from './reducer';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 //-----------------------------------------------------------------------------//
 
@@ -17,7 +18,9 @@ $( document ).ready(function() {
 
   render(
     <Provider store={store}>
-      <App />
+      <Router>
+        <Route path="/" component={App} />
+      </Router>
     </Provider>,
     document.getElementById('root')
   )

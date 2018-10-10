@@ -3963,6 +3963,10 @@ nav {
 .menu-button span {
   padding-right: 20px;
 }
+#game-timer {
+  color: #8f8f8f;
+  font-size: 20px;
+}
 #game-question {
   height: 50px;
   color: white;
@@ -3975,11 +3979,13 @@ nav {
   height: 100px;
   margin-bottom: 25px;
 }
-
-.btn-group-xs > .btn,
-.btn-xs {
-  padding: 0.25rem 0.4rem;
-  font-size: 0.875rem;
-  line-height: 0.5;
-  border-radius: 0.2rem;
+.game-star-complete {
+  color: yellow;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.game-star-wrong {
+  color: red;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
