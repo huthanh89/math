@@ -25,6 +25,7 @@ app.use('/', express.static(__dirname + '/dist'));
 app.use('/home', express.static(__dirname + '/dist'));
 app.use('/menu', express.static(__dirname + '/dist'));
 app.use('/game', express.static(__dirname + '/dist'));
+app.use('/game/:type', express.static(__dirname + '/dist'));
 
 // Handle route.
 
@@ -41,6 +42,10 @@ app.get('/menu', function(req, res){
 });
 
 app.get('/game', function(req, res){
+    res.render('index.html');
+});
+
+app.get('/game/:type', function(req, res){
     res.render('index.html');
 });
 

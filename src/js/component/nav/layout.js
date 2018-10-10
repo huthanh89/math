@@ -2,7 +2,8 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import React from 'react';
+import   React from 'react';
+import { Link } from 'react-router-dom'
 
 //-----------------------------------------------------------------------------//
 // Component
@@ -57,17 +58,19 @@ class Layout extends React.Component {
     return (
       <nav className="navbar">
         <div className="container">
-          <button className="btn float-right">Home</button>
-          <a className="navbar-brand">
-            <img src="asset/brand.png" alt=""/>
-            <span id="brand-name">Math</span>
-            <span id="brand-name">Tingz</span>
-          </a>
-
-  
+          <ul className="navbar-nav ml-auto">
+            <form className="form-inline">
+              <Link to='/'>
+                <button className="btn btn-outline-success" type="button">
+                  <i className="fas fa-home fa-lg"></i>
+                </button>
+              </Link>
+            </form>
+          </ul>
         </div>
       </nav>
     );
+    
   }
 
   itemClickedPortfolio() {

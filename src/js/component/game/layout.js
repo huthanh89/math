@@ -16,6 +16,8 @@ class Layout extends React.Component {
       viewIndex: 0
     };
 
+    console.log(props);
+
     this.itemClickedPortfolio = this.itemClickedPortfolio.bind(this);
     this.itemClickedResume    = this.itemClickedResume.bind(this);
     this.itemClickedContact   = this.itemClickedContact.bind(this);
