@@ -25,21 +25,39 @@ class Layout extends React.Component {
 
         <div className="row">
           <div className="col-12">
-            <i className="fas fa-star fa-2x game-star-complete"></i>
-            <i className="fas fa-star fa-2x game-star-complete"></i>
-            <i className="fas fa-star fa-2x game-star-complete"></i>
-            <i className="fas fa-star fa-2x game-star-wrong"></i>
-            <i className="fas fa-star fa-2x game-star-complete"></i>
-            <i className="fas fa-star fa-2x game-star-wrong"></i>
-            <i className="fas fa-star fa-2x game-star-wrong"></i>
-            <i className="far fa-star fa-2x game-star-current"></i>
-            <i className="fas fa-star fa-2x game-star-incomplete"></i>
-            <i className="fas fa-star fa-2x game-star-incomplete"></i>
+            <p type="text" id="game-question" > 
+              50 X 50 = {this.state.viewType}
+            </p>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col-6">
+            <button className="btn btn-primary btn-lg game-button">
+              <span>Answer 1</span>
+            </button>
+          </div>
+          <div className="col-6">
+            <button className="btn btn-primary btn-lg game-button">
+              <span>Answer 2</span>
+            </button>
+          </div>
+        </div>
+        
+        <div className="row">
+          <div className="col-6">
+            <button className="btn btn-primary btn-lg game-button">
+              <span>Answer 3</span>
+            </button>
+          </div>
+          <div className="col-6">
+            <button className="btn btn-primary btn-lg game-button">
+              <span>Answer 4</span>
+            </button>
           </div>
         </div>
 
       </div>
-
     );
   }
 

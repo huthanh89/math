@@ -3822,6 +3822,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  height: 100vh;
 }
 nav {
   background-color: #253c4ec0;
@@ -3931,4 +3932,9 @@ nav {
   color: red;
   margin-top: 15px;
   margin-bottom: 15px;
+}
+#ad-container {
+  width: 320px;
+  height: 50px;
+  margin: auto;
 }
