@@ -103,6 +103,7 @@ function reducer (state, action){
     case 'USER_ANSWER': {
       setUserAnswer(state, action.userAnswer);
       incrementLevel(state);
+      console.log(state);
       return state;
     }
     case 'RESTART': {

@@ -3,33 +3,42 @@
 //-----------------------------------------------------------------------------//
 
 import React from 'react';
-import Nav   from './component/nav/layout.js';
-import Menu  from './component/menu/layout.js';
-import Game  from './container/game.js';
-import Summary from './component/summary/layout.js';
-import { Route } from "react-router-dom";
 
 //-----------------------------------------------------------------------------//
 // Component
 //-----------------------------------------------------------------------------//
 
-class App extends React.Component {
-  render(){
+class Layout extends React.Component {
+
+  render() {
+
+    let game  = this.props.gameReducer;
+    let gameLevel = game.levels[game.currentLevel];
+
+    let level = gameLevel.level + 1;
+
     return (
       <div>
-        <Nav/>
-        <Route exact path="/" component={Menu} />
-        <Route path="/game/:type" component={Game} />
-        <Route path="/summary" component={Summary} />
+        <div className="row">
+          <div className="col-12">
+            <p type="text" id="game-timer" > 
+              <span className="mr-2">Question:</span>
+              <span>{level}</span>
+              <span className="float-right">0</span>
+              <span className="float-right mr-2">Time:</span>
+            </p>
+          </div>
+        </div>
       </div>
     );
   }
+
 }
 
 //-----------------------------------------------------------------------------//
 // Export
 //-----------------------------------------------------------------------------//
 
-export default App;
+export default Layout;
 
 //-----------------------------------------------------------------------------//

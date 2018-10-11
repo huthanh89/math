@@ -2,11 +2,10 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import React    from 'react';
-import Star     from './component/star/layout.js';
-import Time     from './component/time/layout.js';
-import Question from './component/question/layout.js';
-import Input    from './component/input/layout.js';
+import React from 'react';
+import Star  from './component/star/layout.js';
+//import Time  from './component/time/layout.js';
+import Input from './component/input/layout.js';
 import { Redirect } from 'react-router-dom'
 
 //-----------------------------------------------------------------------------//
@@ -15,32 +14,24 @@ import { Redirect } from 'react-router-dom'
 
 class Layout extends React.Component {
 
-  componentDidMount(){
-    let type = this.props.match.params.type;
-    this.props.actionRestart(type);
-  }
-
   render() {
 
-    console.log('-----> Render');
+    let state = this.props.location.state;
 
-    if(this.props.gameReducer.gameCompleted){
+    if (state==undefined){
       return (
         <Redirect 
           to= {{
-            pathname: '/summary',
-            state: this.props.gameReducer
+            pathname: '/'
           }}
         />
       );
     }
 
     return (
-      <div id="game-container">
-        <Star {...this.props}/>
-        <Time {...this.props}/>
-        <Question {...this.props}/>
-        <Input {...this.props}/>
+      <div>
+        <Star {...state}/>
+        <Input {...state}/>
       </div>
     );
   }

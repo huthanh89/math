@@ -11,6 +11,7 @@ import   Game      from '../component/game/layout';
 // Return which state property to get updated by the component.
 
 function mapStateToProps(state) {
+    console.log(state);
     return state;
 }
 
