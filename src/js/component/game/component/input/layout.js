@@ -17,7 +17,6 @@ const createPool = (answer, operator) => {
   let c = answer - chance.floating({ min: -answer, max: answer });
   let d = answer + chance.floating({ min: -answer, max: answer }) - chance.floating({ min: -answer, max: answer });
 
-
   let decimal = operator=='divide'? 2:0
 
   let pool = 
@@ -41,10 +40,20 @@ const scramble = (pool) => {
 
 class Layout extends React.Component {
 
+  constructor(props){
+    super(props);
+    this.buttonClicked = this.buttonClicked.bind(this);
+  }
+
+  buttonClicked(userAnswer){
+    this.props.actionSelect(userAnswer);
+  }
+  
   render() {
 
     let game   = this.props.gameReducer;
     let level  = game.levels[game.currentLevel];
+    
     let answer = level.answer;
     let pool   = scramble(createPool(answer, level.operator));
 
@@ -53,12 +62,12 @@ class Layout extends React.Component {
 
         <div className="row">
           <div className="col-6">
-            <button className="btn btn-primary btn-lg game-button">
+            <button className="btn btn-primary btn-lg game-button" onClick={()=>this.buttonClicked(pool[0])}>
               <span>{pool[0]}</span>
             </button>
           </div>
           <div className="col-6">
-            <button className="btn btn-primary btn-lg game-button">
+            <button className="btn btn-primary btn-lg game-button" onClick={()=>this.buttonClicked(pool[1])}>
               <span>{pool[1]}</span>
             </button>
           </div>
@@ -66,12 +75,12 @@ class Layout extends React.Component {
         
         <div className="row">
           <div className="col-6">
-            <button className="btn btn-primary btn-lg game-button">
+            <button className="btn btn-primary btn-lg game-button" onClick={()=>this.buttonClicked(pool[2])}>
               <span>{pool[2]}</span>
             </button>
           </div>
           <div className="col-6">
-            <button className="btn btn-primary btn-lg game-button">
+            <button className="btn btn-primary btn-lg game-button" onClick={()=>this.buttonClicked(pool[3])}>
               <span>{pool[3]}</span>
             </button>
           </div>

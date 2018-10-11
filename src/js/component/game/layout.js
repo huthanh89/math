@@ -18,7 +18,7 @@ class Layout extends React.Component {
   constructor(props){
     super(props)
     let type = this.props.match.params.type;
-    props.operator(type);
+    props.actionOperator(type);
   }
 
   render() {

@@ -15,11 +15,11 @@ function mapStateToProps(state) {
 }
 
 // Called once to map 'dispatch' to 'prop'.
-// Dispatch will be called to change the state.
+// Dispatch will be called to change the state in the Reducer.
 
 function mapDispatchToProps(dispatch) {
     return {
-        operator: function (operator){
+        actionOperator: function (operator){
             switch(operator){
                 case 'subtract': {
                     return dispatch({ type: 'OPERATOR_SUBTRACT' })
@@ -34,6 +34,15 @@ function mapDispatchToProps(dispatch) {
                     return dispatch({ type: 'OPERATOR_ADD' })
                 }
             }
+        },
+        actionAnswer: function (){
+            return dispatch({ type: 'SET_ANSWER' })
+        },
+        actionSelect: function (userAnswer){
+            return dispatch({ 
+                userAnswer: userAnswer,
+                type: 'USER_ANSWER'
+            })
         }
     }
 }

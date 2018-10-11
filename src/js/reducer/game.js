@@ -10,14 +10,11 @@ import Type   from 'lib/operand';
 
 var chance = new Chance();
 
-const createOperand = () => {
-  return chance.integer({ min: 0, max: 99 });
-}
+// Create the default game object.
 
 const createGameObject = () => {
   
   let result = {
-    operator:      null,
     levels:        [],
     timeCompleted: null,
     currentLevel:  0
@@ -28,28 +25,50 @@ const createGameObject = () => {
 
   for(var i=0; i<10; i++){
 
-    operandA = createOperand();
-    operandB = createOperand();
+    operandA = chance.integer({ min: 0, max: 99 });
+    operandB = chance.integer({ min: 0, max: 99 });
 
     result.levels.push({
       level:      i,
-      complete:   0,
       operandA:   operandA,
       operandB:   operandB,
       answer:     null,
-      userAnswer: null
+      userAnswer: null,
+      operator:   null
     })
 
   }
   return result;
 }
 
-function updateOperator(state, operator) {
-  let level      = state.levels[state.currentLevel];
-  level.operator = operator;
-  level.answer   = _.round(Type[operator].calculate(level.operandA, level.operandB), 2)
-  state.level    = level
-  return state
+// Update answers for all levels.
+
+function setAnswers(state) {
+  let levels = state.levels;
+  _.forEach(levels, function(level) {
+    level.answer = _.round(Type[level.operator].calculate(level.operandA, level.operandB), 2);
+  });
+  return;
+}
+
+// Update operators for all levels.
+
+function setOperators(state, operator) {
+  let levels = state.levels;
+  _.forEach(levels, function(level) {
+    level.operator = operator;
+  });
+  return;
+}
+
+// Set user's answer
+
+function setUserAnswer(state, userAnswer) {
+  let level = state.levels[state.currentLevel];
+  level.userAnswer = userAnswer;
+  state.levels[state.currentLeve] = level;
+  state.currentLevel = state.currentLevel + 1;
+  return;
 }
 
 //-----------------------------------------------------------------------------//
@@ -59,19 +78,32 @@ function updateOperator(state, operator) {
 function reducer (state, action){
   switch (action.type){
     case 'OPERATOR_ADD': {
-      return updateOperator(state, 'add');
+      setOperators(state, 'add');
+      setAnswers(state);
+      return state;
     }
     case 'OPERATOR_SUBTRACT': {
-      return updateOperator(state, 'subtract');
+      setOperators(state, 'subtract');
+      setAnswers(state);
+      return state;
     }
     case 'OPERATOR_MULTIPLY': {
-      return updateOperator(state, 'multiply');
+      setOperators(state, 'multiply');
+      setAnswers(state);
+      return state;
     }
     case 'OPERATOR_DIVIDE': {
-      return updateOperator(state, 'divide');
+      setOperators(state, 'divide');
+      setAnswers(state);
+      return state;
+    }
+    case 'USER_ANSWER': {
+      setUserAnswer(state, action.userAnswer);
+      return state;
     }
     default: {
-      return createGameObject();
+      state = createGameObject();
+      return state;
     }
   }
 }
