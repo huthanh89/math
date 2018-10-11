@@ -8,6 +8,7 @@ import Star     from './component/star/layout.js';
 import Time     from './component/time/layout.js';
 import Question from './component/question/layout.js';
 import Input    from './component/input/layout.js';
+import { Redirect } from 'react-router-dom'
 
 //-----------------------------------------------------------------------------//
 // Component
@@ -21,6 +22,13 @@ class Layout extends React.Component {
   }
 
   render() {
+
+    if(this.props.gameReducer.gameCompleted){
+      return (
+        <Redirect to="/home" />
+      );
+    }
+
     return (
       <div id="game-container">
         <Star {...this.props}/>

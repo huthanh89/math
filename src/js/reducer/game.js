@@ -17,7 +17,8 @@ const defaultGameObject = () => {
   let result = {
     levels:        [],
     timeCompleted: null,
-    currentLevel:  0
+    currentLevel:  0,
+    gameCompleted: false
   };
 
   let operandA = null;
@@ -74,7 +75,17 @@ function setUserAnswer(state, userAnswer) {
   let level = state.levels[state.currentLevel];
   level.userAnswer = userAnswer;
   state.levels[state.currentLeve] = level;
+  return;
+}
+
+// Set increment level
+
+function incrementLevel(state) {
+  
   state.currentLevel = state.currentLevel + 1;
+  if(state.currentLevel == 10){
+    state.gameCompleted = true;
+  }
   return;
 }
 
@@ -91,6 +102,7 @@ function reducer (state, action){
     }
     case 'USER_ANSWER': {
       setUserAnswer(state, action.userAnswer);
+      incrementLevel(state);
       return state;
     }
     case 'RESTART': {
