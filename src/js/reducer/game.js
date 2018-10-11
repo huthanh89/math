@@ -25,8 +25,15 @@ const defaultGameObject = () => {
 
   for(var i=0; i<10; i++){
 
-    operandA = chance.integer({ min: 1, max: 99 });
-    operandB = chance.integer({ min: 1, max: 99 });
+    // Ensure the two operand are at least 4 numbers apart
+    // to avoid an infinite loop when making a pool of numbers
+    // for the inputs.
+
+    do{
+      operandA = chance.integer({ min: 1, max: 99 });
+      operandB = chance.integer({ min: 1, max: 99 });
+    }
+    while(Math.abs(operandA - operandB) < 5)
 
     result.levels.push({
       level:      i,

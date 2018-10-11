@@ -74,11 +74,12 @@ class Layout extends React.Component {
     // Create a pool of numbers and make sure there are no same numbers
     // in the pool.
 
-    let pool = createPool(answer, level.operator);
+    let pool = []
 
-    while(_.uniq(pool).length!=4){
+    do{
       pool = createPool(answer, level.operator);
     }
+    while(_.uniq(pool).length!=4)
 
     return (
       <div>
