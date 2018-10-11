@@ -75,7 +75,6 @@ function iconClass(value) {
     'fa-caret-up':   value > 0,
     'text-success':  value > 0
   });
-
 }
 
 //-----------------------------------------------------------------------------//
