@@ -71,8 +71,6 @@ class Layout extends React.Component {
       return(<div></div>) 
     }
 
-    console.log(this.props);
-
     // Create a pool of numbers and make sure there are no same numbers
     // in the pool.
 

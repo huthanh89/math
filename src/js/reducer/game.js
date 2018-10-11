@@ -93,29 +93,23 @@ function incrementLevel(state) {
 // Reducer
 //-----------------------------------------------------------------------------//
 
-function reducer (state, action){
+function reducer (prevState, action){
   switch (action.type){
-    case 'OPERATOR': {
-      setOperators(state, action.operator);
-      setAnswers(state);
-      return state;
-    }
     case 'USER_ANSWER': {
-      console.log(action.userAnswer);
-
+      let state = _.clone(prevState);
       setUserAnswer(state, action.userAnswer);
       incrementLevel(state);
-      return state;
+      return _.clone(state);
     }
     
     case 'RESTART': {
-      state = defaultGameObject();
+      let state = defaultGameObject();
       setOperators(state, action.operator);
       setAnswers(state);
       return state;
     }
     default: {
-      state = defaultGameObject();
+      let state = defaultGameObject();
       return state;
     }
   }

@@ -15,7 +15,8 @@ import { Redirect } from 'react-router-dom'
 
 class Layout extends React.Component {
 
-  componentDidMount(){
+  constructor(props){
+    super(props)
     let type = this.props.match.params.type;
     this.props.actionRestart(type);
   }

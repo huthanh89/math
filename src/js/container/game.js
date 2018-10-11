@@ -25,19 +25,7 @@ function mapDispatchToProps(dispatch) {
                 operator: operator
             })
         },
-        actionOperator: function (operator){
-            return dispatch({ 
-                type: 'OPERATOR',
-                operator: operator
-            })
-        },
-        actionAnswer: function (){
-            return dispatch({ type: 'SET_ANSWER' })
-        },
         actionSelect: function (userAnswer){
-
-            console.log('select');
-
             return dispatch({ 
                 type: 'USER_ANSWER',
                 userAnswer: userAnswer
