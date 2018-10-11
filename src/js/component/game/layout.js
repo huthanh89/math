@@ -15,10 +15,9 @@ import Input    from './component/input/layout.js';
 
 class Layout extends React.Component {
 
-  constructor(props){
-    super(props)
+  componentDidMount(){
     let type = this.props.match.params.type;
-    props.actionOperator(type);
+    this.props.actionRestart(type);
   }
 
   render() {

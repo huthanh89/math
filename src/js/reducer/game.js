@@ -12,7 +12,7 @@ var chance = new Chance();
 
 // Create the default game object.
 
-const createGameObject = () => {
+const defaultGameObject = () => {
   
   let result = {
     levels:        [],
@@ -25,8 +25,8 @@ const createGameObject = () => {
 
   for(var i=0; i<10; i++){
 
-    operandA = chance.integer({ min: 0, max: 99 });
-    operandB = chance.integer({ min: 0, max: 99 });
+    operandA = chance.integer({ min: 1, max: 99 });
+    operandB = chance.integer({ min: 1, max: 99 });
 
     result.levels.push({
       level:      i,
@@ -77,23 +77,8 @@ function setUserAnswer(state, userAnswer) {
 
 function reducer (state, action){
   switch (action.type){
-    case 'OPERATOR_ADD': {
-      setOperators(state, 'add');
-      setAnswers(state);
-      return state;
-    }
-    case 'OPERATOR_SUBTRACT': {
-      setOperators(state, 'subtract');
-      setAnswers(state);
-      return state;
-    }
-    case 'OPERATOR_MULTIPLY': {
-      setOperators(state, 'multiply');
-      setAnswers(state);
-      return state;
-    }
-    case 'OPERATOR_DIVIDE': {
-      setOperators(state, 'divide');
+    case 'OPERATOR': {
+      setOperators(state, action.operator);
       setAnswers(state);
       return state;
     }
@@ -101,8 +86,14 @@ function reducer (state, action){
       setUserAnswer(state, action.userAnswer);
       return state;
     }
+    case 'RESTART': {
+      state = defaultGameObject();
+      setOperators(state, action.operator);
+      setAnswers(state);
+      return state;
+    }
     default: {
-      state = createGameObject();
+      state = defaultGameObject();
       return state;
     }
   }

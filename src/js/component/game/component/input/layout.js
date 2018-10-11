@@ -10,12 +10,28 @@ import Chance from 'chance';
 
 var chance = new Chance();
 
+const randomNumber = (answer) =>{
+
+  let max;
+  let min;
+
+  if(answer < 0){
+    max = 0;
+    min = answer;
+  }
+  else{
+    max = answer;
+    min = 0;
+  }
+  return chance.floating({ min: min, max: max });
+}
+
 const createPool = (answer, operator) => {
   
   let a = answer;
-  let b = answer + chance.floating({ min: -answer, max: answer });
-  let c = answer - chance.floating({ min: -answer, max: answer });
-  let d = answer + chance.floating({ min: -answer, max: answer }) - chance.floating({ min: -answer, max: answer });
+  let b = randomNumber(answer)
+  let c = randomNumber(answer)
+  let d = randomNumber(answer)
 
   let decimal = operator=='divide'? 2:0
 
@@ -27,10 +43,6 @@ const createPool = (answer, operator) => {
     _.round(d, decimal)
   ]
 
-  return pool;
-}
-
-const scramble = (pool) => {
   return _.shuffle(pool);
 }
 
@@ -53,9 +65,20 @@ class Layout extends React.Component {
 
     let game   = this.props.gameReducer;
     let level  = game.levels[game.currentLevel];
-    
     let answer = level.answer;
-    let pool   = scramble(createPool(answer, level.operator));
+
+    if(answer == null){
+      return(<div></div>) 
+    }
+
+    // Create a pool of numbers and make sure there are no same numbers
+    // in the pool.
+
+    let pool = createPool(answer, level.operator);
+
+    while(_.uniq(pool).length!=4){
+      pool = createPool(answer, level.operator);
+    }
 
     return (
       <div>

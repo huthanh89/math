@@ -19,29 +19,25 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
+        actionRestart: function (operator){
+            return dispatch({ 
+                type: 'RESTART',
+                operator: operator
+            })
+        },
         actionOperator: function (operator){
-            switch(operator){
-                case 'subtract': {
-                    return dispatch({ type: 'OPERATOR_SUBTRACT' })
-                }
-                case 'multiply': {
-                    return dispatch({ type: 'OPERATOR_MULTIPLY' })
-                }
-                case 'divide': {
-                    return dispatch({ type: 'OPERATOR_DIVIDE' })
-                }
-                default: {
-                    return dispatch({ type: 'OPERATOR_ADD' })
-                }
-            }
+            return dispatch({ 
+                type: 'OPERATOR',
+                operator: operator
+            })
         },
         actionAnswer: function (){
             return dispatch({ type: 'SET_ANSWER' })
         },
         actionSelect: function (userAnswer){
             return dispatch({ 
-                userAnswer: userAnswer,
-                type: 'USER_ANSWER'
+                type: 'USER_ANSWER',
+                userAnswer: userAnswer
             })
         }
     }
