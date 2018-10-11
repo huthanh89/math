@@ -25,7 +25,7 @@ function mapDispatchToProps(dispatch) {
                     return dispatch({ type: 'OPERATOR_SUBTRACT' })
                 }
                 case 'multiply': {
-                    return dispatch({ type: 'OPERATOR_SUBTRACT' })
+                    return dispatch({ type: 'OPERATOR_MULTIPLY' })
                 }
                 case 'divide': {
                     return dispatch({ type: 'OPERATOR_DIVIDE' })
