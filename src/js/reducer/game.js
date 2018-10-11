@@ -101,11 +101,13 @@ function reducer (state, action){
       return state;
     }
     case 'USER_ANSWER': {
+      console.log(action.userAnswer);
+
       setUserAnswer(state, action.userAnswer);
       incrementLevel(state);
-      console.log(state);
       return state;
     }
+    
     case 'RESTART': {
       state = defaultGameObject();
       setOperators(state, action.operator);

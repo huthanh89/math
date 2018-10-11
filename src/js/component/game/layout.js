@@ -22,8 +22,6 @@ class Layout extends React.Component {
 
   render() {
 
-    console.log('-----> Render');
-
     if(this.props.gameReducer.gameCompleted){
       return (
         <Redirect 

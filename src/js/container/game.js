@@ -11,7 +11,6 @@ import   Game      from '../component/game/layout';
 // Return which state property to get updated by the component.
 
 function mapStateToProps(state) {
-    console.log(state);
     return state;
 }
 
@@ -36,6 +35,9 @@ function mapDispatchToProps(dispatch) {
             return dispatch({ type: 'SET_ANSWER' })
         },
         actionSelect: function (userAnswer){
+
+            console.log('select');
+
             return dispatch({ 
                 type: 'USER_ANSWER',
                 userAnswer: userAnswer

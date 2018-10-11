@@ -3,7 +3,6 @@
 //-----------------------------------------------------------------------------//
 
 import gameReducer from './game.js'
-import menuReducer from './game.js'
 import { combineReducers } from 'redux'
 
 //-----------------------------------------------------------------------------//
@@ -11,7 +10,6 @@ import { combineReducers } from 'redux'
 //-----------------------------------------------------------------------------//
 
 const rootReducer = combineReducers({
-  menuReducer,
   gameReducer
 })
 
