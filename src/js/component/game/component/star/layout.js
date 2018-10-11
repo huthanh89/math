@@ -19,10 +19,8 @@ class Layout extends React.Component {
   }
 
   render() {
-
     return (
       <div>
-
         <div className="row">
           <div className="col-12">
             <i className="fas fa-star fa-2x game-star-complete"></i>
@@ -32,17 +30,14 @@ class Layout extends React.Component {
             <i className="fas fa-star fa-2x game-star-complete"></i>
             <i className="fas fa-star fa-2x game-star-wrong"></i>
             <i className="fas fa-star fa-2x game-star-wrong"></i>
-            <i className="far fa-star fa-2x game-star-current"></i>
-            <i className="fas fa-star fa-2x game-star-incomplete"></i>
-            <i className="fas fa-star fa-2x game-star-incomplete"></i>
+            <i className="far fa-star fa-2x game-star-incomplete"></i>
+            <i className="far fa-star fa-2x game-star-incomplete"></i>
+            <i className="far fa-star fa-2x game-star-incomplete"></i>
           </div>
         </div>
-
       </div>
-
     );
   }
-
 }
 
 //-----------------------------------------------------------------------------//

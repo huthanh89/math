@@ -13,16 +13,27 @@ import   Game      from '../component/game/layout';
 function mapStateToProps(state) {
     return state;
 }
-  
+
 // Called once to map 'dispatch' to 'prop'.
 // Dispatch will be called to change the state.
 
 function mapDispatchToProps(dispatch) {
     return {
-        answer: function (){
-            return dispatch({
-                type: 'GAME_ANSWER'
-            })
+        operator: function (operator){
+            switch(operator){
+                case 'subtract': {
+                    return dispatch({ type: 'OPERATOR_SUBTRACT' })
+                }
+                case 'multiply': {
+                    return dispatch({ type: 'OPERATOR_SUBTRACT' })
+                }
+                case 'divide': {
+                    return dispatch({ type: 'OPERATOR_DIVIDE' })
+                }
+                default: {
+                    return dispatch({ type: 'OPERATOR_ADD' })
+                }
+            }
         }
     }
 }

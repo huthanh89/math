@@ -9,23 +9,20 @@ import React from 'react';
 //-----------------------------------------------------------------------------//
 
 class Layout extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      viewIndex: 0
-    };
-
-  }
 
   render() {
+
+    let game  = this.props.gameReducer;
+    let level = game.levels[game.currentLevel];
 
     return (
       <div>
         <div className="row">
           <div className="col-12">
             <p type="text" id="game-timer" > 
-              <span>Time: </span>
+              <span className="mr-2">Question:</span>
+              <span>{level.level}</span>
+              <span className="float-right mr-2">Time: </span>
               <span></span>
             </p>
           </div>

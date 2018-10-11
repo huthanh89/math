@@ -53,9 +53,6 @@ function recurrence(expense, iterator) {
 
 class Component extends React.Component {
   
-  constructor(props){
-    super(props);
-  }
 
   tableBody() {
 

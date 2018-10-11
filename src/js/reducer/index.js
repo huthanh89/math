@@ -4,13 +4,15 @@
 
 import { combineReducers } from 'redux'
 import   expenseReducer    from './expense.js'
+import   gameReducer       from './game.js'
 
 //-----------------------------------------------------------------------------//
 // Reducer
 //-----------------------------------------------------------------------------//
 
 const rootReducer = combineReducers({
-  expenseReducer
+  expenseReducer,
+  gameReducer
 })
 
 //-----------------------------------------------------------------------------//
