@@ -3827,9 +3827,12 @@ body {
 nav {
   color: white;
   margin-top: 20px;
-  margin-bottom: 30px;
+}
+#nav-mode {
+  font-size: 25px;
 }
 #root-container {
+  margin-top: 50px;
   margin-bottom: 50px;
 }
 .footer {

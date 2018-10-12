@@ -3,6 +3,7 @@
 //-----------------------------------------------------------------------------//
 
 import React    from 'react';
+import Nav      from './component/nav/layout.js';
 import Star     from './component/star/layout.js';
 import Time     from './component/time/layout.js';
 import Question from './component/question/layout.js';
@@ -47,6 +48,7 @@ class Layout extends React.Component {
     
     return (
       <div id="game-container">
+        <Nav {...this.props}/>
         <Star {...this.props}/>
         <Time {...this.props}/>
         <Question {...this.props}/>
