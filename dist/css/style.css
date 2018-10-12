@@ -3942,3 +3942,6 @@ nav {
   margin-top: 15px;
   color: #cfcfcf;
 }
+#review-container table {
+  margin-bottom: 20px;
+}

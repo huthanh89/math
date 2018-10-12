@@ -8,6 +8,11 @@ import React  from 'react';
 import Type   from 'lib/operand.js'
 
 //-----------------------------------------------------------------------------//
+
+var TotalTime    = null;
+var TotalCorrect = null;
+
+//-----------------------------------------------------------------------------//
 // Component
 //-----------------------------------------------------------------------------//
 
@@ -26,6 +31,9 @@ class Component extends React.Component {
   tableBody() {
 
     var view = this;
+    
+    TotalTime    = 0;
+    TotalCorrect = 0;
 
     function createRows() {
       let levels = view.props.levels;
@@ -38,14 +46,16 @@ class Component extends React.Component {
         let icon     = ''
 
         if(correct){
+          TotalCorrect = TotalCorrect + 1;
           icon = 'fas fa-check fa-fw text-success fa-lg'
         }
         else{
           icon = 'fas fa-times fa-fw text-danger fa-lg'
         }
 
-        let time = level.endTime - level.startTime;
-        time     = moment.duration(time, 'milliseconds').asSeconds();
+        let time  = level.endTime - level.startTime;
+        TotalTime = TotalTime + time;
+        time      = moment.duration(time, 'milliseconds').asSeconds();
 
         rows.push(
           <tr key={index}>
@@ -92,6 +102,8 @@ class Component extends React.Component {
           </thead>
           {this.tableBody()}
         </table>
+        <h5>Accurate: {TotalCorrect/10 * 100}%</h5>
+        <h5>Completed in: {moment.duration(TotalTime).asSeconds()} seconds</h5>
       </div>
     );
   }
