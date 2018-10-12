@@ -39,10 +39,6 @@ app.get('/', function(req, res){
     res.render('index');
 });
 
-app.get('/mathtingz', function(req, res){
-    res.render('index');
-});
-
 app.get('/menu', function(req, res){
     res.render('index.html');
 });
