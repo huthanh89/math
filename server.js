@@ -20,8 +20,7 @@ app.set('view engine', 'html');
 app.use(compression());
 
 app.use('/', function(req, res, next){
-
-    console.log(req.url);
+    console.log('MathTingz', req.url);
     next()
 });
 
