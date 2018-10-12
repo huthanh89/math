@@ -57,6 +57,11 @@ app.get('/summary', function(req, res){
     res.render('index.html');
 });
 
+app.get('/*', function(req, res){
+    res.redirect("/");
+});
+
+
 // Listen app on the following port.
 
 app.listen(3002, () => console.log('Math App listening on port 3002'))
