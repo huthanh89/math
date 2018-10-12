@@ -38,10 +38,10 @@ class Component extends React.Component {
         let icon     = ''
 
         if(correct){
-          icon = 'fas fa-check fa-fw text-success'
+          icon = 'fas fa-check fa-fw text-success fa-lg'
         }
         else{
-          icon = 'fas fa-times fa-fw text-danger'
+          icon = 'fas fa-times fa-fw text-danger fa-lg'
         }
 
         rows.push(
