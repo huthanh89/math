@@ -3,7 +3,7 @@
 //-----------------------------------------------------------------------------//
 
 import { connect } from 'react-redux';
-import   Game      from '../component/game/layout.js';
+import   Nav       from '../component/nav/layout.js';
 
 //-----------------------------------------------------------------------------//
 
@@ -24,18 +24,6 @@ function mapDispatchToProps(dispatch) {
                 type: 'UPDATE_HOME',
                 flag: flag
             })
-        },
-        actionRestart: function (operator){
-            return dispatch({ 
-                type: 'RESTART',
-                operator: operator
-            })
-        },
-        actionSelect: function (userAnswer){
-            return dispatch({ 
-                type: 'USER_ANSWER',
-                userAnswer: userAnswer
-            })
         }
     }
 }
@@ -47,6 +35,6 @@ function mapDispatchToProps(dispatch) {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Game)
+)(Nav)
 
 //-----------------------------------------------------------------------------//

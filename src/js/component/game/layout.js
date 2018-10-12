@@ -18,11 +18,15 @@ class Layout extends React.Component {
   constructor(props){
     super(props)
     let type = this.props.match.params.type;
-    this.props.actionRestart(type);
+    props.actionUpdateHome(false);
+    props.actionRestart(type);
   }
 
   render() {
 
+//    console.log('>>>>', this.props)
+
+    /*
     if(this.props.gameReducer.gameCompleted){
       return (
         <Redirect 
@@ -32,7 +36,7 @@ class Layout extends React.Component {
           }}
         />
       );
-    }
+    }*/
 
     return (
       <div id="game-container">

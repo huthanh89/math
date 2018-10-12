@@ -2,11 +2,11 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import React from 'react';
-import Nav   from './component/nav/layout.js';
-import Menu  from './component/menu/layout.js';
-import Game  from './container/game.js';
-import Summary from './component/summary/layout.js';
+import React   from 'react';
+import Nav     from '../container/nav.js';
+import Menu    from './menu/layout.js';
+import Game    from '../container/game.js';
+import Summary from './summary/layout.js';
 import { Route } from "react-router-dom";
 
 //-----------------------------------------------------------------------------//
@@ -14,6 +14,7 @@ import { Route } from "react-router-dom";
 //-----------------------------------------------------------------------------//
 
 class App extends React.Component {
+
   render(){
     return (
       <div>

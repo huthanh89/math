@@ -12,7 +12,7 @@ var chance = new Chance();
 
 // Create the default game object.
 
-const defaultGameObject = () => {
+const initialState = () => {
   
   let result = {
     levels:        [],
@@ -103,14 +103,13 @@ function reducer (prevState, action){
     }
     
     case 'RESTART': {
-      let state = defaultGameObject();
+      let state = initialState();
       setOperators(state, action.operator);
       setAnswers(state);
       return state;
     }
     default: {
-      let state = defaultGameObject();
-      return state;
+      return initialState();
     }
   }
 }
