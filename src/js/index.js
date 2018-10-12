@@ -15,9 +15,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 $( document ).ready(function() {
 
-  const store = createStore(reducer)
-  alert('test');
+  console.log('test');
 
+  const store = createStore(reducer)
   render(
     <Provider store={store}>
       <Router>
