@@ -12,10 +12,9 @@ class Layout extends React.Component {
 
   render() {
 
-    let game  = this.props.gameReducer;
+    let game      = this.props.gameReducer;
     let gameLevel = game.levels[game.currentLevel];
-
-    let level = gameLevel.level + 1;
+    let level     = gameLevel.level + 1;
 
     return (
       <div>

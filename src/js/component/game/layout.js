@@ -5,7 +5,7 @@
 import React    from 'react';
 import Nav      from './component/nav/layout.js';
 import Star     from './component/star/layout.js';
-import Time     from './component/time/layout.js';
+import Round    from './component/round/layout.js';
 import Question from './component/question/layout.js';
 import Input    from './component/input/layout.js';
 import { Redirect } from 'react-router-dom'
@@ -54,7 +54,7 @@ class Layout extends React.Component {
       <div id="game-container">
         <Nav {...this.props}/>
         <Star {...this.props}/>
-        <Time {...this.props}/>
+        <Round {...this.props}/>
         <Question {...this.props}/>
         <Input {...this.props}/>
       </div>
