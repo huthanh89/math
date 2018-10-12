@@ -32,18 +32,18 @@ class Layout extends React.Component {
       <div>
         <div className="row">
 
-          <div className="col-6">
+          <div className="col-12">
             <Link to='/'>
               <button className="btn btn-primary btn-lg summary-button">
-                <i className="fas fa-home fa-lg mr-2"></i>
-                <span>Menu</span>
+                <i className="fas fa-home fa-lg mb-2"></i>
+                <span>Home</span>
               </button>
             </Link>
           </div>
 
-          <div className="col-6">
+          <div className="col-12">
             <button className="btn btn-primary btn-lg summary-button" onClick={this.refresh}>
-              <i className="fas fa-sync-alt fa-lg mr-2"></i>
+              <i className="fas fa-sync-alt fa-lg"></i>
               <span>Restart</span>
             </button>
           </div>
