@@ -22,15 +22,14 @@ class App extends React.Component {
         some text
       </button>
     );
-    /*
     return (
       <div>
+        <Route exact path="" component={Menu} />
         <Route exact path="/" component={Menu} />
         <Route path="/game/:type" component={Game} />
         <Route path="/summary" component={Summary} />
       </div>
     );
-    */
   }
 }
 
