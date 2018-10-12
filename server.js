@@ -22,6 +22,7 @@ app.use(compression());
 // Tell how to serve files and where to look.
 
 app.use('/', express.static(__dirname + '/dist'));
+app.use('/mathtingz', express.static(__dirname + '/dist'));
 app.use('/menu', express.static(__dirname + '/dist'));
 app.use('/game', express.static(__dirname + '/dist'));
 app.use('/game/:type', express.static(__dirname + '/dist'));
@@ -30,6 +31,10 @@ app.use('/summary', express.static(__dirname + '/dist'));
 // Handle route.
 
 app.get('/', function(req, res){
+    res.render('index');
+});
+
+app.get('/mathtingz', function(req, res){
     res.render('index');
 });
 

@@ -13,16 +13,12 @@ import { Route } from "react-router-dom";
 //-----------------------------------------------------------------------------//
 
 class App extends React.Component {
-
   render(){
-
-    console.log(this);
-
     return (
       <div>
-        <Route exact path="/" component={Menu} />
-        <Route path="/game/:type" component={Game} />
-        <Route path="/summary" component={Summary} />
+        <Route strict exact path="/" component={Menu} />
+        <Route strict path="/game/:type" component={Game} />
+        <Route strict path="/summary" component={Summary} />
       </div>
     );
   }

@@ -26,7 +26,7 @@ class Layout extends React.Component {
 
         <div className="row">
           <div className="col-12">
-            <Link to='game/add'>
+            <Link to='/game/add'>
               <button className="btn btn-outline-success btn-lg menu-button">
                 <span>Add</span>
                 <i className="fas fa-plus fa-lg"></i>
