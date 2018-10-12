@@ -15,13 +15,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 $( document ).ready(function() {
 
-  console.log('test');
-
   const store = createStore(reducer)
 
-  render(<span>render</span>, $('#root')[0]);
-
-/*
   render(
     <Provider store={store}>
       <Router>
@@ -30,7 +25,6 @@ $( document ).ready(function() {
     </Provider>,
     $('#root')[0]
   )
-*/
 });
 
 //-----------------------------------------------------------------------------//
