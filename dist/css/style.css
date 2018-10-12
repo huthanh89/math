@@ -3825,8 +3825,8 @@ body {
   height: 100vh;
 }
 nav {
-  background-color: #253c4ec0;
   color: white;
+  margin-top: 20px;
   margin-bottom: 30px;
 }
 #root-container {

@@ -19,6 +19,7 @@ class Layout extends React.Component {
     super(props)
     let type = this.props.match.params.type;
     props.actionUpdateInGame(true);
+    props.actionSetMode(type);
     props.actionRestart(type);
   }
 

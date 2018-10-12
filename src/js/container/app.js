@@ -14,8 +14,7 @@ function mapStateToProps(state) {
     return state;
 }
 
-// Called once to map 'dispatch' to 'prop'.
-// Dispatch will be called to change the state in the Reducer.
+// Map dispatch actions that will available to the component.
 
 function mapDispatchToProps(dispatch) {
     return {

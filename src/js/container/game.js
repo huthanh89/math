@@ -14,20 +14,25 @@ function mapStateToProps(state) {
     return state;
 }
 
-// Called once to map 'dispatch' to 'prop'.
-// Dispatch will be called to change the state in the Reducer.
+// Map dispatch actions that will available to the component.
 
 function mapDispatchToProps(dispatch) {
     return {
+        actionSetMode: function (mode){
+            return dispatch({
+                type: 'SET_MODE',
+                mode:  mode
+            })
+        },
         actionUpdateInGame: function (flag){
             return dispatch({
                 type: 'UPDATE_INGAME',
-                flag: flag
+                flag:  flag
             })
         },
         actionRestart: function (operator){
             return dispatch({ 
-                type: 'RESTART',
+                type:    'RESTART',
                 operator: operator
             })
         },

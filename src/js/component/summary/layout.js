@@ -14,7 +14,15 @@ import { Redirect } from 'react-router-dom'
 
 class Layout extends React.Component {
 
+  constructor(props){
+    super(props)
+    props.actionUpdateInGame(false);
+  }
+
+
   render() {
+
+    console.log(this.props);
 
     if (this.props.appReducer.home){
       return (<Redirect to="/"/>)
