@@ -41,6 +41,7 @@ class Layout extends React.Component {
 
     let state  = this.props.appReducer
     let inGame = state.inGame;
+    let title  = _.toUpper(state.mode);
 
     return (
       <nav className="navbar">
@@ -54,7 +55,7 @@ class Layout extends React.Component {
           </ul>
           <ul className="navbar-nav m-auto">
             <form className="form-inline">
-              <span id="nav-mode">{state.mode}</span>
+              <span id="nav-mode">{title}</span>
             </form>
           </ul>
           <ul className="navbar-nav ml-auto">

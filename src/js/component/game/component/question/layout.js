@@ -31,7 +31,7 @@ class Layout extends React.Component {
               <span>{operator}</span>
               <span>{level.operandB}</span>
               <span>=</span>
-              <span>{level.answer}</span>
+              <span>{'?'}</span>
             </p>
           </div>
         </div>

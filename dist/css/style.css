@@ -3830,10 +3830,12 @@ nav {
 }
 #nav-mode {
   font-size: 25px;
+  letter-spacing: 1.5px;
+  color: #929292;
 }
 #root-container {
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 .footer {
   color: white;
