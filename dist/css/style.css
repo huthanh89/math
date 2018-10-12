@@ -3896,6 +3896,7 @@ nav {
   color: #e9e933;
   margin-top: 15px;
   margin-bottom: 15px;
+  animation: fadein 2s;
 }
 .game-star-incomplete {
   color: #e2d380;
@@ -3906,6 +3907,15 @@ nav {
   color: #eb3636;
   margin-top: 15px;
   margin-bottom: 15px;
+  animation: fadein 2s;
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 #ad-container {
   width: 320px;
