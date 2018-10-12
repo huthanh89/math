@@ -20,33 +20,32 @@ html(lang='en')
       gtag('config', 'UA-74126093-3');
 
   body
-    #nav
-    #root-container.container
-      #root
-    
-    #ad-container.container
-      // Mobile banner
-      script(async='' src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
-      ins.adsbygoogle(style='display:inline-block;width:320px;height:50px' data-ad-client='ca-pub-4342286684165248' data-ad-slot='7331065731')
-      script.
-        (adsbygoogle = window.adsbygoogle || []).push({});
-
-    hr
-
-    footer.footer
+    #app-container
       .container
-        .row
-          .col-sm-12
-            a.text-muted
-              span 2018
-              = ' '
-              i.far.fa-copyright.fa-fw
-              = ' '
-              span TTH
-            a.float-right(href="#" data-toggle="modal" data-target="#contactModal")
-              i.fas.fa-envelope.fa-fw
-              = ' '
-              span Contact
+        #nav
+        #root-container
+          #root
+        
+        #ad-container
+          // Mobile banner
+          script(async='' src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
+          ins.adsbygoogle(style='display:inline-block;width:320px;height:50px' data-ad-client='ca-pub-4342286684165248' data-ad-slot='7331065731')
+          script.
+            (adsbygoogle = window.adsbygoogle || []).push({});
+
+        footer.footer
+          .row
+            .col-sm-12
+              a.text-muted
+                span 2018
+                = ' '
+                i.far.fa-copyright.fa-fw
+                = ' '
+                span TTH
+              a.float-right(href="#" data-toggle="modal" data-target="#contactModal")
+                i.fas.fa-envelope.fa-fw
+                = ' '
+                span Contact
 
     // Modal
     #contactModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')

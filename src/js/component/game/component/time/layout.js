@@ -24,8 +24,6 @@ class Layout extends React.Component {
             <p type="text" id="game-timer" > 
               <span className="mr-2">Question:</span>
               <span>{level}</span>
-              <span className="float-right">0</span>
-              <span className="float-right mr-2">Time:</span>
             </p>
           </div>
         </div>
