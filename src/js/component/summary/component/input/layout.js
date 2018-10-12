@@ -20,13 +20,14 @@ class Layout extends React.Component {
 
     //TODO: Action props is needs to be pass down to here. Broken.
     
-    let game   = this.props.gameReducer;
-    let level  = game.levels[game.currentLevel];
-    this.props.actionRestart(level.operator);
+
+    //let mode = this.props.appReducer.mode;
   }
 
   render() {
 
+    let mode = this.props.appReducer.mode;
+ 
     return (
       <div>
         <div className="row">
@@ -41,10 +42,14 @@ class Layout extends React.Component {
           </div>
 
           <div className="col-12">
-            <button className="btn btn-primary btn-lg summary-button" onClick={this.refresh}>
-              <i className="fas fa-sync-alt fa-lg"></i>
-              <span>Restart</span>
-            </button>
+            <Link to={{
+              pathname: `/game/${mode}`
+            }}>
+              <button className="btn btn-primary btn-lg summary-button" onClick={this.refresh}>
+                <i className="fas fa-sync-alt fa-lg"></i>
+                <span>Restart</span>
+              </button>
+            </Link>
           </div>
 
         </div>

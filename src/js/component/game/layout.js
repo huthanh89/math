@@ -23,11 +23,25 @@ class Layout extends React.Component {
     props.actionRestart(type);
   }
 
+  componentDidUpdate(){
+    if(this.props.gameReducer.gameCompleted){
+      this.props.actionUpdateInGame(false);
+    }
+  }
+
   render() {
 
     if(this.props.gameReducer.gameCompleted){
       return (
-        <Redirect to="/summary"/>
+        <Redirect
+          to={{
+            pathname: "/summary",
+            state: { 
+              gameProps: this.props.gameReducer,
+              appProps: this.props.appReducer
+            }
+          }}
+        />
       );
     }
     

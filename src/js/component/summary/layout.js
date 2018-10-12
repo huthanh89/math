@@ -2,6 +2,7 @@
 // Import
 //-----------------------------------------------------------------------------//
 
+import _     from 'lodash'
 import React from 'react';
 import Star  from './component/star/layout.js';
 //import Time  from './component/time/layout.js';
@@ -14,26 +15,21 @@ import { Redirect } from 'react-router-dom'
 
 class Layout extends React.Component {
 
-  constructor(props){
-    super(props)
-    props.actionUpdateInGame(false);
-  }
-
-
   render() {
 
-    console.log('summary', this.props);
+    let state = this.props.location.state;
 
     if (this.props.appReducer.mode==null){
       return (<Redirect to="/"/>)
     }
-
-    let props = this.props.gameReducer;
+    else if(state==undefined){
+      return(<div></div>);
+    }
 
     return (
       <div>
-        <Star {...props}/>
-        <Input {...props}/>
+        <Star {...state.gameProps}/>
+        <Input {..._.assignWith(this.props, state.appProps)}/>
       </div>
     );
   }
