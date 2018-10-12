@@ -55,6 +55,9 @@ app.get('/summary', function(req, res){
     res.render('index.html');
 });
 
+app.get('/*', function(req,res){
+    res.render('index.html');
+});
 
 // Listen app on the following port.
 
