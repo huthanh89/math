@@ -26,6 +26,7 @@ app.use('/', function(req, res, next){
 
 // Tell how to serve files and where to look.
 
+app.use('/*', express.static(__dirname + '/dist'));
 app.use('/', express.static(__dirname + '/dist'));
 app.use('/mathtingz', express.static(__dirname + '/dist'));
 app.use('/menu', express.static(__dirname + '/dist'));
