@@ -102,8 +102,10 @@ class Component extends React.Component {
           </thead>
           {this.tableBody()}
         </table>
+
         <h5>Accurate: {TotalCorrect/10 * 100}%</h5>
         <h5>Completed in: {moment.duration(TotalTime).asSeconds()} seconds</h5>
+      
       </div>
     );
   }
