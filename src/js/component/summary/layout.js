@@ -22,9 +22,9 @@ class Layout extends React.Component {
 
   render() {
 
-    console.log(this.props);
+    console.log('summary', this.props);
 
-    if (this.props.appReducer.home){
+    if (this.props.appReducer.mode==null){
       return (<Redirect to="/"/>)
     }
 

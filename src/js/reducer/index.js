@@ -2,8 +2,8 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import appReducer  from './app.js'
-import gameReducer from './game.js'
+import appReducer  from './app/reducer.js'
+import gameReducer from './game/reducer.js'
 import { combineReducers } from 'redux'
 
 //-----------------------------------------------------------------------------//

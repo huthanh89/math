@@ -20,7 +20,6 @@ class Layout extends React.Component {
 
     //TODO: Action props is needs to be pass down to here. Broken.
     
-//    console.log(this.props);
     let game   = this.props.gameReducer;
     let level  = game.levels[game.currentLevel];
     this.props.actionRestart(level.operator);
