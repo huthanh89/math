@@ -19,8 +19,11 @@ $( document ).ready(function() {
 
   render(
     <Provider store={store}>
-      <Router>
-        <Route path="/" component={App} />
+      <Router basename={'/mathtingz'}>
+        <Route 
+          path="/" 
+          component={App} 
+        />
       </Router>
     </Provider>,
     $('#root')[0]
