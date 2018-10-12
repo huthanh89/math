@@ -10,10 +10,10 @@ import { Link } from 'react-router-dom'
 
 function iconClass(inGame) {
   if(inGame){
-    return classNames('btn', 'btn-outline-success');
+    return classNames('btn', 'btn-outline-light');
   }
   else {
-    return classNames('btn', 'btn-outline-success', 'd-none');
+    return classNames('btn', 'btn-outline-light', 'd-none');
   }
 }
 

@@ -34,7 +34,7 @@ class Layout extends React.Component {
 
           <div className="col-12">
             <Link to='/'>
-              <button className="btn btn-primary btn-lg summary-button">
+              <button className="btn btn-outline-light btn-lg summary-button">
                 <i className="fas fa-home fa-lg mb-2"></i>
                 <span>Home</span>
               </button>
@@ -45,7 +45,7 @@ class Layout extends React.Component {
             <Link to={{
               pathname: `/game/${mode}`
             }}>
-              <button className="btn btn-primary btn-lg summary-button" onClick={this.refresh}>
+              <button className="btn btn-outline-light btn-lg summary-button" onClick={this.refresh}>
                 <i className="fas fa-sync-alt fa-lg"></i>
                 <span>Restart</span>
               </button>
