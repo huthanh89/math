@@ -36,6 +36,27 @@ const createPool = (answer) => {
   return _.shuffle([a, b, c, d]);
 }
 
+const buttonClass = (operator) => {
+  let base = 'btn btn-lg game-button ';
+  switch(operator){
+    case 'add':{
+      return base + 'btn-success'
+    }
+    case 'subtract':{
+      return base + 'btn-info'
+    }
+    case 'multiply':{
+      return base + 'btn-warning'
+    }
+    case 'divide':{
+      return base + 'btn-danger'
+    }
+    default: {
+      return base + 'btn-primary'
+    }
+  }
+}
+
 //-----------------------------------------------------------------------------//
 // Component
 //-----------------------------------------------------------------------------//
@@ -53,9 +74,10 @@ class Layout extends React.Component {
   
   render() {
 
-    let game   = this.props.gameReducer;
-    let level  = game.levels[game.currentLevel];
-    let answer = level.answer;
+    let game     = this.props.gameReducer;
+    let level    = game.levels[game.currentLevel];
+    let answer   = level.answer;
+    let operator = level.operator;
 
     if(answer == null){
       return(<div></div>) 
@@ -76,26 +98,26 @@ class Layout extends React.Component {
 
         <div className="row">
           <div className="col-6">
-            <button className="btn btn-primary btn-lg game-button" onClick={()=>this.buttonClicked(pool[0])}>
-              <span>{pool[0]}</span>
+            <button className={buttonClass(operator)} onClick={()=>this.buttonClicked(pool[0])}>
+              <b>{pool[0]}</b>
             </button>
           </div>
           <div className="col-6">
-            <button className="btn btn-primary btn-lg game-button" onClick={()=>this.buttonClicked(pool[1])}>
-              <span>{pool[1]}</span>
+            <button className={buttonClass(operator)} onClick={()=>this.buttonClicked(pool[1])}>
+              <b>{pool[1]}</b>
             </button>
           </div>
         </div>
         
         <div className="row">
           <div className="col-6">
-            <button className="btn btn-primary btn-lg game-button" onClick={()=>this.buttonClicked(pool[2])}>
-              <span>{pool[2]}</span>
+            <button className={buttonClass(operator)} onClick={()=>this.buttonClicked(pool[2])}>
+              <b>{pool[2]}</b>
             </button>
           </div>
           <div className="col-6">
-            <button className="btn btn-primary btn-lg game-button" onClick={()=>this.buttonClicked(pool[3])}>
-              <span>{pool[3]}</span>
+            <button className={buttonClass(operator)} onClick={()=>this.buttonClicked(pool[3])}>
+              <b>{pool[3]}</b>
             </button>
           </div>
         </div>
