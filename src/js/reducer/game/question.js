@@ -50,6 +50,13 @@ function subtract(state, operator) {
     do{
       operandA = chance.integer({ min: 1, max: 99 });
       operandB = chance.integer({ min: 1, max: 99 });
+
+      if(operandA < operandB){
+        let temp = operandA;
+        operandA = operandB;
+        operandB = temp;
+      }
+
     }
     while(Math.abs(operandA - operandB) < 5)
 
