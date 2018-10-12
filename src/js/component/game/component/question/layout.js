@@ -18,6 +18,7 @@ class Layout extends React.Component {
     let level    = game.levels[game.currentLevel];
     let operator = null;
 
+
     if(level.operator){
       operator = Type[level.operator].operator
     }

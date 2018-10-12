@@ -3936,3 +3936,7 @@ nav {
 .summary-button span {
   padding-left: 10px;
 }
+#review-container {
+  text-align: center;
+  color: #cfcfcf;
+}
