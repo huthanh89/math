@@ -2,6 +2,7 @@
 // Import
 //-----------------------------------------------------------------------------//
 
+import   $             from 'jquery'
 import   React         from 'react';
 import { render }      from 'react-dom';
 import { createStore } from 'redux';
@@ -22,7 +23,7 @@ $( document ).ready(function() {
         <Route path="/" component={App} />
       </Router>
     </Provider>,
-    document.getElementById('root')
+    $('#root')[0]
   )
 });
 
