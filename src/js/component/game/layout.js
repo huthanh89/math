@@ -24,20 +24,12 @@ class Layout extends React.Component {
 
   render() {
 
-//    console.log('>>>>', this.props)
-
-    /*
     if(this.props.gameReducer.gameCompleted){
       return (
-        <Redirect 
-          to= {{
-            pathname: '/summary',
-            state: this.props.gameReducer
-          }}
-        />
+        <Redirect to="/summary"/>
       );
-    }*/
-
+    }
+    
     return (
       <div id="game-container">
         <Star {...this.props}/>

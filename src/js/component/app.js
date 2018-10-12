@@ -6,7 +6,7 @@ import React   from 'react';
 import Nav     from '../container/nav.js';
 import Menu    from './menu/layout.js';
 import Game    from '../container/game.js';
-import Summary from './summary/layout.js';
+import Summary from '../container/summary.js';
 import { Route } from "react-router-dom";
 
 //-----------------------------------------------------------------------------//

@@ -16,22 +16,16 @@ class Layout extends React.Component {
 
   render() {
 
-    let state = this.props.location.state;
-
-    if (state==undefined){
-      return (
-        <Redirect 
-          to= {{
-            pathname: '/'
-          }}
-        />
-      );
+    if (this.props.appReducer.home){
+      return (<Redirect to="/"/>)
     }
+
+    let props = this.props.gameReducer;
 
     return (
       <div>
-        <Star {...state}/>
-        <Input {...state}/>
+        <Star {...props}/>
+        <Input {...props}/>
       </div>
     );
   }
