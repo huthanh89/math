@@ -58,7 +58,7 @@ app.get('/summary', function(req, res){
 });
 
 app.get('/*', function(req, res){
-    res.redirect("/");
+    res.redirect("/mathtingz/");
 });
 
 
