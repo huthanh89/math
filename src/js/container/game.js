@@ -19,9 +19,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        actionUpdateHome: function (flag){
+        actionUpdateInGame: function (flag){
             return dispatch({
-                type: 'UPDATE_HOME',
+                type: 'UPDATE_INGAME',
                 flag: flag
             })
         },

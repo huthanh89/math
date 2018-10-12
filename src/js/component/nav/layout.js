@@ -8,13 +8,13 @@ import { Link } from 'react-router-dom'
 
 //-----------------------------------------------------------------------------//
 
-function iconClass(isHome) {
+function iconClass(inGame) {
 
-  if(isHome){
-    return classNames('btn', 'btn-outline-success', 'd-none');
+  if(inGame){
+    return classNames('btn', 'btn-outline-success');
   }
   else {
-    return classNames('btn', 'btn-outline-success');
+    return classNames('btn', 'btn-outline-success', 'd-none');
   }
 }
 
@@ -30,12 +30,12 @@ class Layout extends React.Component {
   }
 
   clickedHome(){
-    this.props.actionUpdateHome(true);
+    this.props.actionUpdateInGame(false);
   }
 
   render() {
 
-    let isHome = this.props.appReducer.home;
+    let inGame = this.props.appReducer.inGame;
 
     return (
       <nav className="navbar">
@@ -43,7 +43,7 @@ class Layout extends React.Component {
           <ul className="navbar-nav mr-auto">
             <form className="form-inline">
               <Link to='/'>
-                <button className={iconClass(isHome)} type="button">
+                <button className={iconClass(inGame)} type="button">
                   <i className="fas fa-sync-alt fa-lg"></i>
                 </button>
               </Link>

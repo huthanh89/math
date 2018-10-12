@@ -7,8 +7,7 @@ import _ from 'lodash';
 //-----------------------------------------------------------------------------//
 
 const initialState = {
-  home: true
-}
+  inGame: false}
 
 //-----------------------------------------------------------------------------//
 // Reducer
@@ -16,9 +15,9 @@ const initialState = {
 
 function reducer (prevState=initialState, action){
   switch (action.type){
-    case 'UPDATE_HOME': {
+    case 'UPDATE_INGAME': {
       return {
-        home: action.flag
+        inGame: action.flag
       };
     }
     default: {

@@ -95,6 +95,14 @@ function incrementLevel(state) {
 
 function reducer (prevState, action){
   switch (action.type){
+    
+    case 'SET_QUESTIONS': {
+      let state = _.clone(prevState);
+      setOperators(state, action.operator);
+      setAnswers(state);
+      return _.clone(state);
+    }
+    
     case 'USER_ANSWER': {
       let state = _.clone(prevState);
       setUserAnswer(state, action.userAnswer);
@@ -108,6 +116,7 @@ function reducer (prevState, action){
       setAnswers(state);
       return state;
     }
+    
     default: {
       return initialState();
     }
