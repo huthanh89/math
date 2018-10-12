@@ -43,6 +43,20 @@ function mapDispatchToProps(dispatch) {
                 type: 'USER_ANSWER',
                 userAnswer: userAnswer
             })
+        },
+        actionStartTime: function (level, time){
+            return dispatch({ 
+                type: 'SET_STARTTIME',
+                level: level,
+                time:  time
+            })
+        },
+        actionEndTime: function (level, time){
+            return dispatch({ 
+                type: 'SET_ENDTIME',
+                level: level,
+                time:  time
+            })
         }
     }
 }

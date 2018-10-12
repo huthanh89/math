@@ -2,10 +2,10 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import _     from 'lodash';
-import React from 'react';
-import Type  from 'lib/operand.js'
-
+import _      from 'lodash';
+import moment from 'moment';
+import React  from 'react';
+import Type   from 'lib/operand.js'
 
 //-----------------------------------------------------------------------------//
 // Component
@@ -44,6 +44,9 @@ class Component extends React.Component {
           icon = 'fas fa-times fa-fw text-danger fa-lg'
         }
 
+        let time = level.endTime - level.startTime;
+        time     = moment.duration(time, 'milliseconds').asSeconds();
+
         rows.push(
           <tr key={index}>
             <td>
@@ -58,6 +61,9 @@ class Component extends React.Component {
             </td>
             <td>
               <i className={icon}></i>
+            </td>
+            <td>
+              <span>{time}</span>
             </td>
           </tr>
         );
@@ -81,6 +87,7 @@ class Component extends React.Component {
               <th>Question</th>
               <th>Answer</th>
               <th>Result</th>
+              <th>Time (sec)</th>
             </tr>
           </thead>
           {this.tableBody()}

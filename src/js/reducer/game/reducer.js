@@ -3,7 +3,6 @@
 //-----------------------------------------------------------------------------//
 
 import _        from 'lodash';
-import Type     from 'lib/operand';
 import question from './question.js'
 
 //-----------------------------------------------------------------------------//
@@ -19,45 +18,39 @@ const initialState = () => {
   }
 }
 
-// Update answers for all levels.
-
-function setAnswers(state) {
-  let levels = state.levels;
-  _.forEach(levels, function(level) {
-    level.answer = _.round(Type[level.operator].calculate(level.operandA, level.operandB), 2);
-  });
-  return;
-}
-
-// Update operators for all levels.
-
-function setOperators(state, operator) {
-  let levels = state.levels;
-  _.forEach(levels, function(level) {
-    level.operator = operator;
-  });
-  return;
-}
-
 // Set user's answer
 
 function setUserAnswer(state, userAnswer) {
   let level = state.levels[state.currentLevel];
   level.userAnswer = userAnswer;
-  state.levels[state.currentLeve] = level;
-  return;
+  state.levels[state.currentLevel] = level;
+  return state;
 }
 
 // Set increment level
 
 function incrementLevel(state) {
-  
   state.currentLevel = state.currentLevel + 1;
   if(state.currentLevel == 10){
     state.gameCompleted = true;
   }
-  return;
+  return state;
 }
+
+// Set start time of level.
+
+function setStartTime(state, level, time) {
+  state.levels[level].startTime = time;
+  return state
+}
+
+// Set end time of level.
+
+function setEndTime(state, level, time) {
+  state.levels[level].endTime = time;
+  return state;
+}
+
 
 //-----------------------------------------------------------------------------//
 // Reducer
@@ -67,14 +60,22 @@ function reducer (prevState, action){
 
   switch (action.type){
     
+    case 'SET_STARTTIME': {
+      return setStartTime(prevState, action.level, action.time);
+    }
+    
+    case 'SET_ENDTIME': {
+      return setEndTime(prevState, action.level, action.time);
+    }
+    
     case 'SET_QUESTIONS': {
       return question(_.clone(prevState), action.operator);
     }
     
     case 'USER_ANSWER': {
       let state = _.clone(prevState);
-      setUserAnswer(state, action.userAnswer);
-      incrementLevel(state);
+      state = setUserAnswer(state, action.userAnswer);
+      state = incrementLevel(state);
       return state;
     }
     

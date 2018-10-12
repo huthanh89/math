@@ -4,11 +4,23 @@
 
 import _      from 'lodash';
 import Chance from 'chance';
-//import Type   from 'lib/operand';
 
 //-----------------------------------------------------------------------------//
 
 var chance = new Chance();
+
+const levelModel = () => {
+  return {
+    level:      null,
+    operandA:   null,
+    operandB:   null,
+    answer:     null,
+    userAnswer: null,
+    operator:   null,
+    startTime:  null,
+    endTime:    null
+  }
+}
 
 function add(state, operator) {
 
@@ -27,14 +39,15 @@ function add(state, operator) {
     }
     while(Math.abs(operandA - operandB) < 5)
 
-    state.levels.push({
+    let level = _.assign(levelModel(), {
       level:      i,
       operandA:   operandA,
       operandB:   operandB,
       answer:     operandA + operandB,
-      userAnswer: null,
       operator:   operator
-    })
+    });
+
+    state.levels.push(level);
   }
 
   return state;
@@ -60,14 +73,15 @@ function subtract(state, operator) {
     }
     while(Math.abs(operandA - operandB) < 5)
 
-    state.levels.push({
+    let level = _.assign(levelModel(), {
       level:      i,
       operandA:   operandA,
       operandB:   operandB,
-      answer:     operandA - operandB,
-      userAnswer: null,
+      answer:     operandA + operandB,
       operator:   operator
-    })
+    });
+
+    state.levels.push(level);
   }
 
   return state;
@@ -86,14 +100,15 @@ function multiply(state, operator) {
     }
     while(Math.abs(operandA - operandB) < 5)
 
-    state.levels.push({
+    let level = _.assign(levelModel(), {
       level:      i,
       operandA:   operandA,
       operandB:   operandB,
       answer:     operandA * operandB,
-      userAnswer: null,
       operator:   operator
-    })
+    });
+
+    state.levels.push(level);
   }
 
   return state;
@@ -113,14 +128,15 @@ function divide(state, operator) {
     }
     while(answer < 5)
 
-    state.levels.push({
+    let level = _.assign(levelModel(), {
       level:      i,
       operandA:   operandB,
       operandB:   operandA,
       answer:     answer,
-      userAnswer: null,
       operator:   operator
-    })
+    });
+
+    state.levels.push(level);
   }
 
   return state;
