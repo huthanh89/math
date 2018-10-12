@@ -19,7 +19,7 @@ $( document ).ready(function() {
 
   render(
     <Provider store={store}>
-      <Router basename={'/mathtingz'}>
+      <Router basename={'/mathtingz/'}>
         <Route 
           path="/" 
           component={App} 
