@@ -15,6 +15,14 @@ import { Route } from "react-router-dom";
 class App extends React.Component {
 
   render(){
+
+    console.log('app level');
+    return (
+      <button>
+        some text
+      </button>
+    );
+    /*
     return (
       <div>
         <Route exact path="/" component={Menu} />
@@ -22,6 +30,7 @@ class App extends React.Component {
         <Route path="/summary" component={Summary} />
       </div>
     );
+    */
   }
 }
 
