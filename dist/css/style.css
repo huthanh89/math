@@ -3825,9 +3825,9 @@ body {
 }
 #app-container {
   background: rgba(0, 0, 0, 0.637);
-  height: 100%;
   top: 0;
   position: relative;
+  min-height: inherit;
 }
 nav {
   color: white;
@@ -3842,8 +3842,8 @@ nav {
   padding-top: 10px;
 }
 .footer {
-  position: relative;
-  bottom: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 .footer a {
   margin: 0 10px;
@@ -3938,5 +3938,6 @@ nav {
 }
 #review-container {
   text-align: center;
+  margin-top: 15px;
   color: #cfcfcf;
 }
