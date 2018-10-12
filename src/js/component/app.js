@@ -16,9 +16,9 @@ class App extends React.Component {
   render(){
     return (
       <div>
-        <Route strict exact path="/" component={Menu} />
-        <Route strict path="/game/:type" component={Game} />
-        <Route strict path="/summary" component={Summary} />
+        <Route exact path="/" component={Menu} />
+        <Route path="/game/:type" component={Game} />
+        <Route path="/summary" component={Summary} />
       </div>
     );
   }

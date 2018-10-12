@@ -19,6 +19,12 @@ app.set('view engine', 'html');
 
 app.use(compression());
 
+app.use('/', function(req, res, next){
+
+    console.log(req.url);
+    next()
+});
+
 // Tell how to serve files and where to look.
 
 app.use('/', express.static(__dirname + '/dist'));
