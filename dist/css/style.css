@@ -3923,11 +3923,11 @@ nav {
   margin: auto;
 }
 #summary-star-container {
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   color: white;
 }
 #summary-star-container span {
-  font-size: 20px;
+  font-size: 25px;
 }
 .summary-button {
   height: 70px;
