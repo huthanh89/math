@@ -74,8 +74,8 @@ function multiply(state, operator) {
   for(var i=0; i<10; i++){
 
     do{
-      operandA = chance.integer({ min: 1, max: 99 });
-      operandB = chance.integer({ min: 1, max: 99 });
+      operandA = chance.integer({ min: 1, max: 20 });
+      operandB = chance.integer({ min: 1, max: 20 });
     }
     while(Math.abs(operandA - operandB) < 5)
 
