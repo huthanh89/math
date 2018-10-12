@@ -17,11 +17,7 @@ class App extends React.Component {
   render(){
 
     console.log('app level');
-    return (
-      <button>
-        some text
-      </button>
-    );
+
     return (
       <div>
         <Route exact path="" component={Menu} />
