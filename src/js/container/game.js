@@ -2,6 +2,7 @@
 // Import
 //-----------------------------------------------------------------------------//
 
+import   _         from 'lodash'
 import { connect } from 'react-redux';
 import   Game      from '../component/game/layout.js';
 
@@ -11,6 +12,7 @@ import   Game      from '../component/game/layout.js';
 // Return which state property to get updated by the component.
 
 function mapStateToProps(state) {
+//    return _.merge(state.gameReducer, state.appReducer);
     return state;
 }
 

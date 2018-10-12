@@ -23,27 +23,17 @@ const randomNumber = (answer) =>{
     max = answer;
     min = 0;
   }
-  return chance.floating({ min: min, max: max });
+  return chance.integer({ min: min, max: max });
 }
 
-const createPool = (answer, operator) => {
+const createPool = (answer) => {
   
   let a = answer;
   let b = randomNumber(answer)
   let c = randomNumber(answer)
   let d = randomNumber(answer)
 
-  let decimal = operator=='divide'? 2:0
-
-  let pool = 
-  [ 
-    _.round(a, decimal),
-    _.round(b, decimal),
-    _.round(c, decimal),
-    _.round(d, decimal)
-  ]
-
-  return _.shuffle(pool);
+  return _.shuffle([a, b, c, d]);
 }
 
 //-----------------------------------------------------------------------------//
@@ -77,7 +67,7 @@ class Layout extends React.Component {
     let pool = []
 
     do{
-      pool = createPool(answer, level.operator);
+      pool = createPool(answer);
     }
     while(_.uniq(pool).length!=4)
 

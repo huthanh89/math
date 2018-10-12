@@ -45,6 +45,10 @@ class Layout extends React.Component {
         />
       );
     }
+
+    if(this.props.gameReducer.levels.length == 0){
+      return (<div></div>);
+    }
     
     return (
       <div id="game-container">

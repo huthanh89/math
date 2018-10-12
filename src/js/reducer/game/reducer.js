@@ -2,51 +2,21 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import _      from 'lodash';
-import Chance from 'chance';
-import Type   from 'lib/operand';
+import _        from 'lodash';
+import Type     from 'lib/operand';
+import question from './question.js'
 
 //-----------------------------------------------------------------------------//
-
-var chance = new Chance();
 
 // Create the default game object.
 
 const initialState = () => {
-  
-  let result = {
+  return {
     levels:        [],
     timeCompleted: null,
     currentLevel:  0,
     gameCompleted: false
-  };
-
-  let operandA = null;
-  let operandB = null;
-
-  for(var i=0; i<10; i++){
-
-    // Ensure the two operand are at least 4 numbers apart
-    // to avoid an infinite loop when making a pool of numbers
-    // for the inputs.
-
-    do{
-      operandA = chance.integer({ min: 1, max: 99 });
-      operandB = chance.integer({ min: 1, max: 99 });
-    }
-    while(Math.abs(operandA - operandB) < 5)
-
-    result.levels.push({
-      level:      i,
-      operandA:   operandA,
-      operandB:   operandB,
-      answer:     null,
-      userAnswer: null,
-      operator:   null
-    })
-
   }
-  return result;
 }
 
 // Update answers for all levels.
@@ -94,27 +64,22 @@ function incrementLevel(state) {
 //-----------------------------------------------------------------------------//
 
 function reducer (prevState, action){
+
   switch (action.type){
     
     case 'SET_QUESTIONS': {
-      let state = _.clone(prevState);
-      setOperators(state, action.operator);
-      setAnswers(state);
-      return _.clone(state);
+      return question(_.clone(prevState), action.operator);
     }
     
     case 'USER_ANSWER': {
       let state = _.clone(prevState);
       setUserAnswer(state, action.userAnswer);
       incrementLevel(state);
-      return _.clone(state);
+      return state;
     }
     
     case 'RESTART': {
-      let state = initialState();
-      setOperators(state, action.operator);
-      setAnswers(state);
-      return state;
+      return question(initialState(), action.operator);
     }
     
     default: {
