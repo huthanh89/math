@@ -23,6 +23,16 @@ function iconClass(level) {
   }
 }
 
+const getTotal = (levels) => {
+  let total = 0;
+  _.forEach(levels, function(level){
+    if(level.answer==level.userAnswer){
+      total++;
+    }
+  })
+  return total;
+}
+
 //-----------------------------------------------------------------------------//
 // Component
 //-----------------------------------------------------------------------------//
@@ -31,7 +41,7 @@ class Layout extends React.Component {
   render() {
     let levels = this.props.levels;
     return (
-      <div>
+      <div id='summary-star-container'>
         <div className="row">
           <div className="col-12">
             <i className={iconClass(levels[0])}></i>
@@ -44,6 +54,12 @@ class Layout extends React.Component {
             <i className={iconClass(levels[7])}></i>
             <i className={iconClass(levels[8])}></i>
             <i className={iconClass(levels[9])}></i>
+          </div>
+          <div className="col-12">
+            <span className="mr-2">{getTotal(levels)}</span>
+            <span>
+              / 10 Correct
+            </span>
           </div>
         </div>
       </div>
