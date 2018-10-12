@@ -3864,14 +3864,9 @@ nav {
   margin-bottom: 40px;
 }
 .menu-button {
-  display: block;
-  width: 100%;
-  max-width: 500px;
   height: 70px;
   font-size: 30px;
   margin-bottom: 25px;
-  margin-right: auto;
-  margin-left: auto;
 }
 .menu-button span {
   padding-right: 20px;
@@ -3937,6 +3932,7 @@ nav {
   padding-left: 10px;
 }
 #review-container {
+  text-align: center;
   margin-top: 15px;
   color: #cfcfcf;
 }
