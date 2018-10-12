@@ -19,14 +19,15 @@ app.set('view engine', 'html');
 
 app.use(compression());
 
+/*
 app.use('/', function(req, res, next){
     console.log('MathTingz', req.url);
     next()
 });
+*/
 
 // Tell how to serve files and where to look.
 
-app.use('/*', express.static(__dirname + '/dist'));
 app.use('/', express.static(__dirname + '/dist'));
 app.use('/mathtingz', express.static(__dirname + '/dist'));
 app.use('/menu', express.static(__dirname + '/dist'));
@@ -53,10 +54,6 @@ app.get('/game/:type', function(req, res){
 });
 
 app.get('/summary', function(req, res){
-    res.render('index.html');
-});
-
-app.get('/*', function(req,res){
     res.render('index.html');
 });
 
