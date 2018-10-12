@@ -3861,6 +3861,7 @@ nav {
   color: white;
   font-size: 30px;
   text-align: center;
+  margin-top: 20px;
   margin-bottom: 40px;
 }
 .menu-button {
@@ -3919,14 +3920,9 @@ nav {
   font-size: 20px;
 }
 .summary-button {
-  display: block;
-  width: 100%;
-  max-width: 500px;
   height: 70px;
   font-size: 30px;
   margin-bottom: 25px;
-  margin-right: auto;
-  margin-left: auto;
 }
 .summary-button span {
   padding-left: 10px;

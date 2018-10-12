@@ -31,27 +31,26 @@ class Layout extends React.Component {
     return (
       <div>
         <div className="row">
-
-          <div className="col-12">
+          <div className="col-md-5 m-auto">
             <Link to='/'>
-              <button className="btn btn-outline-light btn-lg summary-button">
+              <button className="btn btn-outline-light btn-lg summary-button btn-block">
                 <i className="fas fa-home fa-lg mb-2"></i>
                 <span>Home</span>
               </button>
             </Link>
           </div>
-
-          <div className="col-12">
+        </div>
+        <div className="row">
+          <div className="col-md-5 m-auto">
             <Link to={{
               pathname: `/game/${mode}`
             }}>
-              <button className="btn btn-outline-light btn-lg summary-button" onClick={this.refresh}>
+              <button className="btn btn-outline-light btn-lg summary-button btn-block" onClick={this.refresh}>
                 <i className="fas fa-sync-alt fa-lg"></i>
                 <span>Restart</span>
               </button>
             </Link>
           </div>
-
         </div>
       </div>
     );
