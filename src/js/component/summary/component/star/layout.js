@@ -13,13 +13,13 @@ function iconClass(level) {
   let userAnswer = level.userAnswer;
 
   if(answer==userAnswer){
-    return classNames('fas', 'fa-star', 'fa-2x', 'game-star-complete');
+    return classNames('fas', 'fa-star', 'fa-lg', 'game-star', 'game-star-complete');
   }
   else if(userAnswer!=null){
-    return classNames('fas', 'fa-star', 'fa-2x', 'game-star-wrong');
+    return classNames('fas', 'fa-star', 'fa-lg', 'game-star', 'game-star-wrong');
   }
   else {
-    return classNames('far', 'fa-star', 'fa-2x', 'game-star-incomplete');
+    return classNames('far', 'fa-star', 'fa-lg', 'game-star', 'game-star-incomplete');
   }
 }
 
