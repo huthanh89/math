@@ -2,7 +2,7 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import   _         from 'lodash'
+import   _         from 'lodash';
 import { connect } from 'react-redux';
 import   Game      from '../component/game/layout.js';
 
@@ -24,41 +24,41 @@ function mapDispatchToProps(dispatch) {
             return dispatch({
                 type: 'SET_MODE',
                 mode:  mode
-            })
+            });
         },
         actionUpdateInGame: function (flag){
             return dispatch({
                 type: 'UPDATE_INGAME',
                 flag:  flag
-            })
+            });
         },
         actionRestart: function (operator){
             return dispatch({ 
                 type:    'RESTART',
                 operator: operator
-            })
+            });
         },
         actionSelect: function (userAnswer){
             return dispatch({ 
                 type: 'USER_ANSWER',
                 userAnswer: userAnswer
-            })
+            });
         },
         actionStartTime: function (level, time){
             return dispatch({ 
                 type: 'SET_STARTTIME',
                 level: level,
                 time:  time
-            })
+            });
         },
         actionEndTime: function (level, time){
             return dispatch({ 
                 type: 'SET_ENDTIME',
                 level: level,
                 time:  time
-            })
+            });
         }
-    }
+    };
 }
 
 //-----------------------------------------------------------------------------//
@@ -68,6 +68,6 @@ function mapDispatchToProps(dispatch) {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Game)
+)(Game);
 
 //-----------------------------------------------------------------------------//

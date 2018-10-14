@@ -15,6 +15,6 @@ var Type = {
         operator: '/',
         calculate: (first, second) => first / second
     }
-}
+};
 
 export default Type;

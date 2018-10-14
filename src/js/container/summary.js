@@ -22,15 +22,15 @@ function mapDispatchToProps(dispatch) {
             return dispatch({
                 type: 'UPDATE_INGAME',
                 flag:  flag
-            })
+            });
         },
         actionRestart: function (operator){
             return dispatch({ 
                 type:    'RESTART',
                 operator: operator
-            })
+            });
         }
-    }
+    };
 }
 
 //-----------------------------------------------------------------------------//
@@ -40,6 +40,6 @@ function mapDispatchToProps(dispatch) {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Summary)
+)(Summary);
 
 //-----------------------------------------------------------------------------//

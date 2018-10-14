@@ -26,25 +26,19 @@ const eslint        = require('gulp-eslint');
 
 // Lint JavaScript files.
 
-gulp.task('lint-js', function() {
+gulp.task('lint-js', () => {
     return gulp.src('./src/js/**/*.js')
-    .pipe(eslint({
-        baseConfig: {
-            "ecmaFeatures": {
-                "jsx": true
-            }
-        }
-    }))
+    .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
 });
 
-gulp.task('copy-webfonts', function () {
+gulp.task('copy-webfonts', () => {
     return gulp.src('src/webfonts/*')
         .pipe(gulp.dest('dist/webfonts'));
 });
 
-gulp.task('minify-js', function () {
+gulp.task('minify-js', () => {
 
     let config = _.assignIn(webpackConfig, {
         mode: 'production'
@@ -58,7 +52,7 @@ gulp.task('minify-js', function () {
         .pipe(gulp.dest('dist/js'));
 });
 
-gulp.task('minify-css', function () {
+gulp.task('minify-css', () => {
     return gulp.src('dist/css/*.css')
         .pipe(cleanCSS({
             compatibility: 'ie8'
@@ -66,7 +60,7 @@ gulp.task('minify-css', function () {
         .pipe(gulp.dest('dist/css'));
 });
 
-gulp.task('minify-html', function () {
+gulp.task('minify-html', () => {
     return  gulp.src('dist/index.html')
         .pipe(htmlmin({ 
             collapseWhitespace: true 
@@ -74,7 +68,7 @@ gulp.task('minify-html', function () {
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('minify-img', function () {
+gulp.task('minify-img', () => {
     return  gulp.src('src/asset/image/*')
     .pipe(imagemin([
         imagemin.gifsicle({
@@ -96,7 +90,7 @@ gulp.task('minify-img', function () {
     .pipe(gulp.dest('dist/asset'));
 });
 
-gulp.task('compile-js', function(cb) {
+gulp.task('compile-js', (cb) => {
 
     let config = _.assignIn(webpackConfig, {
         mode: 'development'
@@ -114,7 +108,7 @@ gulp.task('compile-js', function(cb) {
         .pipe(gulp.dest('dist/js')).on('end', reload);
 });
 
-gulp.task('compile-css', function (cb) {
+gulp.task('compile-css', (cb) => {
 
     let cssStream = gulp.src('src/css/*.css')
         .pipe(concat("vendors.css"));
@@ -141,7 +135,7 @@ gulp.task('compile-css', function (cb) {
 
 });
 
-gulp.task('compile-html', function (cb) {
+gulp.task('compile-html', (cb) => {
     let reload = function(){
         livereload.reload();
         cb();
@@ -155,7 +149,7 @@ gulp.task('compile-html', function (cb) {
         .pipe(gulp.dest('dist')).on('end', reload);
 });
 
-gulp.task('start-server', function () {
+gulp.task('start-server', () => {
 
     nodemon({
         script: 'server.js',
@@ -171,7 +165,7 @@ gulp.task('start-server', function () {
 
 // Open browser, using default browser.
 
-gulp.task('browser', function (cb) {
+gulp.task('browser', () => {
     return gulp.src(__filename)
     .pipe(open({
         uri: 'http://localhost:3002'

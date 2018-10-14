@@ -21,9 +21,9 @@ function mapDispatchToProps(dispatch) {
         actionGameCompleted: function (){
             return dispatch({
                 type: 'COMPLETE'
-            })
+            });
         }
-    }
+    };
 }
 
 //-----------------------------------------------------------------------------//
@@ -33,6 +33,6 @@ function mapDispatchToProps(dispatch) {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(App)
+)(App);
 
 //-----------------------------------------------------------------------------//

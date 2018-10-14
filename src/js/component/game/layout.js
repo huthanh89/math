@@ -8,7 +8,7 @@ import Star     from './component/star/layout.js';
 import Round    from './component/round/layout.js';
 import Question from './component/question/layout.js';
 import Input    from './component/input/layout.js';
-import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
 
 //-----------------------------------------------------------------------------//
 // Component
@@ -17,7 +17,7 @@ import { Redirect } from 'react-router-dom'
 class Layout extends React.Component {
 
   constructor(props){
-    super(props)
+    super(props);
     let type = this.props.match.params.type;
     props.actionUpdateInGame(true);
     props.actionSetMode(type);

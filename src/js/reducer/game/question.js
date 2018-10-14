@@ -26,8 +26,9 @@ function add(state, operator) {
 
   let operandA = 0;
   let operandB = 0;
+  let i =        0;
 
-  for(var i=0; i<10; i++){
+  for(i; i<10; i++){
 
     // Ensure the two operand are at least 4 numbers apart
     // to avoid an infinite loop when making a pool of numbers
@@ -57,8 +58,9 @@ function subtract(state, operator) {
 
   let operandA = 0;
   let operandB = 0;
+  let i        = 0;
 
-  for(var i=0; i<10; i++){
+  for(i; i<10; i++){
 
     do{
       operandA = chance.integer({ min: 1, max: 99 });
@@ -91,8 +93,9 @@ function multiply(state, operator) {
 
   let operandA = 0;
   let operandB = 0;
+  let i        = 0;
 
-  for(var i=0; i<10; i++){
+  for(i; i<10; i++){
 
     do{
       operandA = chance.integer({ min: 1, max: 20 });
@@ -118,8 +121,9 @@ function divide(state, operator) {
   let operandA = 0;
   let operandB = 0;
   let answer   = 0;
+  let i        = 0;
 
-  for(var i=0; i<10; i++){
+  for(i; i<10; i++){
 
     do{
       answer   = chance.integer({ min: 1, max: 10 });

@@ -2,9 +2,9 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import _     from 'lodash'
+import _     from 'lodash';
 import React from 'react';
-import Type  from 'lib/operand.js'
+import Type  from 'lib/operand.js';
 
 //-----------------------------------------------------------------------------//
 // Component
@@ -20,7 +20,7 @@ class Layout extends React.Component {
 
 
     if(level.operator){
-      operator = Type[level.operator].operator
+      operator = Type[level.operator].operator;
     }
 
     return (

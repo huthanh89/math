@@ -3,8 +3,8 @@
 //-----------------------------------------------------------------------------//
 
 import React      from 'react';
-import classNames from 'classnames'
-import { Link } from 'react-router-dom'
+import classNames from 'classnames';
+import { Link } from 'react-router-dom';
 
 //-----------------------------------------------------------------------------//
 
@@ -24,7 +24,7 @@ function iconClass(inGame) {
 class Layout extends React.Component {
 
   constructor(props){
-    super(props)
+    super(props);
     this.clickedRestart = this.clickedRestart.bind(this);
     this.clickedHome    = this.clickedHome.bind(this);
   }
@@ -39,7 +39,7 @@ class Layout extends React.Component {
 
   render() {
 
-    let state  = this.props.appReducer
+    let state  = this.props.appReducer;
     let inGame = state.inGame;
     let title  = _.toUpper(state.mode);
 
