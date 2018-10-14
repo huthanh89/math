@@ -5,7 +5,7 @@
 import _      from 'lodash';
 import moment from 'moment';
 import React  from 'react';
-import Type   from 'lib/operand.js'
+import Type   from 'lib/operand.js';
 
 //-----------------------------------------------------------------------------//
 
@@ -41,16 +41,16 @@ class Component extends React.Component {
 
       _.forEach(levels, function(level, index){
 
-        let operator = Type[level.operator].operator
+        let operator = Type[level.operator].operator;
         let correct  = (level.answer==level.userAnswer);
-        let icon     = ''
+        let icon     = '';
 
         if(correct){
           TotalCorrect = TotalCorrect + 1;
-          icon = 'fas fa-check fa-fw text-success fa-lg'
+          icon = 'fas fa-check fa-fw text-success fa-lg';
         }
         else{
-          icon = 'fas fa-times fa-fw text-danger fa-lg'
+          icon = 'fas fa-times fa-fw text-danger fa-lg';
         }
 
         let time  = level.endTime - level.startTime;

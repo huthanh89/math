@@ -9,7 +9,7 @@ import _ from 'lodash';
 const initialState = {
   inGame: false,
   mode:   null
-}
+};
 
 //-----------------------------------------------------------------------------//
 // Reducer
@@ -27,7 +27,7 @@ function reducer (prevState=initialState, action){
     case 'UPDATE_INGAME': {
       let state = _.clone(prevState);
       state.inGame = action.flag;
-      return state
+      return state;
     }
 
     default: {
@@ -40,6 +40,6 @@ function reducer (prevState=initialState, action){
 // Export
 //-----------------------------------------------------------------------------//
 
-export default reducer
+export default reducer;
 
 //-----------------------------------------------------------------------------//

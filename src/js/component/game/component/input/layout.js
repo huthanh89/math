@@ -24,38 +24,38 @@ const randomNumber = (answer) =>{
     min = 0;
   }
   return chance.integer({ min: min, max: max });
-}
+};
 
 const createPool = (answer) => {
   
   let a = answer;
-  let b = randomNumber(answer)
-  let c = randomNumber(answer)
-  let d = randomNumber(answer)
+  let b = randomNumber(answer);
+  let c = randomNumber(answer);
+  let d = randomNumber(answer);
 
   return _.shuffle([a, b, c, d]);
-}
+};
 
 const buttonClass = (operator) => {
   let base = 'btn btn-lg game-button ';
   switch(operator){
     case 'add':{
-      return base + 'btn-success'
+      return base + 'btn-success';
     }
     case 'subtract':{
-      return base + 'btn-info'
-    }
+      return base + 'btn-info';
+    };
     case 'multiply':{
-      return base + 'btn-warning'
+      return base + 'btn-warning';
     }
     case 'divide':{
-      return base + 'btn-danger'
+      return base + 'btn-danger';
     }
     default: {
-      return base + 'btn-primary'
+      return base + 'btn-primary';
     }
   }
-}
+};
 
 //-----------------------------------------------------------------------------//
 // Component
@@ -80,18 +80,18 @@ class Layout extends React.Component {
     let operator = level.operator;
 
     if(answer == null){
-      return(<div></div>) 
+      return(<div></div>);
     }
 
     // Create a pool of numbers and make sure there are no same numbers
     // in the pool.
 
-    let pool = []
+    let pool = [];
 
     do{
       pool = createPool(answer);
     }
-    while(_.uniq(pool).length!=4)
+    while(_.uniq(pool).length!=4);
 
     return (
       <div>

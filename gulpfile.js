@@ -18,10 +18,26 @@ const open          = require('gulp-open');
 const concat        = require('gulp-concat');
 const merge         = require('merge-stream');
 const order         = require("gulp-order");
+const eslint        = require('gulp-eslint');
 
 //-----------------------------------------------------------------------------//
 // Tasks
 //-----------------------------------------------------------------------------//
+
+// Lint JavaScript files.
+
+gulp.task('lint-js', function() {
+    return gulp.src('./src/js/**/*.js')
+    .pipe(eslint({
+        baseConfig: {
+            "ecmaFeatures": {
+                "jsx": true
+            }
+        }
+    }))
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
+});
 
 gulp.task('copy-webfonts', function () {
     return gulp.src('src/webfonts/*')
@@ -32,7 +48,7 @@ gulp.task('minify-js', function () {
 
     let config = _.assignIn(webpackConfig, {
         mode: 'production'
-    })
+    });
 
     return gulp.src(__filename)
         .pipe(webpack({
@@ -84,7 +100,7 @@ gulp.task('compile-js', function(cb) {
 
     let config = _.assignIn(webpackConfig, {
         mode: 'development'
-    })
+    });
 
     let reload = function(){
         livereload.reload();
@@ -151,7 +167,7 @@ gulp.task('start-server', function () {
     // Start listening with livereload.
 
     livereload({ start: true });
-})
+});
 
 // Open browser, using default browser.
 
@@ -160,7 +176,7 @@ gulp.task('browser', function (cb) {
     .pipe(open({
         uri: 'http://localhost:3002'
     }));
-})
+});
 
 
 //-----------------------------------------------------------------------------//
@@ -170,7 +186,7 @@ gulp.task('browser', function (cb) {
 gulp.task('asset', [
     'minify-img',
     'copy-webfonts'
-])
+]);
 
 // Production build.
 // Minify files and move asset files to /dist folder.
@@ -180,23 +196,24 @@ gulp.task('production', [
     'minify-css',
     'minify-html',
     'minify-img'
-])
+]);
 
 // Default task. Run command: "gulp" to start development environment.
 
 gulp.task('default', [
+    'lint-js',
     'compile-js', 
     'compile-css', 
     'compile-html', 
     'start-server',
     'browser'
-])
+]);
 
 //-----------------------------------------------------------------------------//
 // Watch changes
 //-----------------------------------------------------------------------------//
 
-gulp.watch('src/js/**',   ['compile-js']);
+gulp.watch('src/js/**',   ['lint-js', 'compile-js']);
 gulp.watch('src/css/**',  ['compile-css']);
 gulp.watch('src/html/**', ['compile-html']);
 

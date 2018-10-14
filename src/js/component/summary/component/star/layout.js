@@ -3,7 +3,7 @@
 //-----------------------------------------------------------------------------//
 
 import React      from 'react';
-import classNames from 'classnames'
+import classNames from 'classnames';
 
 //-----------------------------------------------------------------------------//
 
@@ -29,9 +29,9 @@ const getTotal = (levels) => {
     if(level.answer==level.userAnswer){
       total++;
     }
-  })
+  });
   return total;
-}
+};
 
 //-----------------------------------------------------------------------------//
 // Component
@@ -64,7 +64,7 @@ class Layout extends React.Component {
         </div>
       </div>
     );
-  }
+  };
 }
 
 //-----------------------------------------------------------------------------//

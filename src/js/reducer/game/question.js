@@ -19,8 +19,8 @@ const levelModel = () => {
     operator:   null,
     startTime:  null,
     endTime:    null
-  }
-}
+  };
+};
 
 function add(state, operator) {
 
@@ -37,7 +37,7 @@ function add(state, operator) {
       operandA = chance.integer({ min: 1, max: 99 });
       operandB = chance.integer({ min: 1, max: 99 });
     }
-    while(Math.abs(operandA - operandB) < 5)
+    while(Math.abs(operandA - operandB) < 5);
 
     let level = _.assign(levelModel(), {
       level:      i,
@@ -71,7 +71,7 @@ function subtract(state, operator) {
       }
 
     }
-    while(Math.abs(operandA - operandB) < 5)
+    while(Math.abs(operandA - operandB) < 5);
 
     let level = _.assign(levelModel(), {
       level:      i,
@@ -98,7 +98,7 @@ function multiply(state, operator) {
       operandA = chance.integer({ min: 1, max: 20 });
       operandB = chance.integer({ min: 1, max: 20 });
     }
-    while(Math.abs(operandA - operandB) < 5)
+    while(Math.abs(operandA - operandB) < 5);
 
     let level = _.assign(levelModel(), {
       level:      i,
@@ -126,7 +126,7 @@ function divide(state, operator) {
       operandA = chance.integer({ min: 1, max: 10 });
       operandB = answer * operandA;
     }
-    while(answer < 5)
+    while(answer < 5);
 
     let level = _.assign(levelModel(), {
       level:      i,
@@ -167,6 +167,6 @@ function populate(state, operator) {
 // Export
 //-----------------------------------------------------------------------------//
 
-export default populate
+export default populate;
 
 //-----------------------------------------------------------------------------//

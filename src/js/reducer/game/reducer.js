@@ -3,7 +3,7 @@
 //-----------------------------------------------------------------------------//
 
 import _        from 'lodash';
-import question from './question.js'
+import question from './question.js';
 
 //-----------------------------------------------------------------------------//
 
@@ -15,8 +15,8 @@ const initialState = () => {
     timeCompleted: null,
     currentLevel:  0,
     gameCompleted: false
-  }
-}
+  };
+};
 
 // Set user's answer
 
@@ -41,7 +41,7 @@ function incrementLevel(state) {
 
 function setStartTime(state, level, time) {
   state.levels[level].startTime = time;
-  return state
+  return state;
 }
 
 // Set end time of level.
@@ -93,6 +93,6 @@ function reducer (prevState, action){
 // Export
 //-----------------------------------------------------------------------------//
 
-export default reducer
+export default reducer;
 
 //-----------------------------------------------------------------------------//
