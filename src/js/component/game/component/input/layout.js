@@ -44,7 +44,7 @@ const buttonClass = (operator) => {
     }
     case 'subtract':{
       return base + 'btn-info';
-    };
+    }
     case 'multiply':{
       return base + 'btn-warning';
     }

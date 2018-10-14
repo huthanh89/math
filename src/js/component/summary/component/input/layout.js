@@ -16,14 +16,6 @@ class Layout extends React.Component {
     this.refresh = this.refresh.bind(this);
   }
 
-  refresh(){
-
-    //TODO: Action props is needs to be pass down to here. Broken.
-    
-
-    //let mode = this.props.appReducer.mode;
-  }
-
   render() {
 
     let mode = this.props.appReducer.mode;
