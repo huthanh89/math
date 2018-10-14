@@ -15,7 +15,7 @@ function iconClass(level) {
   if(answer==userAnswer){
     return classNames('fas', 'fa-star', 'fa-lg', 'game-star', 'game-star-complete');
   }
-  else if(userAnswer!=null){
+  else if(userAnswer!==null){
     return classNames('fas', 'fa-star', 'fa-lg', 'game-star', 'game-star-wrong');
   }
   else {

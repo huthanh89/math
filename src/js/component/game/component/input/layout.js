@@ -79,7 +79,7 @@ class Layout extends React.Component {
     let answer   = level.answer;
     let operator = level.operator;
 
-    if(answer == null){
+    if(answer === null){
       return(<div></div>);
     }
 

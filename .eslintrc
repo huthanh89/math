@@ -7,6 +7,17 @@
         }
     },
     "rules": {
+        "no-case-declarations": 1,
+        "no-div-regex": 1,
+        "no-else-return": 0,
+        "no-eq-null": 1,
+        "no-empty-pattern": 1,
+        "no-extend-native": 1,
+        "no-fallthrough": 1,
+        "no-floating-decimal": 1,
+        "no-global-assign": 1,
+        "no-implicit-coercion": 1,
+        "no-implicit-globals": 1,
         "no-iterator": 1,
         "no-labels": 1,
         "no-lone-blocks": 1,

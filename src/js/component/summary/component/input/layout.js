@@ -13,13 +13,12 @@ class Layout extends React.Component {
   
   constructor(props) {
     super(props);
-    this.refresh = this.refresh.bind(this);
   }
 
   render() {
 
     let mode = this.props.appReducer.mode;
- 
+
     return (
       <div>
         <div className="row">
@@ -37,7 +36,7 @@ class Layout extends React.Component {
             <Link to={{
               pathname: `/game/${mode}`
             }}>
-              <button className="btn btn-outline-light btn-lg summary-button btn-block" onClick={this.refresh}>
+              <button className="btn btn-outline-light btn-lg summary-button btn-block">
                 <i className="fas fa-sync-alt fa-lg"></i>
                 <span>Restart</span>
               </button>
