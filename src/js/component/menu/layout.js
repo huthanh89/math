@@ -32,18 +32,6 @@ class Layout extends React.Component {
                 <i className="fas fa-plus fa-lg"></i>
               </button>
             </Link>
-
-            {/*
-            <div className="menu-record text-success">
-              <span>High Score:</span>
-              <i className="fas fa-bullseye"></i>
-              <span>{40}%</span>
-              <i className="fas fa-stopwatch"></i>
-              <span>{23} sec</span>
-            </div>
-            */}
-
-
           </div>
         </div>
 

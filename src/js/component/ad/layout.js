@@ -2,25 +2,20 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import React   from 'react';
-import Ad      from './ad/layout.js';
-import Menu    from './menu/layout.js';
-import Game    from '../container/game.js';
-import Summary from '../container/summary.js';
-import { Route } from "react-router-dom";
+import   React  from 'react';
+import { Link } from 'react-router-dom';
 
 //-----------------------------------------------------------------------------//
 // Component
 //-----------------------------------------------------------------------------//
 
-class App extends React.Component {
-  render(){
+class Layout extends React.Component {
+
+  render() {
+
     return (
-      <div>
-        <Route exact path="/" component={Menu} />
-        <Route path="/game/:type" component={Game} />
-        <Route path="/summary" component={Summary} />
-        <Ad/>>
+      <div id="ad-container">
+        <ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px;" data-ad-client="ca-pub-4342286684165248" data-ad-slot="7331065731"></ins>
       </div>
     );
   }
@@ -30,6 +25,6 @@ class App extends React.Component {
 // Export
 //-----------------------------------------------------------------------------//
 
-export default App;
+export default Layout;
 
 //-----------------------------------------------------------------------------//
