@@ -3,7 +3,6 @@
 //-----------------------------------------------------------------------------//
 
 import React   from 'react';
-import Ad      from './ad/layout.js';
 import Menu    from './menu/layout.js';
 import Game    from '../container/game.js';
 import Summary from '../container/summary.js';
@@ -20,7 +19,6 @@ class App extends React.Component {
         <Route exact path="/" component={Menu} />
         <Route path="/game/:type" component={Game} />
         <Route path="/summary" component={Summary} />
-        <Ad/>
       </div>
     );
   }
