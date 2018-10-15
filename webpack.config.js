@@ -7,9 +7,9 @@ const webpack = require('webpack');
 //-----------------------------------------------------------------------------//
 
 module.exports = {
- 
+
   entry: './src/js/index.js',
- 
+
   performance: { 
     hints: false 
   },
