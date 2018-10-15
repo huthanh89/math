@@ -2,6 +2,8 @@
 // Import
 //-----------------------------------------------------------------------------//
 
+
+import $          from 'jquery';
 import React      from 'react';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
@@ -42,6 +44,10 @@ class Layout extends React.Component {
     let state  = this.props.appReducer;
     let inGame = state.inGame;
     let title  = _.toUpper(state.mode);
+
+    $('.adsbygoogle').css({
+      display: 'hidden'
+    })
 
     return (
       <nav className="navbar">
