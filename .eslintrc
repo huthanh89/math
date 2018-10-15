@@ -7,6 +7,17 @@
         }
     },
     "rules": {
+        "accessor-pairs": 1,
+        "array-callback-return": 1,
+        "class-methods-use-this": 1,
+        "block-scoped-var": 1,
+        "complexity": 1,
+        "consistent-return": 1,
+        "curly": 1,
+        "default-case": 1,
+        "dot-location": 1,
+        "dot-notation": 1,
+        "eqeqeq": 1,
         "no-case-declarations": 1,
         "no-div-regex": 1,
         "no-else-return": 0,
