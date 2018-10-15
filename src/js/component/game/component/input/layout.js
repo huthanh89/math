@@ -91,7 +91,7 @@ class Layout extends React.Component {
     do{
       pool = createPool(answer);
     }
-    while(_.uniq(pool).length!=4);
+    while(_.uniq(pool).length!==4);
 
     return (
       <div>

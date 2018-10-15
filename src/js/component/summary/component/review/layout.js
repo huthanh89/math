@@ -42,7 +42,7 @@ class Component extends React.Component {
       _.forEach(levels, function(level, index){
 
         let operator = Type[level.operator].operator;
-        let correct  = (level.answer==level.userAnswer);
+        let correct  = (level.answer===level.userAnswer);
         let icon     = '';
 
         if(correct){

@@ -31,7 +31,7 @@ function setUserAnswer(state, userAnswer) {
 
 function incrementLevel(state) {
   state.currentLevel = state.currentLevel + 1;
-  if(state.currentLevel == 10){
+  if(state.currentLevel === 10){
     state.gameCompleted = true;
   }
   return state;

@@ -15,7 +15,7 @@
         "consistent-return": 1,
         "curly": 1,
         "default-case": 1,
-        "dot-location": 1,
+        "dot-location": 0,
         "dot-notation": 1,
         "eqeqeq": 1,
         "no-case-declarations": 1,

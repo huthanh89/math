@@ -22,7 +22,7 @@ class Layout extends React.Component {
     if (this.props.appReducer.mode===null){
       return (<Redirect to="/"/>);
     }
-    else if(state==undefined){
+    else if(state===undefined){
       return(<div></div>);
     }
 

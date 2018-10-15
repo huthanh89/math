@@ -62,7 +62,7 @@ class Layout extends React.Component {
       );
     }
 
-    if(this.props.gameReducer.levels.length == 0){
+    if(this.props.gameReducer.levels.length === 0){
       return (<div></div>);
     }
     

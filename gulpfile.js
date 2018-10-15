@@ -142,11 +142,11 @@ gulp.task('compile-html', (cb) => {
     };
 
     gulp.src('src/html/**/*.pug')
-        .pipe(pug({
-            doctype: 'html',
-            pretty: true
-        }))
-        .pipe(gulp.dest('dist')).on('end', reload);
+    .pipe(pug({
+        doctype: 'html',
+        pretty: true
+    }))
+    .pipe(gulp.dest('dist')).on('end', reload);
 });
 
 gulp.task('start-server', () => {

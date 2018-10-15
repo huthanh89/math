@@ -12,7 +12,7 @@ function iconClass(level) {
   let answer     = level.answer;
   let userAnswer = level.userAnswer;
 
-  if(answer==userAnswer){
+  if(answer===userAnswer){
     return classNames('fas', 'fa-star', 'fa-lg', 'game-star', 'game-star-complete');
   }
   else if(userAnswer!==null){
