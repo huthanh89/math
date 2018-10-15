@@ -38,7 +38,7 @@ app.use('/summary', express.static(__dirname + '/dist'));
 // Handle route.
 
 app.get('/', function(req, res){
-    res.render('index');
+    res.render('index.html');
 });
 
 app.get('/menu', function(req, res){

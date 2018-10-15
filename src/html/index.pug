@@ -39,31 +39,5 @@ html(lang='en')
               i.far.fa-copyright.fa-fw
               = ' '
               span TTH
-            a.float-right(href="#" data-toggle="modal" data-target="#contactModal")
-              i.fas.fa-envelope.fa-fw
-              = ' '
-              span Contact
-
-    // Modal
-    #contactModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
-      .modal-dialog(role='document')
-        .modal-content
-          .modal-header
-            h3#exampleModalLabel.modal-title Contact
-            button.close(type='button', data-dismiss='modal', aria-label='Close')
-              span(aria-hidden='true') ×
-
-          .modal-body
-            .row
-              .col-sm-12
-                p
-                  span For any inquiries or questions:
-                  = ' '
-                p
-                  span Email: 
-                  b developertth@gmail.com
-
-          .modal-footer
-            button.btn.btn-secondary(type='button', data-dismiss='modal') Close
 
     script(src='js/bundle.js')
