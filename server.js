@@ -7,6 +7,8 @@ const express     = require('express');
 const compression = require('compression')
 const app         = express();
 
+console.log('>>>>', __dirname);
+
 // Tell express to look for views in the following directory.
 
 app.set("views", path.join(__dirname, "dist"));
