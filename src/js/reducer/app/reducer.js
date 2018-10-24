@@ -5,8 +5,10 @@
 import _ from 'lodash';
 
 //-----------------------------------------------------------------------------//
+// Model
+//-----------------------------------------------------------------------------//
 
-const initialState = {
+let initialState = {
   inGame: false,
   mode:   null
 };
@@ -16,16 +18,17 @@ const initialState = {
 //-----------------------------------------------------------------------------//
 
 function reducer (prevState=initialState, action){
+
   switch (action.type){
 
     case 'SET_MODE': {
-      let state = _.clone(prevState);
+      let state = prevState;
       state.mode = action.mode;
       return state;
     }
 
     case 'UPDATE_INGAME': {
-      let state = _.clone(prevState);
+      let state = prevState;
       state.inGame = action.flag;
       return state;
     }
