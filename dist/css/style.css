@@ -3841,10 +3841,6 @@ nav {
 #root-container {
   padding-top: 10px;
 }
-.footer {
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
 .footer a {
   margin: 0 10px;
   color: #cac8c8;
@@ -3963,4 +3959,10 @@ nav {
 }
 #review-container table {
   margin-bottom: 15px;
+}
+.col-center {
+  margin: 0 auto;
+}
+#contact-container {
+  margin-top: 10px;
 }

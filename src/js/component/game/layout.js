@@ -67,12 +67,14 @@ class Layout extends React.Component {
     }
     
     return (
-      <div id="game-container">
-        <Nav {...this.props}/>
-        <Star {...this.props}/>
-        <Round {...this.props}/>
-        <Question {...this.props}/>
-        <Input {...this.props}/>
+      <div className="row" id="game-container">
+        <div className="col-lg-6 col-center" >
+          <Nav {...this.props}/>
+          <Star {...this.props}/>
+          <Round {...this.props}/>
+          <Question {...this.props}/>
+          <Input {...this.props}/>
+        </div>
       </div>
     );
   }
