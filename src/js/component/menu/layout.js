@@ -12,8 +12,8 @@ import { Link } from 'react-router-dom';
 class Layout extends React.Component {
 
   constructor (props){
-    super(props)
-    props.actionReset();
+    super(props);
+    props.actionRestart();
   }
 
   render() {

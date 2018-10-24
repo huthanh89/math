@@ -8,12 +8,11 @@ import _ from 'lodash';
 // Model
 //-----------------------------------------------------------------------------//
 
-const initialState = function() {
+const initialState = function(){
   return {
     inGame: false,
     mode:   null
-  }
-
+  };
 };
 
 //-----------------------------------------------------------------------------//

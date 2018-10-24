@@ -24,7 +24,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        actionReset: function (){
+        actionRestart: function (){
             return dispatch({
                 type: 'RESTART'
             });
