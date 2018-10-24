@@ -13,12 +13,16 @@ class Layout extends React.Component {
   
   constructor(props) {
     super(props);
+    this.clickedRestart = this.clickedRestart.bind(this);
+  }
+
+  clickedRestart(){
+    let mode = this.props.state.mode;
+    this.props.actionRestart();
+    this.props.history.push(`/game/${mode}`);
   }
 
   render() {
-
-    let mode = this.props.appReducer.mode;
-
     return (
       <div>
         <div className="row">
@@ -33,14 +37,10 @@ class Layout extends React.Component {
         </div>
         <div className="row">
           <div className="col-md-5 m-auto">
-            <Link to={{
-              pathname: `/game/${mode}`
-            }}>
-              <button className="btn btn-outline-light btn-lg summary-button btn-block">
+              <button className="btn btn-outline-light btn-lg summary-button btn-block" onClick={this.clickedRestart}>
                 <i className="fas fa-sync-alt fa-lg"></i>
                 <span>Restart</span>
               </button>
-            </Link>
           </div>
         </div>
       </div>

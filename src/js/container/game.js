@@ -12,7 +12,10 @@ import   Game      from '../component/game/layout.js';
 // Return which state property to get updated by the component.
 
 function mapStateToProps(state) {
-    return state;
+    var result =_.merge(state.appReducer, state.gameReducer);
+    return {
+        state: _.clone(result)
+    };
 }
 
 // Map dispatch actions that will available to the component.

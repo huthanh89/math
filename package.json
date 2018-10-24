@@ -34,7 +34,6 @@
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-toastify": "^4.3.2",
-    "reduce-reducers": "^0.4.3",
     "redux": "^4.0.0",
     "store": "^2.0.12",
     "style-loader": "^0.23.0",

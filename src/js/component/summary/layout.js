@@ -17,20 +17,16 @@ class Layout extends React.Component {
 
   render() {
 
-    let state = this.props.location.state;
+    let state = this.props.state;
 
-    if (this.props.appReducer.mode===null){
+    if (this.props.state.mode===null){
       return (<Redirect to="/"/>);
     }
-    else if(state===undefined){
-      return(<div></div>);
-    }
-
     return (
       <div>
-        <Star {...state.gameProps}/>
+        <Star {...state}/>
         <Input {..._.assignWith(this.props, state.appProps)}/>
-        <Review {...state.gameProps}/>
+        <Review {...state}/>
       </div>
     );
   }

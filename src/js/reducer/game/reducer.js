@@ -11,7 +11,7 @@ import question from './question.js';
 
 // Create the default game object.
 
-const initialState = () => {
+const initialState = _ => {
   return {
     levels:        [],
     timeCompleted: null,
@@ -38,6 +38,7 @@ function incrementLevel(state) {
   if(state.currentLevel === 10){
     state.gameCompleted = true;
   }
+  
   return state;
 }
 
@@ -60,7 +61,7 @@ function setEndTime(state, level, time) {
 // Reducer
 //-----------------------------------------------------------------------------//
 
-function reducer (prevState, action){
+function reducer (prevState=initialState(), action){
 
   switch (action.type){
     
@@ -88,7 +89,7 @@ function reducer (prevState, action){
     }
     
     default: {
-      return initialState();
+      return prevState;
     }
   }
 }

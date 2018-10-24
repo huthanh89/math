@@ -29,7 +29,7 @@ function iconClass(level) {
 
 class Layout extends React.Component {
   render() {
-    let levels = this.props.gameReducer.levels;
+    let levels = this.props.state.levels;
     return (
       <div>
         <div className="row">

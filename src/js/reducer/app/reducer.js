@@ -8,16 +8,19 @@ import _ from 'lodash';
 // Model
 //-----------------------------------------------------------------------------//
 
-let initialState = {
-  inGame: false,
-  mode:   null
+const initialState = function() {
+  return {
+    inGame: false,
+    mode:   null
+  }
+
 };
 
 //-----------------------------------------------------------------------------//
 // Reducer
 //-----------------------------------------------------------------------------//
 
-function reducer (prevState=initialState, action){
+function reducer (prevState=initialState(), action){
 
   switch (action.type){
 
@@ -32,7 +35,7 @@ function reducer (prevState=initialState, action){
       state.inGame = action.flag;
       return state;
     }
-
+    
     default: {
       return prevState;
     }

@@ -20,8 +20,8 @@ class Layout extends React.Component {
     super(props);
     let type = this.props.match.params.type;
     props.actionUpdateInGame(true);
-    props.actionSetMode(type);
     props.actionRestart(type);
+    props.actionSetMode(type);
   }
 
   componentDidUpdate(){
@@ -29,7 +29,8 @@ class Layout extends React.Component {
     // Update start and end time of each round.
 
     let time = new Date().getTime();
-    let currentLevel = this.props.gameReducer.currentLevel;
+
+    let currentLevel = this.props.state.currentLevel;
 
     if(currentLevel < 10){
       this.props.actionStartTime(currentLevel, time);
@@ -40,7 +41,7 @@ class Layout extends React.Component {
 
     // Update the game complete flag if game is over.
 
-    if(this.props.gameReducer.gameCompleted){
+    if(this.props.state.gameCompleted){
       this.props.actionUpdateInGame(false);
     }
     
@@ -48,24 +49,12 @@ class Layout extends React.Component {
 
   render() {
 
-    if(this.props.gameReducer.gameCompleted){
+    if(this.props.state.gameCompleted){
       return (
-        <Redirect
-          to={{
-            pathname: "/summary",
-            state: { 
-              gameProps: this.props.gameReducer,
-              appProps: this.props.appReducer
-            }
-          }}
-        />
+        <Redirect to="/summary"/>
       );
     }
 
-    if(this.props.gameReducer.levels.length === 0){
-      return (<div></div>);
-    }
-    
     return (
       <div className="row" id="game-container">
         <div className="col-lg-6 col-center" >

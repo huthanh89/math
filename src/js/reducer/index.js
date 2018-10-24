@@ -13,7 +13,7 @@ import { combineReducers } from 'redux';
 //-----------------------------------------------------------------------------//
 
 const rootReducer = combineReducers({
-  appReducer: appReducer,
+  appReducer:  appReducer,
   gameReducer: gameReducer
 });
 

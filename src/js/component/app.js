@@ -3,7 +3,7 @@
 //-----------------------------------------------------------------------------//
 
 import React   from 'react';
-import Menu    from './menu/layout.js';
+import Menu    from '../container/menu.js';
 import Game    from '../container/game.js';
 import Summary from '../container/summary.js';
 import Footer  from './footer/layout.js';

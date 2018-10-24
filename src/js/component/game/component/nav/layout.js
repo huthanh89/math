@@ -30,7 +30,7 @@ class Layout extends React.Component {
   }
 
   clickedRestart(){
-    this.props.actionRestart(this.props.appReducer.mode);
+    this.props.actionRestart(this.props.state.mode);
   }
 
   clickedHome(){
@@ -39,7 +39,7 @@ class Layout extends React.Component {
 
   render() {
 
-    let state  = this.props.appReducer;
+    let state  = this.props.state;
     let inGame = state.inGame;
     let title  = _.toUpper(state.mode);
 
