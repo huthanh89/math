@@ -10,7 +10,6 @@ import { Link } from 'react-router-dom';
 //-----------------------------------------------------------------------------//
 
 class Layout extends React.Component {
-
   render() {
     return (
       <div className="row">
@@ -20,15 +19,28 @@ class Layout extends React.Component {
               Contact Info
             </div>
             <div className="card-body">
-              <span className="d-block">
-                For any inquiries or questions:
-              </span>
-              <span className="mr-1">
-                Email:
-              </span>
-              <b>
-                developertth@gmail.com
-              </b>
+              <div className="row">
+                <div className="col-12">
+                  <span className="d-block">
+                    For any inquiries or questions:
+                  </span>
+                  <span className="mr-1">
+                    Email:
+                  </span>
+                  <b>
+                    developertth@gmail.com
+                  </b>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-12">
+                  <Link to='/'>
+                    <button className="btn btn-info mt-2 float-right">
+                      Back
+                    </button>
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>
