@@ -2,27 +2,19 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import React   from 'react';
-import Menu    from './menu/layout.js';
-import Game    from '../container/game.js';
-import Summary from '../container/summary.js';
-import Footer  from './footer/layout.js';
-import Contact from './contact/layout.js';
-import { Route } from "react-router-dom";
+import   React  from 'react';
+import { Link } from 'react-router-dom';
 
 //-----------------------------------------------------------------------------//
 // Component
 //-----------------------------------------------------------------------------//
 
-class App extends React.Component {
-  render(){
+class Layout extends React.Component {
+
+  render() {
     return (
       <div>
-        <Route exact path="/" component={Menu} />
-        <Route path="/game/:type" component={Game} />
-        <Route path="/summary" component={Summary} />
-        <Route path="/contact" component={Contact} />
-        <Footer/>
+        contact
       </div>
     );
   }
@@ -32,6 +24,6 @@ class App extends React.Component {
 // Export
 //-----------------------------------------------------------------------------//
 
-export default App;
+export default Layout;
 
 //-----------------------------------------------------------------------------//
