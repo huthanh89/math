@@ -21,13 +21,13 @@ class App extends React.Component {
   render(){
     return (
       <div>
-        <Route exact path="/" component={Menu} />
+        <Route exact path="/"     component={Menu} />
         <Route path="/game/:type" component={Game} />
-        <Route path="/summary" component={Summary} />
-        <Route path="/contact" component={Contact} />
-        <Route path="/Setting" component={Contact} />
-        <Route path="/Rank" component={Contact} />
-        <Route path="/Share" component={Contact} />
+        <Route path="/summary"    component={Summary} />
+        <Route path="/contact"    component={Contact} />
+        <Route path="/Setting"    component={Setting} />
+        <Route path="/Rank"       component={Rank} />
+        <Route path="/Share"      component={Share} />
         <Footer/>
       </div>
     );

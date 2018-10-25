@@ -10,8 +10,11 @@ import _ from 'lodash';
 
 const initialState = function(){
   return {
-    inGame: false,
-    mode:   null
+    difficulty: 0,
+    coin:       0,
+    rank:       0,
+    inGame:     false,
+    mode:       null
   };
 };
 
@@ -24,7 +27,7 @@ function reducer (prevState=initialState(), action){
   switch (action.type){
 
     case 'SET_MODE': {
-      let state = prevState;
+      let state  = prevState;
       state.mode = action.mode;
       return state;
     }

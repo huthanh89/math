@@ -3822,6 +3822,7 @@ body {
   background-position: center;
   background-size: cover;
   min-height: 100vh;
+  color: white;
 }
 #app-container {
   background: rgba(0, 0, 0, 0.637);
@@ -3852,19 +3853,8 @@ nav {
   margin-bottom: 20px;
   margin-top: 20px;
 }
-#menu-button-container {
-  margin-bottom: 20px;
-}
-#menu-title {
-  height: 30px;
-  color: white;
-  font-size: 30px;
-  text-align: center;
-  margin-top: 20px;
-  margin-bottom: 40px;
-}
-#menu-button-container {
-  margin-bottom: 20px;
+#menu-container {
+  margin: 20px 0;
 }
 .menu-button {
   height: 70px;
@@ -3948,12 +3938,15 @@ nav {
   height: 50px;
   margin: auto;
 }
+#summary-container {
+  margin-top: 20px;
+}
 #summary-star-container {
   margin-bottom: 25px;
   color: white;
 }
 #summary-star-container span {
-  font-size: 25px;
+  font-size: 20px;
 }
 .summary-button {
   height: 70px;

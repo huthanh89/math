@@ -15,23 +15,32 @@ class Layout extends React.Component {
       <div className="row">
         <div className="col-lg-4 col-center">
           <div className="card" id="contact-container">
+            
             <div className="card-header">
-              Contact Info
+              Settings
             </div>
+
             <div className="card-body">
-              <div className="row">
-                <div className="col-12">
-                  <span className="d-block">
-                    For any inquiries or questions:
-                  </span>
-                  <span className="mr-1">
-                    Email:
-                  </span>
-                  <b>
-                    developertth@gmail.com
-                  </b>
-                </div>
+
+              <div className="form-check">
+                <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked/>
+                <label className="form-check-label" htmlFor="exampleRadios1">
+                  Easy
+                </label>
               </div>
+              <div className="form-check">
+                <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2"/>
+                <label className="form-check-label" htmlFor="exampleRadios2">
+                  Medium
+                </label>
+              </div>
+              <div className="form-check disabled">
+                <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled/>
+                <label className="form-check-label" htmlFor="exampleRadios3">
+                  Hard
+                </label>
+              </div>
+
               <div className="row">
                 <div className="col-12">
                   <Link to='/'>
@@ -42,6 +51,7 @@ class Layout extends React.Component {
                   </Link>
                 </div>
               </div>
+            
             </div>
           </div>
         </div>

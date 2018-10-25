@@ -4,6 +4,7 @@
 
 import   React  from 'react';
 import { Link } from 'react-router-dom';
+import   Coin   from './coin/layout.js';
 
 //-----------------------------------------------------------------------------//
 // Component
@@ -16,19 +17,12 @@ class Layout extends React.Component {
     props.actionRestart();
   }
 
-
   render() {
 
     return (
-      <div id="menu-button-container">
+      <div id="menu-container">
         
-        <div className="row">
-          <div className="col-12">
-            <p type="text" id="menu-title" > 
-              Select a level to play
-            </p>
-          </div>
-        </div>
+        <Coin/>
 
         <div className="row">
           <div className="col-md-5 m-auto">

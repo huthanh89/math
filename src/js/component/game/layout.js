@@ -2,12 +2,12 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import React    from 'react';
-import Nav      from './component/nav/layout.js';
-import Star     from './component/star/layout.js';
-import Round    from './component/round/layout.js';
-import Question from './component/question/layout.js';
-import Input    from './component/input/layout.js';
+import React      from 'react';
+import Nav        from './component/nav/layout.js';
+import Star       from './component/star/layout.js';
+import Round      from './component/round/layout.js';
+import Question   from './component/question/layout.js';
+import Input      from './component/input/layout.js';
 import { Redirect } from 'react-router-dom';
 
 //-----------------------------------------------------------------------------//

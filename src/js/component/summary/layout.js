@@ -4,6 +4,7 @@
 
 import _      from 'lodash';
 import React  from 'react';
+import Coin   from './component/coin/layout.js';
 import Star   from './component/star/layout.js';
 import Input  from './component/input/layout.js';
 import Review from './component/review/layout.js';
@@ -22,8 +23,10 @@ class Layout extends React.Component {
     if (this.props.state.mode===null){
       return (<Redirect to="/"/>);
     }
+
     return (
-      <div>
+      <div id="summary-container">
+        <Coin {...state}/>
         <Star {...state}/>
         <Input {..._.assignWith(this.props, state.appProps)}/>
         <Review {...state}/>

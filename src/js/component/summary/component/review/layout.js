@@ -2,10 +2,11 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import _      from 'lodash';
-import moment from 'moment';
-import React  from 'react';
-import Type   from 'lib/operand.js';
+import _          from 'lodash';
+import moment     from 'moment';
+import React      from 'react';
+import Type       from 'lib/operand.js';
+import localStore from 'store';
 
 //-----------------------------------------------------------------------------//
 
@@ -26,6 +27,14 @@ class Component extends React.Component {
 
   buttonClicked(id) {
     this.props.remove(id);
+  }
+
+  // Add points to over all score.
+
+  componentDidMount(){
+    let coin = localStore.get('coin');
+    coin = coin + TotalCorrect;
+    localStore.set('coin', coin);
   }
 
   tableBody() {
@@ -89,23 +98,37 @@ class Component extends React.Component {
   }
 
   render() {
-    return (
-      <div id="review-container">
-        <table className="table table-hover table-sm table-dark table-striped">
-          <thead>
-            <tr>
-              <th>Question</th>
-              <th>Answer</th>
-              <th>Result</th>
-              <th>Time (sec)</th>
-            </tr>
-          </thead>
-          {this.tableBody()}
-        </table>
 
-        <h5>Accurate: {TotalCorrect/10 * 100}%</h5>
-        <h5>Completed in: {moment.duration(TotalTime).asSeconds()} seconds</h5>
-      
+    let tableBody = this.tableBody();
+
+    return (
+      <div>
+
+        <div className="float-right">
+          <b className="mr-2">
+            Reward: + {TotalCorrect} 
+          </b>
+          <i className="fas fa-coins fa-lg mr-2 mb2"></i>
+        </div>
+
+        <div id="review-container">
+          <table className="table table-hover table-sm table-dark table-striped">
+            <thead>
+              <tr>
+                <th>Question</th>
+                <th>Answer</th>
+                <th>Result</th>
+                <th>Time (sec)</th>
+              </tr>
+            </thead>
+            {tableBody}
+          </table>
+
+          <h5>Accurate: {TotalCorrect/10 * 100}%</h5>
+          <h5>Completed in: {moment.duration(TotalTime).asSeconds()} seconds</h5>
+        
+        </div>
+
       </div>
     );
   }
