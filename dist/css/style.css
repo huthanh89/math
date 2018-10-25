@@ -3965,6 +3965,9 @@ nav {
 #review-container table {
   margin-bottom: 15px;
 }
+.review-reward {
+  margin-bottom: 15px;
+}
 .col-center {
   margin: 0 auto;
 }

@@ -104,11 +104,11 @@ class Component extends React.Component {
     return (
       <div>
 
-        <div className="float-right">
+        <div className="float-right review-reward">
           <b className="mr-2">
             Reward: + {TotalCorrect} 
           </b>
-          <i className="fas fa-coins fa-lg mr-2 mb2"></i>
+          <i className="fas fa-coins fa-lg mr-2"></i>
         </div>
 
         <div id="review-container">

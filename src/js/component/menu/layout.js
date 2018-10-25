@@ -14,7 +14,16 @@ class Layout extends React.Component {
 
   constructor (props){
     super(props);
+    this.clickedShare = this.clickedShare.bind(this);
     props.actionRestart();
+  }
+  
+  clickedShare(){
+    let link = 'https://www.facebook.com/sharer/sharer.php?u=http%3A//cloudresume.net/mathtingz/';
+    window.open(
+      link,
+      '_blank'
+    );
   }
 
   render() {
@@ -92,12 +101,10 @@ class Layout extends React.Component {
               </div>
 
               <div className="col-4">
-                  <Link to='/share'>
-                    <button className="btn btn-outline-light btn-lg menu-setting-button">
-                      <i className="fas fa-share fa-lg d-block"></i>
-                    </button>
-                    <span className="menu-setting-title">Share</span>
-                  </Link>
+                <button className="btn btn-outline-light btn-lg menu-setting-button" onClick={this.clickedShare}>
+                  <i className="fas fa-share fa-lg d-block"></i>
+                </button>
+                <span className="menu-setting-title">Share</span>
               </div>
 
             </div>
