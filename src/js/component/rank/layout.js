@@ -12,24 +12,16 @@ import { Link } from 'react-router-dom';
 class Layout extends React.Component {
   render() {
     return (
-      <div className="row">
+      <div className="row text-dark">
         <div className="col-lg-4 col-center">
           <div className="card" id="contact-container">
             <div className="card-header">
-              Contact Info
+              Ranking
             </div>
             <div className="card-body">
               <div className="row">
                 <div className="col-12">
-                  <span className="d-block">
-                    For any inquiries or questions:
-                  </span>
-                  <span className="mr-1">
-                    Email:
-                  </span>
-                  <b>
-                    developertth@gmail.com
-                  </b>
+                  Work in progress...
                 </div>
               </div>
               <div className="row">

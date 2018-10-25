@@ -32,6 +32,12 @@ function reducer (prevState=initialState(), action){
       return state;
     }
 
+    case 'SET_DIFFICULTY': {
+      let state        = prevState;
+      state.difficulty = action.difficulty;
+      return state;
+    }
+
     case 'UPDATE_INGAME': {
       let state = prevState;
       state.inGame = action.flag;
