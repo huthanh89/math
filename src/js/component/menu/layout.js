@@ -16,6 +16,7 @@ class Layout extends React.Component {
     props.actionRestart();
   }
 
+
   render() {
 
     return (
@@ -73,6 +74,42 @@ class Layout extends React.Component {
           </div>
         </div>
 
+        <div className="row">  
+
+          <div className="col-sm-6 col-center">
+
+            <div className="row">
+              <div className="col-4">
+                  <Link to='/setting'>
+                    <button className="btn btn-outline-light btn-lg menu-setting-button">
+                      <i className="fas fa-cogs fa-lg d-block"></i>
+                    </button>
+                    <span className="menu-setting-title">Settings</span>
+                  </Link>
+              </div>
+
+              <div className="col-4">
+                  <Link to='/rank'>
+                    <button className="btn btn-outline-light btn-lg menu-setting-button">
+                      <i className="fas fa-medal fa-lg d-block"></i>
+                    </button>
+                    <span className="menu-setting-title">Rank</span>
+                  </Link>
+              </div>
+
+              <div className="col-4">
+                  <Link to='/share'>
+                    <button className="btn btn-outline-light btn-lg menu-setting-button">
+                      <i className="fas fa-share fa-lg d-block"></i>
+                    </button>
+                    <span className="menu-setting-title">Share</span>
+                  </Link>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
       </div>
     );
   }
