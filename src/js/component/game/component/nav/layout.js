@@ -8,6 +8,13 @@ import { Link } from 'react-router-dom';
 
 //-----------------------------------------------------------------------------//
 
+const Difficulty = {
+  0: 'Easy',
+  1: 'Medium',
+  2: 'Hard',
+  3: 'Insane'
+};
+
 function iconClass(inGame) {
   if(inGame){
     return classNames('btn', 'btn-outline-light');
@@ -39,9 +46,10 @@ class Layout extends React.Component {
 
   render() {
 
-    let state  = this.props.state;
-    let inGame = state.inGame;
-    let title  = _.toUpper(state.mode);
+    let state      = this.props.state;
+    let inGame     = state.inGame;
+    let title      = _.toUpper(state.mode);
+    let difficulty = _.toUpper(Difficulty[state.difficulty]);
 
     return (
       <nav className="navbar">
@@ -54,9 +62,8 @@ class Layout extends React.Component {
             </form>
           </ul>
           <ul className="navbar-nav m-auto">
-            <form className="form-inline">
-              <span id="nav-mode">{title}</span>
-            </form>
+              <span className="d-block nav-mode">{title}</span>
+              <span className="d-block nav-mode">{difficulty}</span>
           </ul>
           <ul className="navbar-nav ml-auto">
             <form className="form-inline">

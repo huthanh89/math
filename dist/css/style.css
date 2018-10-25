@@ -3834,10 +3834,11 @@ nav {
   color: white;
   margin-top: 10px;
 }
-#nav-mode {
-  font-size: 25px;
-  letter-spacing: 1.5px;
+.nav-mode {
+  font-size: 20px;
+  letter-spacing: 1.2px;
   color: #929292;
+  text-align: center;
 }
 #root-container {
   padding-top: 10px;
