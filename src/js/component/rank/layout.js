@@ -29,6 +29,9 @@ class Layout extends React.Component {
                   Work in progress...
                 </div>
               </div>
+
+              <hr></hr>
+
               <div className="row">
                 <div className="col-12">
                   <Link to='/'>

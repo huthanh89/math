@@ -75,6 +75,8 @@ class Layout extends React.Component {
                 </label>
               </div>
 
+              <hr></hr>
+              
               <div className="row">
                 <div className="col-12">
                   <Link to='/'>

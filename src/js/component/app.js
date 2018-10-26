@@ -11,6 +11,7 @@ import Footer  from './footer/layout.js';
 import Contact from './contact/layout.js';
 import Rank    from './rank/layout.js';
 import Share   from './share/layout.js';
+import AD      from './ad/layout.js';
 import { Route } from "react-router-dom";
 
 //-----------------------------------------------------------------------------//
@@ -28,11 +29,13 @@ class App extends React.Component {
         <Route path="/Setting"    component={Setting} />
         <Route path="/Rank"       component={Rank} />
         <Route path="/Share"      component={Share} />
+        <AD/>
         <Footer/>
       </div>
     );
   }
 }
+
 
 //-----------------------------------------------------------------------------//
 // Export
