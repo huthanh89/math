@@ -28,7 +28,6 @@ class Component extends React.Component {
   
   constructor(props){
     super(props);
-
     this.buttonClicked = this.buttonClicked.bind(this);
   }
 
@@ -61,16 +60,9 @@ class Component extends React.Component {
         let correct  = (level.answer===level.userAnswer);
         let reward   = level.reward;
 
-        /*
-        let icon     = '';
         if(correct){
           TotalCorrect = TotalCorrect + 1;
-          icon = 'fas fa-check fa-fw text-success fa-lg';
         }
-        else{
-          icon = 'fas fa-times fa-fw text-danger fa-lg';
-        }
-*/
 
         let time  = level.endTime - level.startTime;
         TotalTime = TotalTime + time;
@@ -125,7 +117,6 @@ class Component extends React.Component {
 
     return (
       <div>
-      
 
         <div className="row">
             <div className="col-6">
@@ -152,16 +143,6 @@ class Component extends React.Component {
               </div>
             </div>
         </div>
-
-
-
-
-
-
-        
-
-
-
 
         <div id="review-container">
           <table className="table table-hover table-sm table-dark table-striped">
