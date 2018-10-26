@@ -129,7 +129,7 @@ function subtract(state, operator) {
       level:      i,
       operandA:   operandA,
       operandB:   operandB,
-      answer:     operandA + operandB,
+      answer:     operandA - operandB,
       operator:   operator
     });
 
