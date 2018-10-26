@@ -30,7 +30,6 @@ class App extends React.Component {
         <Route path="/Setting"    component={Setting} />
         <Route path="/Rank"       component={Rank} />
         <Route path="/Share"      component={Share} />
-        <AD/>
         <Footer/>
       </div>
     );

@@ -5,6 +5,7 @@
 import   React  from 'react';
 import { Link } from 'react-router-dom';
 import   Coin   from './coin/layout.js';
+import   Ad     from '../ad/layout.js';
 
 //-----------------------------------------------------------------------------//
 // Component
@@ -32,7 +33,6 @@ class Layout extends React.Component {
 
     return (
       <div id="menu-container">
-        
         <Coin/>
 
         <div className="row">
@@ -113,6 +113,7 @@ class Layout extends React.Component {
 
           </div>
         </div>
+        <Ad/>
       </div>
     );
   }

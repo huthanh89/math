@@ -8,6 +8,7 @@ import Coin   from './component/coin/layout.js';
 import Star   from './component/star/layout.js';
 import Input  from './component/input/layout.js';
 import Review from './component/review/layout.js';
+import Ad     from '../ad/layout.js';
 import { Redirect } from 'react-router-dom';
 
 //-----------------------------------------------------------------------------//
@@ -30,6 +31,7 @@ class Layout extends React.Component {
         <Star {...state}/>
         <Input {..._.assignWith(this.props, state.appProps)}/>
         <Review {...state}/>
+        <Ad/>
       </div>
     );
   }
