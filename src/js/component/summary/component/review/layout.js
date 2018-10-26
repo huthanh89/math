@@ -60,6 +60,7 @@ class Component extends React.Component {
         let operator = Type[level.operator].operator;
         let correct  = (level.answer===level.userAnswer);
         let icon     = '';
+        let reward   = level.reward;
 
         if(correct){
           TotalCorrect = TotalCorrect + 1;
@@ -69,9 +70,9 @@ class Component extends React.Component {
           icon = 'fas fa-times fa-fw text-danger fa-lg';
         }
 
-        let time  = level.endTime - level.startTime;
-        TotalTime = TotalTime + time;
-        time      = moment.duration(time, 'milliseconds').asSeconds();
+        //let time  = level.endTime - level.startTime;
+        //TotalTime = TotalTime + time;
+        //time      = moment.duration(time, 'milliseconds').asSeconds();
 
         rows.push(
           <tr key={index}>
@@ -86,10 +87,10 @@ class Component extends React.Component {
               <span>{level.userAnswer}</span>
             </td>
             <td>
-              <i className={icon}></i>
+              <span>{reward}</span>
             </td>
             <td>
-              <span>{time}</span>
+              <i className={icon}></i>
             </td>
           </tr>
         );
@@ -140,8 +141,8 @@ class Component extends React.Component {
               <tr>
                 <th>Question</th>
                 <th>Answer</th>
+                <th>Reward</th>
                 <th>Result</th>
-                <th>Time (sec)</th>
               </tr>
             </thead>
             {tableBody}
