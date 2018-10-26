@@ -30,8 +30,8 @@ class Layout extends React.Component {
         <Coin {...state}/>
         <Star {...state}/>
         <Input {..._.assignWith(this.props, state.appProps)}/>
-        <Review {...state}/>
         <Ad/>
+        <Review {...state}/>
       </div>
     );
   }
