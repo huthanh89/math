@@ -3959,7 +3959,6 @@ nav {
 }
 #review-container {
   text-align: center;
-  margin-top: 15px;
   color: #cfcfcf;
   margin-bottom: 15px;
 }
@@ -3967,7 +3966,14 @@ nav {
   margin-bottom: 15px;
 }
 .review-reward {
+  text-align: center;
   margin-bottom: 15px;
+  white-space: nowrap;
+}
+.review-reward-number {
+  font-weight: bold;
+  font-size: 25px;
+  margin-right: 10px;
 }
 .col-center {
   margin: 0 auto;

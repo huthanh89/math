@@ -59,9 +59,10 @@ class Component extends React.Component {
 
         let operator = Type[level.operator].operator;
         let correct  = (level.answer===level.userAnswer);
-        let icon     = '';
         let reward   = level.reward;
 
+        /*
+        let icon     = '';
         if(correct){
           TotalCorrect = TotalCorrect + 1;
           icon = 'fas fa-check fa-fw text-success fa-lg';
@@ -69,13 +70,16 @@ class Component extends React.Component {
         else{
           icon = 'fas fa-times fa-fw text-danger fa-lg';
         }
+*/
 
-        //let time  = level.endTime - level.startTime;
-        //TotalTime = TotalTime + time;
-        //time      = moment.duration(time, 'milliseconds').asSeconds();
+        let time  = level.endTime - level.startTime;
+        TotalTime = TotalTime + time;
+        time      = moment.duration(time, 'milliseconds').asSeconds();
+
+        let rowClass = correct?'bg-success': 'bg-danger';
 
         rows.push(
-          <tr key={index}>
+          <tr key={index} className={rowClass}>
             <td>
               <span className="mr-2">{level.operandA}</span>
               <span className="mr-2">{operator}</span>
@@ -87,10 +91,10 @@ class Component extends React.Component {
               <span>{level.userAnswer}</span>
             </td>
             <td>
-              <span>{reward}</span>
+              <span>{acc.format(reward)}</span>
             </td>
             <td>
-              <i className={icon}></i>
+              <span>{time}</span>
             </td>
           </tr>
         );
@@ -122,18 +126,42 @@ class Component extends React.Component {
     return (
       <div>
       
-        <div className="float-right review-reward">
-          <b className="mr-2">
-            Total Reward: + {acc.format(this.getReward())} 
-          </b>
-          <i className="fas fa-coins fa-lg mr-2"></i>
+
+        <div className="row">
+            <div className="col-6">
+              <div className="review-reward">
+                <b className="d-block">
+                  Difficulty:
+                </b>
+                <span className="review-reward-number">
+                  {Difficulty[this.props.difficulty]} 
+                </span>
+              </div>
+            </div>
+            <div className="col-6">
+              <div className="review-reward">
+                <b className="d-block">
+                  Total Reward:
+                </b>
+                <div>
+                  <span className="review-reward-number ">
+                    {acc.format(this.getReward())}
+                  </span>
+                  <i className="fas fa-coins fa-lg"></i>
+                </div>
+              </div>
+            </div>
         </div>
+
+
+
+
+
+
         
-        <div>
-          <b className="mr-2">
-            Difficulty: {Difficulty[this.props.difficulty]} 
-          </b>
-        </div>
+
+
+
 
         <div id="review-container">
           <table className="table table-hover table-sm table-dark table-striped">
@@ -142,7 +170,7 @@ class Component extends React.Component {
                 <th>Question</th>
                 <th>Answer</th>
                 <th>Reward</th>
-                <th>Result</th>
+                <th>Time(sec)</th>
               </tr>
             </thead>
             {tableBody}
