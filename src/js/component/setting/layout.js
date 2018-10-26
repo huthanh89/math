@@ -39,12 +39,15 @@ class Layout extends React.Component {
   render() {
 
     return (
-      <div className="row">
+      <div className="row" id="setting-container">
         <div className="col-lg-4 col-center">
           <div className="card bg-dark border-color border-light" id="contact-container">
             
-            <div className="card-header">
-              Settings
+            <div className="card-header border-light text-center">
+              <i className="fas fa-fw fa-cogs mr-2"></i>
+              <span>
+                Settings
+              </span>
             </div>
 
             <div className="card-body">

@@ -12,12 +12,17 @@ import { Link } from 'react-router-dom';
 class Layout extends React.Component {
   render() {
     return (
-      <div className="row text-dark">
+      <div className="row" id="rank-container">
         <div className="col-lg-4 col-center">
-          <div className="card" id="contact-container">
-            <div className="card-header">
-              Ranking
+          <div className="card bg-dark border-light">
+
+            <div className="card-header border-light text-center">
+              <i className="fas fa-fw fa-trophy mr-2"></i>
+              <span>
+                Ranking
+              </span>
             </div>
+
             <div className="card-body">
               <div className="row">
                 <div className="col-12">
@@ -35,6 +40,7 @@ class Layout extends React.Component {
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>

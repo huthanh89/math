@@ -96,7 +96,7 @@ class Layout extends React.Component {
               <div className="col-4">
                   <Link to='/rank'>
                     <button className="btn btn-outline-light btn-lg menu-setting-button">
-                      <i className="fas fa-medal fa-lg d-block"></i>
+                      <i className="fas fa-trophy fa-lg d-block"></i>
                     </button>
                     <span className="menu-setting-title">Rank</span>
                   </Link>

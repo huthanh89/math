@@ -159,7 +159,7 @@ function multiply(state, operator) {
     }
     case 2: {
       min = 10;
-      max = 500;
+      max = 100;
       break;
     }
     default:{
