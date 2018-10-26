@@ -10,8 +10,10 @@ import Summary from '../container/summary.js';
 import Footer  from './footer/layout.js';
 import Contact from './contact/layout.js';
 import Rank    from './rank/layout.js';
+import Rank2    from './rank.OLD/layout.js';
+import Store   from './store/layout.js';
+import Store2   from './store.OLD/layout.js';
 import Share   from './share/layout.js';
-import AD      from './ad/layout.js';
 import { Route } from "react-router-dom";
 
 //-----------------------------------------------------------------------------//
@@ -29,7 +31,10 @@ class App extends React.Component {
         <Route path="/contact"    component={Contact} />
         <Route path="/Setting"    component={Setting} />
         <Route path="/Rank"       component={Rank} />
+        <Route path="/Rank2"      component={Rank2} />
         <Route path="/Share"      component={Share} />
+        <Route path="/Store"      component={Store} />
+        <Route path="/Store2"     component={Store2} />
         <Footer/>
       </div>
     );

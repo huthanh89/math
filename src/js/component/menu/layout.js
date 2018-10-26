@@ -81,10 +81,10 @@ class Layout extends React.Component {
 
         <div className="row">  
 
-          <div className="col-sm-6 col-center">
+          <div className="col-md-6 col-center">
 
             <div className="row">
-              <div className="col-4">
+              <div className="col-3">
                   <Link to='/setting'>
                     <button className="btn btn-outline-light btn-lg menu-setting-button">
                       <i className="fas fa-cogs fa-lg d-block"></i>
@@ -93,8 +93,8 @@ class Layout extends React.Component {
                   </Link>
               </div>
 
-              <div className="col-4">
-                  <Link to='/rank'>
+              <div className="col-3">
+                  <Link to='/rank2'>
                     <button className="btn btn-outline-light btn-lg menu-setting-button">
                       <i className="fas fa-trophy fa-lg d-block"></i>
                     </button>
@@ -102,7 +102,16 @@ class Layout extends React.Component {
                   </Link>
               </div>
 
-              <div className="col-4">
+              <div className="col-3">
+                  <Link to='/store2'>
+                    <button className="btn btn-outline-light btn-lg menu-setting-button">
+                      <i className="fas fa-store fa-lg d-block"></i>
+                    </button>
+                    <span className="menu-setting-title">Store</span>
+                  </Link>
+              </div>
+
+              <div className="col-3">
                 <button className="btn btn-outline-light btn-lg menu-setting-button" onClick={this.clickedShare}>
                   <i className="fas fa-share fa-lg d-block"></i>
                 </button>

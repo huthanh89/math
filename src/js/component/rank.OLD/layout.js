@@ -26,45 +26,7 @@ class Layout extends React.Component {
             <div className="card-body">
               <div className="row">
                 <div className="col-12">
-                  <table className="table table-striped table-sm table-hover">
-                    <thead>
-                      <tr>
-                        <th>
-                          Rank
-                        </th>
-                        <th>
-                          Name
-                        </th>
-                        <th>
-                          Coins
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          1
-                        </td>
-                        <td>
-                          Thanh Huynh
-                        </td>
-                        <td>
-                          532,234,23,324,530
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          2
-                        </td>
-                        <td>
-                          Foo Bar
-                        </td>
-                        <td>
-                          2,234,124,802
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+                  Coming very soon. Stay tuned!
                 </div>
               </div>
 

@@ -13,13 +13,13 @@ class Layout extends React.Component {
   render() {
     return (
       <div className="row" id="rank-container">
-        <div className="col-lg-6 col-center">
+        <div className="col-lg-4 col-center">
           <div className="card bg-dark border-light">
 
             <div className="card-header border-light text-center">
-              <i className="fas fa-fw fa-trophy mr-2"></i>
+              <i className="fas fa-fw fa-store mr-2"></i>
               <span>
-                Global Ranking
+                Store
               </span>
             </div>
 
@@ -30,39 +30,28 @@ class Layout extends React.Component {
                     <thead>
                       <tr>
                         <th>
-                          Rank
                         </th>
                         <th>
-                          Name
+                          Item
                         </th>
                         <th>
-                          Coins
+                          Price
                         </th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
                         <td>
-                          1
+                          
                         </td>
                         <td>
-                          Thanh Huynh
+                          Hat
                         </td>
                         <td>
-                          532,234,23,324,530
+                          3,000,000
                         </td>
                       </tr>
-                      <tr>
-                        <td>
-                          2
-                        </td>
-                        <td>
-                          Foo Bar
-                        </td>
-                        <td>
-                          2,234,124,802
-                        </td>
-                      </tr>
+
                     </tbody>
                   </table>
                 </div>
