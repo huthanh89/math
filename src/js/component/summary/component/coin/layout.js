@@ -2,6 +2,7 @@
 // Import
 //-----------------------------------------------------------------------------//
 
+import acc        from 'accounting';
 import React      from 'react';
 import localStore from 'store';
 
@@ -48,7 +49,7 @@ class Layout extends React.Component {
             <div className="float-right">
               <i className="fas fa-coins mr-2 fa-lg"></i>
               <b id="menu-coin" >
-                {this.state.coin + this.state.reward} 
+                {acc.format(this.state.coin + this.state.reward)} 
               </b>
             </div>
             <div>

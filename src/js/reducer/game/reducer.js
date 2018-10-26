@@ -24,18 +24,18 @@ const initialState = _ => {
 const Reward = [
   {
     difficulty: 0,
-    rewardPer:  10,
-    comboX:     2
-  },
-  {
-    difficulty: 1,
     rewardPer:  100,
     comboX:     3
   },
   {
-    difficulty: 2,
-    rewardPer:  1000,
+    difficulty: 1,
+    rewardPer:  200,
     comboX:     4
+  },
+  {
+    difficulty: 2,
+    rewardPer:  300,
+    comboX:     5
   }
 ];
 
@@ -148,8 +148,8 @@ function reducer (prevState=initialState(), action){
     
     case 'RESTART': {
       let state = initialState();
-      state = Level(state, action.operator);
       state = setDifficulty(state, action.difficulty);
+      state = Level(state, action.operator);
       if(state.levels.length){
         setReward(state);
       }

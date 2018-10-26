@@ -4,6 +4,7 @@
 
 import _          from 'lodash';
 import moment     from 'moment';
+import acc        from 'accounting';
 import React      from 'react';
 import Type       from 'lib/operand.js';
 import localStore from 'store';
@@ -122,7 +123,7 @@ class Component extends React.Component {
       
         <div className="float-right review-reward">
           <b className="mr-2">
-            Total Reward: + {this.getReward()} 
+            Total Reward: + {acc.format(this.getReward())} 
           </b>
           <i className="fas fa-coins fa-lg mr-2"></i>
         </div>

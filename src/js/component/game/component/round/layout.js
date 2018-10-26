@@ -2,6 +2,7 @@
 // Import
 //-----------------------------------------------------------------------------//
 
+import acc   from 'accounting';
 import React from 'react';
 
 //-----------------------------------------------------------------------------//
@@ -23,7 +24,7 @@ class Layout extends React.Component {
             <span className="game-round">Question: {currentLevel + 1}</span>
             <span className="game-round float-right">
               <span>
-                Reward: {reward}
+                Reward: {acc.format(reward)}
               </span>
               <i className="fas fa-coins ml-1"></i>
             </span>
