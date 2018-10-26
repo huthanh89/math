@@ -15,8 +15,8 @@ class Layout extends React.Component {
   constructor (props){
     super(props);
     this.clickedShare = this.clickedShare.bind(this);
-    let mode       = props.state.mode;
-    let difficulty = props.state.difficulty;
+    let mode          = props.state.mode;
+    let difficulty    = props.state.difficulty;
     props.actionRestart(mode, difficulty);
   }
   

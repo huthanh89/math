@@ -13,7 +13,8 @@ const initialState = function(){
     coin:       0,
     rank:       0,
     inGame:     false,
-    mode:       null
+    mode:       null,
+    advertise:  false
   };
 };
 
@@ -30,6 +31,13 @@ function reducer (prevState=initialState(), action){
       state.mode = action.mode;
       return state;
     }
+
+    case 'SHOW_AD': {
+      let state       = prevState;
+      state.advertise = action.flag;
+      return state;
+    }
+
 
     case 'UPDATE_INGAME': {
       let state = prevState;

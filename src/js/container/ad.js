@@ -3,7 +3,7 @@
 //-----------------------------------------------------------------------------//
 
 import   _         from 'lodash';
-import   Menu      from '../component/menu/layout.js';
+import   Ad        from '../component/ad/layout.js';
 import { connect } from 'react-redux';
 
 //-----------------------------------------------------------------------------//
@@ -24,13 +24,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        actionRestart: function (operator, difficulty){
-            return dispatch({
-                type:      'RESTART',
-                operator:   operator,
-                difficulty: difficulty
-            });
-        },
         actionShowAd: function (flag){
             return dispatch({
                 type: 'SHOW_AD',
@@ -47,6 +40,6 @@ function mapDispatchToProps(dispatch) {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Menu);
+)(Ad);
 
 //-----------------------------------------------------------------------------//
