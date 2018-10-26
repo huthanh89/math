@@ -3886,8 +3886,8 @@ nav {
   color: white;
   text-align: center;
 }
-#game-timer {
-  color: #8f8f8f;
+.game-round {
+  color: #b8b8b8;
   font-size: 20px;
 }
 #game-question {

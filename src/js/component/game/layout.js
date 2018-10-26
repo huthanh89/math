@@ -18,23 +18,26 @@ class Layout extends React.Component {
 
   constructor(props){
     super(props);
-    let type = this.props.match.params.type;
+
+    let mode       = props.match.params.type;
+    let difficulty = props.state.difficulty;
+
     props.actionUpdateInGame(true);
-    props.actionRestart(type);
-    props.actionSetMode(type);
+    props.actionRestart(mode, difficulty);
+    props.actionSetMode(mode);
   }
 
   componentDidUpdate(){
 
     // Update start and end time of each round.
 
-    let time = new Date().getTime();
-
+    let time         = new Date().getTime();
     let currentLevel = this.props.state.currentLevel;
 
     if(currentLevel < 10){
       this.props.actionStartTime(currentLevel, time);
     }
+
     if(currentLevel > 0){
       this.props.actionEndTime(currentLevel - 1, time);
     }

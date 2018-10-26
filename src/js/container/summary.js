@@ -28,10 +28,11 @@ function mapDispatchToProps(dispatch) {
                 flag:  flag
             });
         },
-        actionRestart: function (operator){
+        actionRestart: function (operator, difficulty){
             return dispatch({ 
-                type:    'RESTART',
-                operator: operator
+                type:      'RESTART',
+                operator:   operator,
+                difficulty: difficulty,
             });
         }
     };

@@ -2,7 +2,7 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import React from 'react';
+import   React  from 'react';
 import { Link } from 'react-router-dom';
 
 //-----------------------------------------------------------------------------//
@@ -17,8 +17,9 @@ class Layout extends React.Component {
   }
 
   clickedRestart(){
-    let mode = this.props.state.mode;
-    this.props.actionRestart();
+    let mode       = this.props.state.mode;
+    let difficulty = this.props.state.difficulty;
+    this.props.actionRestart(mode, difficulty);
     this.props.history.push(`/game/${mode}`);
   }
 

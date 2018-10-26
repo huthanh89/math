@@ -33,8 +33,8 @@ class Layout extends React.Component {
   getReward(){
     let reward = 0;
     this.props.levels.forEach(function(level){
-      if(level.answer===level.userAnswer){
-        reward += 1;
+      if(level.correct){
+        reward += level.reward;
       }
     });
     return reward;

@@ -13,6 +13,12 @@ import localStore from 'store';
 var TotalTime    = null;
 var TotalCorrect = null;
 
+const Difficulty = {
+  0: 'Easy',
+  1: 'Medium',
+  2: 'Hard'
+};
+
 //-----------------------------------------------------------------------------//
 // Component
 //-----------------------------------------------------------------------------//
@@ -33,7 +39,7 @@ class Component extends React.Component {
 
   componentDidMount(){
     let coin = localStore.get('coin');
-    coin = coin + TotalCorrect;
+    coin = coin + this.getReward();
     localStore.set('coin', coin);
   }
 
@@ -96,6 +102,16 @@ class Component extends React.Component {
       </tbody>
     );
   }
+  
+  getReward(){
+    let reward = 0;
+    this.props.levels.forEach(function(level){
+      if(level.correct){
+        reward += level.reward;
+      }
+    });
+    return reward;
+  }
 
   render() {
 
@@ -103,12 +119,18 @@ class Component extends React.Component {
 
     return (
       <div>
-
+      
         <div className="float-right review-reward">
           <b className="mr-2">
-            Reward: + {TotalCorrect} 
+            Total Reward: + {this.getReward()} 
           </b>
           <i className="fas fa-coins fa-lg mr-2"></i>
+        </div>
+        
+        <div>
+          <b className="mr-2">
+            Difficulty: {Difficulty[this.props.difficulty]} 
+          </b>
         </div>
 
         <div id="review-container">

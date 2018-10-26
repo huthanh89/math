@@ -37,7 +37,7 @@ class Layout extends React.Component {
   }
 
   clickedRestart(){
-    this.props.actionRestart(this.props.state.mode);
+    this.props.actionRestart(this.props.state.mode, this.props.state.difficulty);
   }
 
   clickedHome(){

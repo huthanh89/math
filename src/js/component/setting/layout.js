@@ -38,8 +38,6 @@ class Layout extends React.Component {
 
   render() {
 
-    console.log('render');
-
     return (
       <div className="row">
         <div className="col-lg-4 col-center">

@@ -28,16 +28,25 @@ function mapDispatchToProps(dispatch) {
                 mode:  mode
             });
         },
+        actionSetReward: function (level, reward){
+            return dispatch({
+                type:  'SET_REWARD',
+                level:  level,
+                reward: reward
+            });
+        },
         actionUpdateInGame: function (flag){
             return dispatch({
                 type: 'UPDATE_INGAME',
                 flag:  flag
             });
         },
-        actionRestart: function (operator){
+        actionRestart: function (operator, difficulty){
+
             return dispatch({ 
-                type:    'RESTART',
-                operator: operator
+                type:      'RESTART',
+                operator:   operator,
+                difficulty: difficulty
             });
         },
         actionSelect: function (userAnswer){

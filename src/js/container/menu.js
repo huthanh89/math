@@ -24,9 +24,11 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        actionRestart: function (){
+        actionRestart: function (operator, difficulty){
             return dispatch({
-                type: 'RESTART'
+                type:      'RESTART',
+                operator:   operator,
+                difficulty: difficulty
             });
         }
     };

@@ -20,7 +20,9 @@ const levelModel = () => {
     userAnswer: null,
     operator:   null,
     startTime:  null,
-    endTime:    null
+    endTime:    null,
+    reward:     null,
+    correct:    null
   };
 };
 
@@ -49,7 +51,7 @@ function add(state, operator) {
       operandA:   operandA,
       operandB:   operandB,
       answer:     operandA + operandB,
-      operator:   operator
+      operator:   operator,
     });
 
     state.levels.push(level);
@@ -151,7 +153,6 @@ function divide(state, operator) {
 }
 
 function populate(state, operator) {
-
   switch(operator){
     case 'add': {
       return add(state, operator);

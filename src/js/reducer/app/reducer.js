@@ -10,7 +10,6 @@ import _ from 'lodash';
 
 const initialState = function(){
   return {
-    difficulty: 0,
     coin:       0,
     rank:       0,
     inGame:     false,
@@ -29,12 +28,6 @@ function reducer (prevState=initialState(), action){
     case 'SET_MODE': {
       let state  = prevState;
       state.mode = action.mode;
-      return state;
-    }
-
-    case 'SET_DIFFICULTY': {
-      let state        = prevState;
-      state.difficulty = action.difficulty;
       return state;
     }
 
