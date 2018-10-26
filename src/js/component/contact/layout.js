@@ -14,9 +14,12 @@ class Layout extends React.Component {
     return (
       <div className="row">
         <div className="col-lg-4 col-center">
-          <div className="card" id="contact-container">
-            <div className="card-header">
-              Contact Info
+          <div className="card bg-dark border-light text-center" id="contact-container">
+            <div className="card-header border-light">
+              <i className="far fa-fw fa-envelope mr-2"></i>
+              <span>
+                Contact Info
+              </span>
             </div>
             <div className="card-body">
               <div className="row">
@@ -32,6 +35,7 @@ class Layout extends React.Component {
                   </b>
                 </div>
               </div>
+              <hr></hr>
               <div className="row">
                 <div className="col-12">
                   <Link to='/'>
