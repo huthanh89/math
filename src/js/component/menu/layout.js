@@ -5,6 +5,8 @@
 import   React  from 'react';
 import { Link } from 'react-router-dom';
 import   Coin   from './coin/layout.js';
+import   Mode   from './mode/layout.js';
+import   Nav    from './nav/layout.js';
 import   Ad     from '../ad/layout.js';
 
 //-----------------------------------------------------------------------------//
@@ -34,94 +36,8 @@ class Layout extends React.Component {
     return (
       <div id="menu-container">
         <Coin/>
-
-        <div className="row">
-          <div className="col-md-5 m-auto">
-            <Link to='/game/add'>
-              <button className="btn btn-outline-success btn-lg menu-button btn-block">
-                <span>Add</span>
-                <i className="fas fa-plus fa-lg"></i>
-              </button>
-            </Link>
-          </div>
-        </div>
-
-        <div className="row">  
-          <div className="col-md-5 m-auto">
-            <Link to='/game/subtract'>
-              <button className="btn btn-outline-info btn-lg menu-button btn-block">
-                <span>Subtract</span>
-                <i className="fas fa-minus fa-lg"></i>
-              </button>
-            </Link>
-          </div>
-        </div>
-        
-        <div className="row">
-          <div className="col-md-5 m-auto">
-            <Link to='/game/multiply'>
-              <button className="btn btn-outline-warning btn-lg menu-button btn-block">
-                <span>Multiply</span>
-                <i className="fas fa-times fa-lg"></i>
-              </button>            
-            </Link>
-          </div>
-        </div>
-
-        <div className="row">  
-          <div className="col-md-5 m-auto">
-            <Link to='/game/divide'>
-              <button className="btn btn-outline-danger btn-lg menu-button btn-block">
-                <span>Divide</span>
-                <i className="fas fa-divide fa-lg"></i>
-              </button>
-            </Link>
-          </div>
-        </div>
-
-        <div className="row">  
-
-          <div className="col-md-6 col-center">
-
-            <div className="row">
-              <div className="col-3">
-                  <Link to='/setting'>
-                    <button className="btn btn-outline-light btn-lg menu-setting-button">
-                      <i className="fas fa-cogs fa-lg d-block"></i>
-                    </button>
-                    <span className="menu-setting-title">Settings</span>
-                  </Link>
-              </div>
-
-              <div className="col-3">
-                  <Link to='/rank2'>
-                    <button className="btn btn-outline-light btn-lg menu-setting-button">
-                      <i className="fas fa-trophy fa-lg d-block"></i>
-                    </button>
-                    <span className="menu-setting-title">Rank</span>
-                  </Link>
-              </div>
-
-              <div className="col-3">
-                  <Link to='/store2'>
-                    <button className="btn btn-outline-light btn-lg menu-setting-button">
-                      <i className="fas fa-store fa-lg d-block"></i>
-                    </button>
-                    <span className="menu-setting-title">Store</span>
-                  </Link>
-              </div>
-
-              <div className="col-3">
-                <button className="btn btn-outline-light btn-lg menu-setting-button" onClick={this.clickedShare}>
-                  <i className="fas fa-share fa-lg d-block"></i>
-                </button>
-                <span className="menu-setting-title">Share</span>
-              </div>
-
-            </div>
-
-          </div>
-        </div>
+        <Mode/>
+        <Nav/>
         <Ad/>
       </div>
     );
