@@ -13,7 +13,9 @@ class AdComponent extends React.Component {
             <div className="adsense-fullview-container">
                 <div className="adsense-fullview">
                     <Link to='/'>
-                        <button className="d-block float-right" > Back </button>
+                        <button className="d-block float-right" >
+                            <i className="fas fa-times-circle"></i>
+                        </button>
                     </Link>
                     <ins className='adsbygoogle'
                         style={{ 

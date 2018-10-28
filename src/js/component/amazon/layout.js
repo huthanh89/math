@@ -56,7 +56,9 @@ class Component extends React.Component {
                     contentLabel="Amazon Sponsor"
                 >
                     <iframe className="d-block" src="//rcm-na.amazon-adsystem.com/e/cm?o=1&p=12&l=ez&f=ifr&linkID=44c429b841ca0c9991be1b5937c9cfc6&t=huthanh89-20&tracking_id=huthanh89-20" width="300" height="250" scrolling="no" border="0" marginWidth="0" frameBorder="0"></iframe>   
-                    <button className="d-block float-right" onClick={this.closeModal}> Close </button>
+                    <button className="d-block float-right" onClick={this.closeModal}> 
+                        <i className="fas fa-times-circle"></i> 
+                    </button>
                 
                 
                 </Modal>
