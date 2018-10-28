@@ -8,18 +8,42 @@ var Creatures = [
     },
     {
         id:    1,
-        price: 500000,
+        price: 25000,
+        name:  'Tuna',
+        src:   'avatar_tuna.png'
+    },
+    {
+        id:    2,
+        price: 155000,
+        name:  'Octopus',
+        src:   'avatar_octopus.png'
+    },
+    {
+        id:    3,
+        price: 425000,
+        name:  'Turtle',
+        src:   'avatar_turtle.png'
+    },
+    {
+        id:    4,
+        price: 1000000,
+        name:  'Crab',
+        src:   'avatar_crab.png'
+    },
+    {
+        id:    5,
+        price: 5000000,
         name:  'Shark',
         src:   'avatar_shark.png'
     },
     {
-        id:    2,
+        id:    6,
         price: 14000000,
         name:  'Killer Whale',
         src:   'avatar_killer_whale.png'
     },
     {
-        id:    4,
+        id:    7,
         price: 1000000000,
         name:  'Whale',
         src:   'avatar_whale.png'
