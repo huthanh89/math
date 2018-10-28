@@ -42,7 +42,7 @@ class Layout extends React.Component {
             </div>
   
             <div className="col-3">
-                <Link to='/rank2'>
+                <Link to='/rank'>
                   <button className="btn btn-outline-light btn-lg menu-setting-button">
                     <i className="fas fa-trophy fa-lg d-block"></i>
                   </button>
@@ -51,7 +51,7 @@ class Layout extends React.Component {
             </div>
 
             <div className="col-3">
-                <Link to='/store2'>
+                <Link to='/store'>
                   <button className="btn btn-outline-light btn-lg menu-setting-button">
                     <i className="fas fa-store fa-lg d-block"></i>
                   </button>

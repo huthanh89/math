@@ -34,6 +34,12 @@ function mapDispatchToProps(dispatch) {
                 operator:   operator,
                 difficulty: difficulty,
             });
+        },
+        actionAmazonModal: function (flag){
+            return dispatch({
+                type: 'AMAZON_MODAL',
+                flag:  flag,
+            });
         }
     };
 }

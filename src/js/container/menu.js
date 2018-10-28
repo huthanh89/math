@@ -24,6 +24,12 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
+        actionAmazonModal: function (flag){
+            return dispatch({
+                type: 'AMAZON_MODAL',
+                flag:  flag,
+            });
+        },
         actionRestart: function (operator, difficulty){
             return dispatch({
                 type:      'RESTART',

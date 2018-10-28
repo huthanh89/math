@@ -10,11 +10,12 @@ import _ from 'lodash';
 
 const initialState = function(){
   return {
-    coin:       0,
-    rank:       0,
-    inGame:     false,
-    mode:       null,
-    advertise:  false
+    amazonModal: false,
+    coin:        0,
+    rank:        0,
+    inGame:      false,
+    mode:        null,
+    advertise:   false
   };
 };
 
@@ -25,6 +26,12 @@ const initialState = function(){
 function reducer (prevState=initialState(), action){
 
   switch (action.type){
+
+    case 'AMAZON_MODAL': {
+      let state  = prevState;
+      state.amazonModal = action.flag;
+      return state;
+    }
 
     case 'SET_MODE': {
       let state  = prevState;

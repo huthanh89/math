@@ -3,6 +3,7 @@
 //-----------------------------------------------------------------------------//
 
 import   React  from 'react';
+import   Item   from './item/layout.js';
 import { Link } from 'react-router-dom';
 
 //-----------------------------------------------------------------------------//
@@ -13,7 +14,7 @@ class Layout extends React.Component {
   render() {
     return (
       <div className="row" id="rank-container">
-        <div className="col-lg-4 col-center">
+        <div className="col-lg-7 col-center">
           <div className="card bg-dark border-light">
 
             <div className="card-header border-light text-center">
@@ -30,28 +31,23 @@ class Layout extends React.Component {
                     <thead>
                       <tr>
                         <th>
+                          Item
                         </th>
                         <th>
-                          Item
+                          Name
                         </th>
                         <th>
                           Price
                         </th>
+                        <th>
+                        </th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>
-                          
-                        </td>
-                        <td>
-                          Hat
-                        </td>
-                        <td>
-                          3,000,000
-                        </td>
-                      </tr>
-
+                      <Item avatar="shrimp.png"       name="Shrimp"       price="1,400,000"/>
+                      <Item avatar="shark.jpg"        name="Shark"        price="12,000,000"/>
+                      <Item avatar="killer_whale.png" name="Killer Whale" price="24,500,,000"/>
+                      <Item avatar="whale.jpg"        name="Whale"        price="50,000,,000"/>
                     </tbody>
                   </table>
                 </div>

@@ -25,6 +25,7 @@ class Layout extends React.Component {
     props.actionUpdateInGame(true);
     props.actionRestart(mode, difficulty);
     props.actionSetMode(mode);
+    props.actionAmazonModal(true);
   }
 
   componentDidUpdate(){

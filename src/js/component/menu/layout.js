@@ -2,12 +2,13 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import   React  from 'react';
-import { Link } from 'react-router-dom';
-import   Coin   from './coin/layout.js';
-import   Mode   from './mode/layout.js';
-import   Nav    from './nav/layout.js';
-import   Ad     from '../ad/layout.js';
+import React from 'react';
+import User  from './user/layout.js';
+import Coin  from './coin/layout.js';
+import Mode  from './mode/layout.js';
+import Nav   from './nav/layout.js';
+import Ad    from '../ad/layout.js';
+import Amazon from '../amazon/layout.js';
 
 //-----------------------------------------------------------------------------//
 // Component
@@ -23,6 +24,12 @@ class Layout extends React.Component {
     props.actionRestart(mode, difficulty);
   }
   
+  componentDidMount(){
+    if(this.props.state.amazonModal){
+      this.refs.amazonComponent.openModal();
+    }
+  }
+
   clickedShare(){
     let link = 'https://www.facebook.com/sharer/sharer.php?u=http%3A//cloudresume.net/mathtingz/';
     window.open(
@@ -32,10 +39,17 @@ class Layout extends React.Component {
   }
 
   render() {
-
     return (
       <div id="menu-container">
-        <Coin/>
+        <Amazon ref='amazonComponent' {...this.props}/>
+        <div className="row">
+          <div className="col-sm-8 col-7">
+            <User/>
+          </div>
+          <div className="col-sm-4 col-5">
+            <Coin/>
+          </div>
+        </div>
         <Mode/>
         <Nav/>
         <Ad/>

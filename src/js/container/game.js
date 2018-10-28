@@ -22,6 +22,12 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
+        actionAmazonModal: function (flag){
+            return dispatch({
+                type: 'AMAZON_MODAL',
+                flag:  flag,
+            });
+        },
         actionSetMode: function (mode){
             return dispatch({
                 type: 'SET_MODE',

@@ -2,18 +2,18 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import React   from 'react';
-import Menu    from '../container/menu.js';
-import Setting from '../container/setting.js';
-import Game    from '../container/game.js';
-import Summary from '../container/summary.js';
-import Footer  from './footer/layout.js';
-import Contact from './contact/layout.js';
-import Rank    from './rank/layout.js';
-import Rank2    from './rank.OLD/layout.js';
-import Store   from './store/layout.js';
-import Store2   from './store.OLD/layout.js';
-import Share   from './share/layout.js';
+import React     from 'react';
+import Menu      from '../container/menu.js';
+import Setting   from '../container/setting.js';
+import Game      from '../container/game.js';
+import Summary   from '../container/summary.js';
+import Footer    from './footer/layout.js';
+import Contact   from './contact/layout.js';
+import Rank      from './rank/layout.js';
+import Rank2     from './rank.OLD/layout.js';
+import Store     from './store/layout.js';
+import Store2    from './store.OLD/layout.js';
+import Share     from './share/layout.js';
 import { Route } from "react-router-dom";
 
 //-----------------------------------------------------------------------------//
