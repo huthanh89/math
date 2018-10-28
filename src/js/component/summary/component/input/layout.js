@@ -30,7 +30,7 @@ class Layout extends React.Component {
           <div className="col-md-8 m-auto">
             <div className="row">
               <div className="col-6">
-                <Link to='/'>
+                <Link to='/adfullview'>
                   <button className="btn btn-outline-light btn-lg summary-button btn-block">
                     <i className="fas fa-home fa-lg mb-2"></i>
                     <span>Home</span>

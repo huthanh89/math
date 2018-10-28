@@ -15,7 +15,7 @@ import Creatures from 'lib/creature.js';
 class Layout extends React.Component {
   constructor(props){
     super(props);
-    props.actionAmazonModal(true);
+   // props.actionAmazonModal(true);
   }
 
   items(){
@@ -78,7 +78,7 @@ class Layout extends React.Component {
 
               <div className="row">
                 <div className="col-12">
-                  <Link to='/'>
+                  <Link to='/adfullview'>
                     <button className="btn btn-info mt-2 float-right">
                       <i className="fas fa-arrow-left"></i>
                       <span> Back </span>

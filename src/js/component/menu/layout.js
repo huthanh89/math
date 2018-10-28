@@ -52,7 +52,6 @@ class Layout extends React.Component {
         </div>
         <Mode/>
         <Nav/>
-        <Ad/>
       </div>
     );
   }

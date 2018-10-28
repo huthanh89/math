@@ -13,8 +13,6 @@ import { Link } from 'react-router-dom';
 class Layout extends React.Component {
   render() {
 
-    console.log(this.props);
-
     return (
       <div className="row" id="rank-container">
         <div className="col-lg-6 col-center">
@@ -65,7 +63,7 @@ class Layout extends React.Component {
 
               <div className="row">
                 <div className="col-12">
-                  <Link to='/'>
+                  <Link to='/adfullview'>
                     <button className="btn btn-info mt-2 float-right">
                       <i className="fas fa-arrow-left"></i>
                       <span> Back </span>

@@ -14,6 +14,7 @@ import Rank      from '../container/rank.js';
 import Share     from './share/layout.js';
 import { Route } from "react-router-dom";
 import localStore from 'store';
+import AdsenseFullView from './adsense_fullview/layout.js';
 
 //-----------------------------------------------------------------------------//
 // Component
@@ -52,6 +53,7 @@ class App extends React.Component {
         <Route path="/Rank"       component={Rank} />
         <Route path="/Share"      component={Share} />
         <Route path="/Store"      component={Store} />
+        <Route path="/adfullview" component={AdsenseFullView} />
         <Footer/>
       </div>
     );
