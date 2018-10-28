@@ -8,7 +8,7 @@ var Type = {
         calculate: (first, second) => first - second
     },
     'multiply': {
-        operator: '*',
+        operator: 'x',
         calculate: (first, second) => first* second
     },
     'divide': {

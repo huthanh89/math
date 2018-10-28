@@ -43,15 +43,12 @@ class Layout extends React.Component {
             <div className="card-body">
               <div className="row">
                 <div className="col-12">
-
                   <div className="d-block float-right mb-2">
                     <i className="fas fa-fw fa-coins mr-2 fa-lg"></i>
                     <b>
                       {acc.format(this.props.state.coin)}
                     </b>
                   </div>
-
-
                 </div>
               </div>
 
