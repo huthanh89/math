@@ -24,6 +24,12 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
+        actionSetUser: function (user){
+            return dispatch({
+                type: 'SET_USER',
+                user:  user
+            });
+        },
         actionSetCoin: function (coin){
             return dispatch({
                 type: 'SET_COIN',

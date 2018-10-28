@@ -28,6 +28,8 @@ class Layout extends React.Component {
 
     let creature = this.getCreature();
 
+    console.log(this.props.state);
+
     return (
       <div className="row">
         <div className="col-12">
@@ -36,7 +38,7 @@ class Layout extends React.Component {
 
           <div className="d-inline-block">
             <b className="d-block mb-2">
-              Thanh Huynh
+              {this.props.state.user}
             </b>
             <i className="fas fa-fw fa-trophy mr-2 fa-lg"></i>
             <b>

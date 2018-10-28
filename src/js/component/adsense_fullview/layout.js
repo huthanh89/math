@@ -10,19 +10,21 @@ class AdComponent extends React.Component {
 
     render () {
         return (
-            <div className="adsense-fullview">
-                <Link to='/'>
-                    <button className="d-block float-right" > Back </button>
-                </Link>
-                <ins className='adsbygoogle'
-                    style={{ 
-                        display: 'block',
-                        height:  '300px',
-                        width:   '300px'
-                    }}
-                    data-ad-client='ca-pub-4342286684165248'
-                    data-ad-slot=  '2209748334'
-                    />
+            <div className="adsense-fullview-container">
+                <div className="adsense-fullview">
+                    <Link to='/'>
+                        <button className="d-block float-right" > Back </button>
+                    </Link>
+                    <ins className='adsbygoogle'
+                        style={{ 
+                            display: 'block',
+                            height:  '300px',
+                            width:   '300px'
+                        }}
+                        data-ad-client='ca-pub-4342286684165248'
+                        data-ad-slot=  '2209748334'
+                        />
+                </div>
             </div>
         );
     }

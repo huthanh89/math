@@ -11,6 +11,7 @@ import _ from 'lodash';
 const initialState = function(){
   return {
     amazonModal: false,
+    user:        null,
     coin:        0,
     rank:        0,
     inGame:      false,
@@ -25,7 +26,13 @@ const initialState = function(){
 function reducer (prevState=initialState(), action){
 
   switch (action.type){
-    
+
+    case 'SET_USER': {
+      let state  = prevState;
+      state.user = action.user;
+      return state;
+    }
+
     case 'SET_COIN': {
       let state  = prevState;
       state.coin = action.coin;

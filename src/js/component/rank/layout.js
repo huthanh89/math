@@ -48,7 +48,7 @@ class Layout extends React.Component {
                           1
                         </td>
                         <td>
-                          Thanh Huynh
+                          {this.props.state.user}
                         </td>
                         <td>
                           {acc.format(this.props.state.coin)}

@@ -15,6 +15,7 @@ import Share     from './share/layout.js';
 import { Route } from "react-router-dom";
 import localStore from 'store';
 import AdsenseFullView from './adsense_fullview/layout.js';
+import uniqid    from 'uniqid';
 
 //-----------------------------------------------------------------------------//
 // Component
@@ -24,28 +25,33 @@ class App extends React.Component {
 
   constructor(props){
     super(props);
-    props.actionSetCoin(this.getCoinCount());
+    props.actionSetUser(this.updateUser());
+    props.actionSetCoin(this.updateCoin());
   }
 
   componentWillUpdate(){
-    this.props.actionSetCoin(this.getCoinCount());
+    this.props.actionSetUser(this.updateUser());
+    this.props.actionSetCoin(this.updateCoin());
   }
 
-  // Get coins from local storage.
+  updateUser (){
+    let user = localStore.get('user');
+    if(user === undefined){
+      user = uniqid('user_');
+      localStore.set('user', user);
+    }
+    return user;
+  }
 
-  getCoinCount (){
-
+  updateCoin (){
     let coin = localStore.get('coin');
-
     if(coin === undefined){
       localStore.set('coin', 0);
       coin = 0;
     }
-
     return coin;
-  
   }
-
+  
   render(){
     return (
       <div>

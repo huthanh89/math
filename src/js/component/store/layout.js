@@ -29,7 +29,7 @@ class Layout extends React.Component {
 
   render() {
     return (
-      <div className="row" id="rank-container">
+      <div className="row" id="store-container">
         <div className="col-lg-7 col-center">
           <div className="card bg-dark border-light">
 
@@ -51,29 +51,36 @@ class Layout extends React.Component {
                     </b>
                   </div>
 
-                  <table className="table table-striped table-sm table-hover">
-                    <thead>
-                      <tr>
-                        <th>
-                          Item
-                        </th>
-                        <th>
-                          Name
-                        </th>
-                        <th>
-                          Price
-                        </th>
-                        <th>
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {this.items()}
-                    </tbody>
-                  </table>
+
                 </div>
               </div>
 
+              <div className="row">
+                  <div className="col-12">
+                    <div id="store-list">
+                      <table className="table table-striped table-sm table-hover">
+                        <thead>
+                          <tr>
+                            <th>
+                              Item
+                            </th>
+                            <th>
+                              Name
+                            </th>
+                            <th>
+                              Price
+                            </th>
+                            <th>
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {this.items()}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+              </div>
               <hr></hr>
 
               <div className="row">
