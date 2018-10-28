@@ -59,11 +59,7 @@ class Component extends React.Component {
                     <button className="d-block float-right" onClick={this.closeModal}> 
                         <i className="fas fa-times-circle"></i> 
                     </button>
-                
-                
                 </Modal>
-
-
             </div>
         );
     }

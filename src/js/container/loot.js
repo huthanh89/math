@@ -2,13 +2,16 @@
 // Import
 //-----------------------------------------------------------------------------//
 
+import   _         from 'lodash';
+import   Loot      from '../component/loot/layout.js';
 import { connect } from 'react-redux';
-import   Summary   from '../component/summary/layout.js';
 
 //-----------------------------------------------------------------------------//
 
 // The state arguments will be passed in from the Reducer.
 // Return which state property to get updated by the component.
+// Note: We call clone because if there are changes in an array
+// update will not be called.
 
 function mapStateToProps(state) {
     var result =_.merge(state.appReducer, state.gameReducer);
@@ -20,33 +23,13 @@ function mapStateToProps(state) {
 // Map dispatch actions that will available to the component.
 
 function mapDispatchToProps(dispatch) {
-
     return {
-        actionSetCoin: function (coin){
+        actionSetLoot: function (loot){
             return dispatch({
-                type: 'SET_COIN',
-                coin:  coin
+                type: 'SET_LOOT',
+                loot:  loot
             });
         },
-        actionUpdateInGame: function (flag){
-            return dispatch({
-                type: 'UPDATE_INGAME',
-                flag:  flag
-            });
-        },
-        actionRestart: function (operator, difficulty){
-            return dispatch({ 
-                type:      'RESTART',
-                operator:   operator,
-                difficulty: difficulty,
-            });
-        },
-        actionAmazonModal: function (flag){
-            return dispatch({
-                type: 'AMAZON_MODAL',
-                flag:  flag,
-            });
-        }
     };
 }
 
@@ -57,6 +40,6 @@ function mapDispatchToProps(dispatch) {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Summary);
+)(Loot);
 
 //-----------------------------------------------------------------------------//

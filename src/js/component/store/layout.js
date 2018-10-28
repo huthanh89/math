@@ -82,7 +82,7 @@ class Layout extends React.Component {
 
               <div className="row">
                 <div className="col-12">
-                  <Link to='/adfullview'>
+                  <Link to='/'>
                     <button className="btn btn-info mt-2 float-right">
                       <i className="fas fa-arrow-left"></i>
                       <span> Back </span>

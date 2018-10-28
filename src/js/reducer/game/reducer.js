@@ -13,6 +13,7 @@ import Level from './level.js';
 
 const initialState = _ => {
   return {
+    loot:          0,
     difficulty:    0,
     levels:        [],
     timeCompleted: null,
@@ -119,6 +120,12 @@ function reducer (prevState=initialState(), action){
     case 'SET_DIFFICULTY': {
       let state        = prevState;
       state.difficulty = action.difficulty;
+      return state;
+    }
+
+    case 'SET_LOOT': {
+      let state  = prevState;
+      state.loot = action.loot;
       return state;
     }
 

@@ -2,9 +2,8 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import acc        from 'accounting';
-import React      from 'react';
-import localStore from 'store';
+import acc   from 'accounting';
+import React from 'react';
 
 //-----------------------------------------------------------------------------//
 // Component
@@ -15,30 +14,26 @@ class Layout extends React.Component {
   constructor (props){
     super(props);
     this.state = {
-      coin: this.getCoinCount(),
-      reward: this.getReward()
+      coin: props.state.coin
     };
   }
 
-  // Get coins from local storage.
-
-  getCoinCount (){
-    let coin = localStore.get('coin');
-    if(coin === undefined){
-      localStore.set('coin', 0);
-      coin = 0;
-    }
-    return coin;
-  }
+  // Gameplay coins
 
   getReward(){
     let reward = 0;
-    this.props.levels.forEach(function(level){
+    this.props.state.levels.forEach(function(level){
       if(level.correct){
         reward += level.reward;
       }
     });
     return reward;
+  }
+
+  getTotalCoin(){
+    let reward = this.getReward();
+    let loot   = this.props.state.loot;
+    return reward + loot;
   }
 
   render() {
@@ -49,7 +44,7 @@ class Layout extends React.Component {
             <div className="float-right">
               <i className="fas fa-coins mr-2 fa-lg"></i>
               <b id="menu-coin" >
-                {acc.format(this.state.coin + this.state.reward)} 
+                {acc.format(this.state.coin + this.getTotalCoin())} 
               </b>
             </div>
             <div>

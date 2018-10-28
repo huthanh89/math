@@ -2,46 +2,22 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import _          from 'lodash';
-import moment     from 'moment';
-import acc        from 'accounting';
-import React      from 'react';
-import Type       from 'lib/operand.js';
-import localStore from 'store';
+import _      from 'lodash';
+import moment from 'moment';
+import acc    from 'accounting';
+import React  from 'react';
+import Type   from 'lib/operand.js';
 
 //-----------------------------------------------------------------------------//
 
 var TotalTime    = null;
 var TotalCorrect = null;
 
-const Difficulty = {
-  0: 'Easy',
-  1: 'Medium',
-  2: 'Hard'
-};
-
 //-----------------------------------------------------------------------------//
 // Component
 //-----------------------------------------------------------------------------//
 
 class Component extends React.Component {
-  
-  constructor(props){
-    super(props);
-    this.buttonClicked = this.buttonClicked.bind(this);
-  }
-
-  buttonClicked(id) {
-    this.props.remove(id);
-  }
-
-  // Add points to over all score.
-
-  componentDidMount(){
-    let coin = localStore.get('coin');
-    coin = coin + this.getReward();
-    localStore.set('coin', coin);
-  }
 
   tableBody() {
 
@@ -111,38 +87,18 @@ class Component extends React.Component {
     return reward;
   }
 
+  getTotalCoin(){
+    let reward = this.getReward();
+    let loot   = this.props.loot;
+    return reward + loot;
+  }
+
   render() {
 
     let tableBody = this.tableBody();
 
     return (
       <div>
-
-        <div className="row">
-            <div className="col-6">
-              <div className="review-reward">
-                <b className="d-block">
-                  Difficulty:
-                </b>
-                <span className="review-reward-number">
-                  {Difficulty[this.props.difficulty]} 
-                </span>
-              </div>
-            </div>
-            <div className="col-6">
-              <div className="review-reward">
-                <b className="d-block">
-                  Total Reward:
-                </b>
-                <div>
-                  <span className="review-reward-number ">
-                    {acc.format(this.getReward())}
-                  </span>
-                  <i className="fas fa-coins fa-lg"></i>
-                </div>
-              </div>
-            </div>
-        </div>
 
         <div id="review-container">
           <table className="table table-hover table-sm table-dark table-striped">

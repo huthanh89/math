@@ -25,7 +25,7 @@ class Layout extends React.Component {
     props.actionUpdateInGame(true);
     props.actionRestart(mode, difficulty);
     props.actionSetMode(mode);
-    props.actionAmazonModal(true);
+    //props.actionAmazonModal(true);
   }
 
   componentDidUpdate(){
@@ -55,7 +55,7 @@ class Layout extends React.Component {
 
     if(this.props.state.gameCompleted){
       return (
-        <Redirect to="/summary"/>
+        <Redirect to="/loot"/>
       );
     }
 

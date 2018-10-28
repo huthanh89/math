@@ -26,6 +26,7 @@
     "lodash": "^4.17.10",
     "merge-stream": "^1.0.1",
     "moments": "0.0.2",
+    "node-sass": "^4.9.4",
     "path": "^0.12.7",
     "popper.js": "^1.14.4",
     "react": "^16.6.0",
@@ -38,6 +39,7 @@
     "redux": "^4.0.0",
     "store": "^2.0.12",
     "style-loader": "^0.23.0",
+    "sweetalert": "^2.1.1",
     "uniqid": "^5.0.3",
     "webpack": "^4.20.2",
     "webpack-stream": "^5.1.1"

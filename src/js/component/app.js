@@ -2,20 +2,21 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import React     from 'react';
-import Menu      from '../container/menu.js';
-import Setting   from '../container/setting.js';
-import Game      from '../container/game.js';
-import Summary   from '../container/summary.js';
-import Store     from '../container/store.js';
-import Footer    from './footer/layout.js';
-import Contact   from './contact/layout.js';
-import Rank      from '../container/rank.js';
-import Share     from './share/layout.js';
-import { Route } from "react-router-dom";
-import localStore from 'store';
+import uniqid          from 'uniqid';
+import localStore      from 'store';
+import React           from 'react';
+import Menu            from '../container/menu.js';
+import Setting         from '../container/setting.js';
+import Game            from '../container/game.js';
+import Summary         from '../container/summary.js';
+import Store           from '../container/store.js';
+import Footer          from './footer/layout.js';
+import Contact         from './contact/layout.js';
+import Rank            from '../container/rank.js';
+import Share           from './share/layout.js';
+import Loot            from '../container/loot.js';
 import AdsenseFullView from './adsense_fullview/layout.js';
-import uniqid    from 'uniqid';
+import { Route }       from "react-router-dom";
 
 //-----------------------------------------------------------------------------//
 // Component
@@ -64,6 +65,7 @@ class App extends React.Component {
         <Route path="/Share"      component={Share} />
         <Route path="/Store"      component={Store} />
         <Route path="/adfullview" component={AdsenseFullView} />
+        <Route path="/loot"       component={Loot} />
         <Footer/>
       </div>
     );

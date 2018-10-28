@@ -23,7 +23,6 @@ class Layout extends React.Component {
     return result;
   }
 
-
   render() {
 
     let creature = this.getCreature();
