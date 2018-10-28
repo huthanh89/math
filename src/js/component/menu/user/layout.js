@@ -28,11 +28,9 @@ class Layout extends React.Component {
 
     let creature = this.getCreature();
 
-    console.log(this.props.state);
-
     return (
       <div className="row">
-        <div className="col-12">
+        <div className="col-12" id="menu-user-container">
           
           <img id="menu-avatar-image" src={`asset/${creature.src}`} alt="avatar"/>
 
