@@ -36,12 +36,6 @@ function mapDispatchToProps(dispatch) {
                 operator:   operator,
                 difficulty: difficulty
             });
-        },
-        actionShowAd: function (flag){
-            return dispatch({
-                type: 'SHOW_AD',
-                flag:  flag,
-            });
         }
     };
 }

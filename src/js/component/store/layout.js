@@ -11,6 +11,10 @@ import { Link } from 'react-router-dom';
 //-----------------------------------------------------------------------------//
 
 class Layout extends React.Component {
+  constructor(props){
+    super(props);
+    props.actionAmazonModal(true);
+  }
   render() {
     return (
       <div className="row" id="rank-container">
@@ -44,7 +48,7 @@ class Layout extends React.Component {
                       </tr>
                     </thead>
                     <tbody>
-                      <Item avatar="shrimp.png"       name="Shrimp"       price="1,400,000"/>
+                      <Item avatar="shrimp.png"       name="Shrimp"       price="0"/>
                       <Item avatar="shark.jpg"        name="Shark"        price="12,000,000"/>
                       <Item avatar="killer_whale.png" name="Killer Whale" price="24,500,,000"/>
                       <Item avatar="whale.jpg"        name="Whale"        price="50,000,,000"/>

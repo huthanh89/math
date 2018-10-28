@@ -14,8 +14,7 @@ const initialState = function(){
     coin:        0,
     rank:        0,
     inGame:      false,
-    mode:        null,
-    advertise:   false
+    mode:        null
   };
 };
 

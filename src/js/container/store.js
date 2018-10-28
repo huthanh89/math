@@ -3,7 +3,7 @@
 //-----------------------------------------------------------------------------//
 
 import   _         from 'lodash';
-import   Ad        from '../component/ad/layout.js';
+import   Store     from '../component/store/layout.js';
 import { connect } from 'react-redux';
 
 //-----------------------------------------------------------------------------//
@@ -23,7 +23,14 @@ function mapStateToProps(state) {
 // Map dispatch actions that will available to the component.
 
 function mapDispatchToProps(dispatch) {
-    return {};
+    return {
+        actionAmazonModal: function (flag){
+            return dispatch({
+                type: 'AMAZON_MODAL',
+                flag:  flag,
+            });
+        },
+    };
 }
 
 //-----------------------------------------------------------------------------//
@@ -33,6 +40,6 @@ function mapDispatchToProps(dispatch) {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Ad);
+)(Store);
 
 //-----------------------------------------------------------------------------//
