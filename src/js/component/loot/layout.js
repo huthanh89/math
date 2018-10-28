@@ -12,8 +12,13 @@ import { Link } from 'react-router-dom';
 class Component extends React.Component {
 
     constructor(props){
+        
         super(props);
-        this.counter = 2;
+
+        // Set counter for how many seconds until showing treasure chest.
+
+        this.counter = 5;
+        
         this.clock = this.clock.bind(this);
         this.clickedHome = this.clickedHome.bind(this);
         this.state = {
