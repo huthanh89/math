@@ -25,6 +25,12 @@ const initialState = function(){
 function reducer (prevState=initialState(), action){
 
   switch (action.type){
+    
+    case 'SET_COIN': {
+      let state  = prevState;
+      state.coin = action.coin;
+      return state;
+    }
 
     case 'AMAZON_MODAL': {
       let state  = prevState;

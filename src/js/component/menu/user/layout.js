@@ -2,7 +2,8 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import React from 'react';
+import Creatures from 'lib/creature.js';
+import React     from 'react';
 
 //-----------------------------------------------------------------------------//
 // Component
@@ -10,17 +11,28 @@ import React from 'react';
 
 class Layout extends React.Component {
 
-  constructor (props){
-    super(props);
+  getCreature(){
+    let view   = this;
+    let result = Creatures[0];
+    Creatures.forEach(function(creature){
+      if(creature.price < view.props.state.coin){
+        result = creature;
+      }
+
+    });
+    return result;
   }
 
+
   render() {
+
+    let creature = this.getCreature();
 
     return (
       <div className="row">
         <div className="col-12">
           
-          <img id="menu-avatar-image" src="asset/avatar_shark.jpg" alt="avatar"/>
+          <img id="menu-avatar-image" src={`asset/${creature.src}`} alt="avatar"/>
 
           <div className="d-inline-block">
             <b className="d-block mb-2">

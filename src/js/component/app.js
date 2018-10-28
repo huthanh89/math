@@ -13,13 +13,36 @@ import Contact   from './contact/layout.js';
 import Rank      from './rank/layout.js';
 import Share     from './share/layout.js';
 import { Route } from "react-router-dom";
+import localStore from 'store';
 
 //-----------------------------------------------------------------------------//
 // Component
 //-----------------------------------------------------------------------------//
 
 class App extends React.Component {
+
+  constructor(props){
+    super(props);
+    props.actionSetCoin(this.getCoinCount());
+  }
+
+  // Get coins from local storage.
+
+  getCoinCount (){
+
+    let coin = localStore.get('coin');
+
+    if(coin === undefined){
+      localStore.set('coin', 0);
+      coin = 0;
+    }
+
+    return coin;
+  
+  }
+
   render(){
+
     return (
       <div>
         <Route exact path="/"     component={Menu} />

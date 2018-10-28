@@ -2,9 +2,11 @@
 // Import
 //-----------------------------------------------------------------------------//
 
+import   acc    from 'accounting';
 import   React  from 'react';
 import   Item   from './item/layout.js';
 import { Link } from 'react-router-dom';
+import Creatures from 'lib/creature.js';
 
 //-----------------------------------------------------------------------------//
 // Component
@@ -15,6 +17,16 @@ class Layout extends React.Component {
     super(props);
     props.actionAmazonModal(true);
   }
+
+  items(){
+    let items = [];
+    let view = this;
+    Creatures.forEach(function(creature){
+      items.push(<Item {...view.props} creature={creature} key={creature.id}/>);
+    });
+    return items;
+  }
+
   render() {
     return (
       <div className="row" id="rank-container">
@@ -31,6 +43,14 @@ class Layout extends React.Component {
             <div className="card-body">
               <div className="row">
                 <div className="col-12">
+
+                  <div className="d-block float-right mb-2">
+                    <i className="fas fa-fw fa-coins mr-2 fa-lg"></i>
+                    <b>
+                      {acc.format(this.props.state.coin)}
+                    </b>
+                  </div>
+
                   <table className="table table-striped table-sm table-hover">
                     <thead>
                       <tr>
@@ -48,10 +68,7 @@ class Layout extends React.Component {
                       </tr>
                     </thead>
                     <tbody>
-                      <Item avatar="shrimp.png"       name="Shrimp"       price="0"/>
-                      <Item avatar="shark.jpg"        name="Shark"        price="12,000,000"/>
-                      <Item avatar="killer_whale.png" name="Killer Whale" price="24,500,,000"/>
-                      <Item avatar="whale.jpg"        name="Whale"        price="50,000,,000"/>
+                      {this.items()}
                     </tbody>
                   </table>
                 </div>

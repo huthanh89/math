@@ -2,6 +2,7 @@
 // Import
 //-----------------------------------------------------------------------------//
 
+import acc   from 'accounting';
 import React from 'react';
 
 //-----------------------------------------------------------------------------//
@@ -10,32 +11,37 @@ import React from 'react';
 
 class Layout extends React.Component {
 
+  getLockIcon(){
+
+    if(this.props.creature.price > this.props.state.coin){
+      return "fas fa-fw fa-lg fa-lock store-item text-secondary";
+    }
+    else{
+      return "fas fa-fw fa-lg fa-check store-item text-success";
+    }
+  }
+
   render() {
 
-    let avatar = this.props.avatar;
+    let creature = this.props.creature;
 
     return (
       <tr>
         <td>
-          <img className="store-avatar-image" src={`asset/avatar_${avatar}`} alt="avatar"/>
+          <img className="store-avatar-image" src={`asset/${creature.src}`} alt="avatar"/>
         </td>
         <td>
-          <span className="mt-2">
-            {this.props.name}
+          <span className="store-item">
+            {creature.name}
           </span>
         </td>
         <td>
-          <span className="mt-2">
-            {this.props.price}
+          <span className="store-item">
+            {acc.format(creature.price)}
           </span>
         </td>
         <td>
-          <button className="btn btn-primary btn-sm mt-2">
-            <i className="fas fa-fw fa-lock mr-1"></i>
-            <span>
-              Unlock
-            </span>
-          </button>
+          <i className={this.getLockIcon()}></i>
         </td>
       </tr>
     );

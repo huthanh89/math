@@ -3864,6 +3864,7 @@ nav {
   position: relative;
   top: -15px;
   margin-right: 10px;
+  background: rgba(94, 94, 94, 0.664);
 }
 .menu-button {
   height: 70px;
@@ -3998,6 +3999,8 @@ nav {
 .store-avatar-image {
   height: 50px;
   width: 50px;
+  background: rgba(135, 231, 255, 0.336);
+  border-radius: 20%;
 }
 .amazon-ad {
   position: absolute;
@@ -4011,4 +4014,8 @@ nav {
   right: 0;
   bottom: 0;
   background-color: #2e2e2e;
+}
+.store-item {
+  display: block;
+  margin-top: 10px;
 }

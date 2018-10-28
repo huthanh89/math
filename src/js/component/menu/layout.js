@@ -44,10 +44,10 @@ class Layout extends React.Component {
         <Amazon ref='amazonComponent' {...this.props}/>
         <div className="row">
           <div className="col-sm-8 col-7">
-            <User/>
+            <User {...this.props}/>
           </div>
           <div className="col-sm-4 col-5">
-            <Coin/>
+            <Coin {...this.props}/>
           </div>
         </div>
         <Mode/>
