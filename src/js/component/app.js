@@ -27,6 +27,10 @@ class App extends React.Component {
     props.actionSetCoin(this.getCoinCount());
   }
 
+  componentWillUpdate(){
+    this.props.actionSetCoin(this.getCoinCount());
+  }
+
   // Get coins from local storage.
 
   getCoinCount (){
