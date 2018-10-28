@@ -2,6 +2,7 @@
 // Import
 //-----------------------------------------------------------------------------//
 
+import   acc    from 'accounting';
 import   React  from 'react';
 import { Link } from 'react-router-dom';
 
@@ -11,6 +12,9 @@ import { Link } from 'react-router-dom';
 
 class Layout extends React.Component {
   render() {
+
+    console.log(this.props);
+
     return (
       <div className="row" id="rank-container">
         <div className="col-lg-6 col-center">
@@ -49,18 +53,7 @@ class Layout extends React.Component {
                           Thanh Huynh
                         </td>
                         <td>
-                          532,234,23,324,530
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          2
-                        </td>
-                        <td>
-                          Foo Bar
-                        </td>
-                        <td>
-                          2,234,124,802
+                          {acc.format(this.props.state.coin)}
                         </td>
                       </tr>
                     </tbody>

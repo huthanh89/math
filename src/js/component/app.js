@@ -10,7 +10,7 @@ import Summary   from '../container/summary.js';
 import Store     from '../container/store.js';
 import Footer    from './footer/layout.js';
 import Contact   from './contact/layout.js';
-import Rank      from './rank/layout.js';
+import Rank      from '../container/rank.js';
 import Share     from './share/layout.js';
 import { Route } from "react-router-dom";
 import localStore from 'store';
@@ -42,7 +42,6 @@ class App extends React.Component {
   }
 
   render(){
-
     return (
       <div>
         <Route exact path="/"     component={Menu} />
