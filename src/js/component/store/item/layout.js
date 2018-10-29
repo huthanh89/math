@@ -11,13 +11,25 @@ import React from 'react';
 
 class Layout extends React.Component {
 
-  getLockIcon(){
+  isLocked(){
+    return this.props.creature.price > this.props.state.coin;
+  }
 
-    if(this.props.creature.price > this.props.state.coin){
+  getLockIcon(){
+    if(this.isLocked()){
       return "fas fa-fw fa-lg fa-lock store-item text-secondary";
     }
     else{
       return "fas fa-fw fa-lg fa-check store-item text-success";
+    }
+  }
+
+  getItemClass(){
+    if(this.isLocked()){
+      return "store-avatar-image-lock";
+    }
+    else{
+      return "store-avatar-image";
     }
   }
 
@@ -28,7 +40,7 @@ class Layout extends React.Component {
     return (
       <tr>
         <td>
-          <img className="store-avatar-image" src={`asset/${creature.src}`} alt="avatar"/>
+          <img className={this.getItemClass()} src={`asset/${creature.src}`} alt="avatar"/>
         </td>
         <td>
           <span className="store-item">
