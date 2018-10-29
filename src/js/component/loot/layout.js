@@ -76,7 +76,7 @@ class Component extends React.Component {
                         </button>
                     </Link>
                     <span id="loot-timer">
-                        Reward in {this.counter}
+                        Loot Reward in {this.counter}
                     </span>
                     {this.getView()}
                 </div>

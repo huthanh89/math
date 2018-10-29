@@ -44,7 +44,7 @@ class Component extends React.Component {
             let loot    = this.calcLoot();
             this.props.actionSetLoot(loot);
             Swal({
-                title:  `You've gained an extra ${acc.format(loot)} coins!`,
+                title:  `Found ${acc.format(loot)} Coins!`,
                 icon:   "success",
                 button: "Collect",
             }).then(function () {
