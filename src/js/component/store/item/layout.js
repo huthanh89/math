@@ -33,6 +33,16 @@ class Layout extends React.Component {
     }
   }
 
+  getItemName(){
+    if(this.isLocked()){
+      return '-';
+    }
+    else{
+      return this.props.creature.name;
+    }
+  }
+
+
   render() {
 
     let creature = this.props.creature;
@@ -44,7 +54,7 @@ class Layout extends React.Component {
         </td>
         <td>
           <span className="store-item">
-            {creature.name}
+            {this.getItemName()}
           </span>
         </td>
         <td>

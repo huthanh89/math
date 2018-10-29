@@ -13,9 +13,19 @@ import Creatures from 'lib/creature.js';
 //-----------------------------------------------------------------------------//
 
 class Layout extends React.Component {
-  constructor(props){
-    super(props);
-   // props.actionAmazonModal(true);
+
+  unlockedCount(){
+
+    let result = 0;
+    let coin   = this.props.state.coin;
+
+    Creatures.forEach(function(creature){
+      if(coin > creature.price){
+        result++;
+      }
+    });
+
+    return result;
   }
 
   items(){
@@ -28,6 +38,7 @@ class Layout extends React.Component {
   }
 
   render() {
+
     return (
       <div className="row" id="store-container">
         <div className="col-lg-7 col-center">
@@ -48,6 +59,12 @@ class Layout extends React.Component {
                     <b>
                       {acc.format(this.props.state.coin)}
                     </b>
+                  </div>
+                  <div>
+                    <i className="fas fa-fw fa-unlock mr-2 fa-lg"></i>
+                      <b>
+                        {this.unlockedCount()} / {Creatures.length}
+                      </b>
                   </div>
                 </div>
               </div>
