@@ -35,14 +35,12 @@ class Component extends React.Component {
 
     clock() {
         let counter = this.counter--;
-
         if(counter < 2){
             window.clearInterval(this.timer);
             this.setState({
                 showReward: true
             });
         }
-
         this.setState({
             counter: counter
         });
@@ -66,7 +64,6 @@ class Component extends React.Component {
     }
 
     render () {
-
         return (
             <div className="adsense-fullview-container">
                 <div className="adsense-fullview">
