@@ -98,7 +98,7 @@ class Component extends React.Component {
     let tableBody = this.tableBody();
 
     return (
-      <div>
+      <div id="summary-review-container">
 
         <div id="review-container">
           <table className="table table-hover table-sm table-dark table-striped">
