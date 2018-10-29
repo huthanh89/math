@@ -22,9 +22,11 @@ class Component extends React.Component {
     }
 
     calcLoot(){
-        let reward = 0;
+        let reward = 100;
         this.props.state.levels.forEach(function(level){
-            reward += level.reward;
+            if(level.correct){
+                reward += level.reward;
+            }
         });
 
         let min = Math.floor(reward / 2);
