@@ -62,7 +62,7 @@ class Component extends React.Component {
               <span>{acc.format(reward)}</span>
             </td>
             <td>
-              <span>{time}</span>
+              <span>{_.round(time, 2)}</span>
             </td>
           </tr>
         );
@@ -107,7 +107,7 @@ class Component extends React.Component {
                 <th>Question</th>
                 <th>Answer</th>
                 <th>Reward</th>
-                <th>Time(sec)</th>
+                <th>Time</th>
               </tr>
             </thead>
             {tableBody}
