@@ -56,6 +56,12 @@ function reducer (prevState=initialState(), action){
       state.coin = action.coin;
       return _.clone(state);
     }
+    
+    case 'SET_RANK': {
+      let state  = prevState;
+      state.rank = action.rank;
+      return _.clone(state);
+    }
 
     case 'AMAZON_MODAL': {
       let state  = prevState;

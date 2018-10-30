@@ -12,7 +12,7 @@ const User = require('../model/user.js');
 const route = function(app){
     app.route('/api/summary')
         .put(function (req, res) {
-            
+
             User.find({},function (err, users) {
 
                 let targetUser = _.find(users, function(user){ 
@@ -28,18 +28,20 @@ const route = function(app){
                 }
                 else {
 
-                    let rank = users.length;
+                    let rank = users.length + 1;
+                    let coin = targetUser.coin + req.body.coin;
 
                     users.forEach(function(user){
 
-                        console.log(user.coin, targetUser.coin, rank)
-
-                        if(user.coin < targetUser.coin){
+                        if(user.coin < coin){
                             rank -= 1;
                         }
+
+                        console.log(user.coin, coin, rank)
+
                     });
 
-                    targetUser.coin += req.body.coin;
+                    targetUser.coin  = coin;
                     targetUser.rank  = rank;
 
                     targetUser.save(function (err, doc) {

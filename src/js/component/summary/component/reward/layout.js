@@ -20,14 +20,6 @@ const Difficulty = {
 
 class Component extends React.Component {
 
-  // Add points to over all score.
-
-  componentDidMount(){
-    let coin = this.props.state.coin;
-    coin     = coin + this.getTotalCoin();
-    this.props.actionSetCoin(coin);
-  }
-  
   getReward(){
     let reward = 0;
     this.props.state.levels.forEach(function(level){

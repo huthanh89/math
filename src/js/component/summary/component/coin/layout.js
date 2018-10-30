@@ -11,31 +11,6 @@ import React from 'react';
 
 class Layout extends React.Component {
 
-  constructor (props){
-    super(props);
-    this.state = {
-      coin: props.state.coin
-    };
-  }
-
-  // Gameplay coins
-
-  getReward(){
-    let reward = 0;
-    this.props.state.levels.forEach(function(level){
-      if(level.correct){
-        reward += level.reward;
-      }
-    });
-    return reward;
-  }
-
-  getTotalCoin(){
-    let reward = this.getReward();
-    let loot   = this.props.state.loot;
-    return reward + loot;
-  }
-
   render() {
     return (
       <div>
@@ -44,13 +19,13 @@ class Layout extends React.Component {
             <div className="float-right">
               <i className="fas fa-coins mr-2 fa-lg"></i>
               <b id="menu-coin" >
-                {acc.format(this.state.coin + this.getTotalCoin())} 
+                {acc.format(this.props.state.coin)} 
               </b>
             </div>
             <div>
               <i className="fas fa-trophy mr-2 fa-lg"></i>
               <b id="menu-place" >
-                1
+                {this.props.state.rank}
               </b>
             </div>
           </div>

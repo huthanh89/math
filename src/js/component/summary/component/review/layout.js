@@ -21,13 +21,19 @@ var TotalCorrect = null;
 class Component extends React.Component {
 
   componentDidMount(){
-    this.updateCoin();
+    this.updateCoin(this.props);
   }
 
-  updateCoin(){
+  updateCoin(props){
     axios.put('/api/summary', {
       coin:   this.getTotalCoin(),
       userID: this.props.state.userID
+    })
+    .then(function (response) {
+      console.log(response);
+      let data= response.data;
+      props.actionSetCoin(data.coin);
+      props.actionSetRank(data.rank);
     })
     .catch(function (error) {
       console.log(error);

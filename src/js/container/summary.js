@@ -28,6 +28,12 @@ function mapDispatchToProps(dispatch) {
                 coin:  coin
             });
         },
+        actionSetRank: function (rank){
+            return dispatch({
+                type: 'SET_RANK',
+                rank:  rank
+            });
+        },
         actionUpdateInGame: function (flag){
             return dispatch({
                 type: 'UPDATE_INGAME',
