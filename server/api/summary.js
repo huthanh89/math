@@ -37,8 +37,6 @@ const route = function(app){
                             rank -= 1;
                         }
 
-                        console.log(user.coin, coin, rank)
-
                     });
 
                     targetUser.coin  = coin;

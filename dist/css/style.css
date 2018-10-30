@@ -4007,6 +4007,10 @@ nav {
 #rank-container {
   margin: 25px 0;
 }
+#rank-table-container {
+  height: 360px;
+  overflow-y: auto;
+}
 #contact-container {
   margin: 25px 0;
 }

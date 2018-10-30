@@ -40,10 +40,18 @@ class Layout extends React.Component {
   getItems(){
 
     let result = [];
+    let username = this.props.state.username;
 
     this.state.users.forEach(function(user, index){
+
+      let rowClass = '';
+
+      if(user.username === username){
+        rowClass = 'bg-success';
+      }
+
       result.push(
-        <tr key={index}>
+        <tr key={index} className={rowClass}>
           <td>
             {index + 1}
           </td>
@@ -77,7 +85,7 @@ class Layout extends React.Component {
 
             <div className="card-body">
               <div className="row">
-                <div className="col-12">
+                <div className="col-12" id="rank-table-container">
                   <table className="table table-striped table-sm table-hover">
                     <thead>
                       <tr>
