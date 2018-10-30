@@ -3,7 +3,8 @@
 //-----------------------------------------------------------------------------//
 
 exports.port      = 3002;
-exports.dbAddress = 'mongodb://localhost/test';
+exports.dbAddress = 'mongodb://localhost/';
+exports.dbName    = 'math';
 exports.baseUrl   = '/mathtingz';
 
 //-----------------------------------------------------------------------------//

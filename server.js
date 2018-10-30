@@ -14,11 +14,19 @@ const bodyParser  = require('body-parser');
 // Connect to Mongo Database
 //-----------------------------------------------------------------------------//
 
-mongoose.connect(config.dbAddress, {
+mongoose.connect(`${config.dbAddress}${config.dbName}`, {
     useNewUrlParser: true
 });
 
 mongoose.Promise = global.Promise;
+
+mongoose.connection.on('connected', function () {  
+    console.log(`Connected to Math databse on ${config.dbAddress}${config.dbName}`);
+}); 
+
+mongoose.connection.on('error',function (err) {  
+    console.log(`Error Connection to Math database: ${err}`);
+}); 
 
 //-----------------------------------------------------------------------------//
 // Configure App
