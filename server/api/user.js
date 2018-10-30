@@ -32,6 +32,7 @@ const route = function(app){
             const user = new User({
                 username: req.body.username,
                 coin:     0,
+                rank:     0,
                 created:  Date.now(),
             });
             

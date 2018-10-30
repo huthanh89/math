@@ -5,14 +5,13 @@
 import   $      from 'jquery';
 import   axios  from 'axios';
 import   React  from 'react';
-import { Link } from 'react-router-dom';
 import { css }  from 'glamor';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 //-----------------------------------------------------------------------------//
 
-function showToast(message){
+function showToast(message, props){
   toast.success(message, {
     toastId: 1,
     position: toast.POSITION.BOTTOM_CENTER,
@@ -27,6 +26,7 @@ function showToast(message){
   });
 
   setTimeout(function(){
+    props.history.push('/');
     toast.dismiss(1);
   }, 2000);
 
@@ -43,23 +43,40 @@ class Layout extends React.Component {
     this.save  = this.save.bind(this);
     this.radio = this.radio.bind(this);
     this.changedName = this.changedName.bind(this);
+
+    this.state = {
+      fetching: false
+    };
+
   }
 
   changedName(){
     this.props.actionSetUserName($('#setting-username').val());
   }
 
+  clickedSave(){
+    if(!this.state.fetching){
+      this.save();
+    }
+  }
+
   save(){
+
+    this.setState({fetching: true});
+
+    let view = this;
+
     axios.put('/api/setting', {
       userID:     this.props.state.userID,
       username:   this.props.state.username,
       difficulty: this.props.state.difficulty
     })
     .then(function(){
-      showToast("Settings Updated!");
+      showToast("Settings Updated!", view.props);
     })
     .catch(function (error) {
       console.log(error);
+      props.history.push('/');
     });
   }
 
@@ -77,6 +94,14 @@ class Layout extends React.Component {
 
   componentDidMount(){
     $(`#setting-radio${this.props.state.difficulty}`).prop('checked', true);
+  }
+
+  saveButtonClass(){
+    let result = 'btn btn-primary ml-2 float-right';
+    if(this.state.fetching){
+      result += ' disabled';
+    }
+    return result;
   }
 
   render() {
@@ -128,20 +153,13 @@ class Layout extends React.Component {
                 </div>
               </div>
 
-
               <hr></hr>
 
               <div className="row">
                 <div className="col-12">
-                  <button className="btn btn-primary ml-2 float-right" onClick={this.save}>
-                    <span> Update </span>
+                  <button className={this.saveButtonClass()} onClick={this.save}>
+                    <span> Save </span>
                   </button>
-                  <Link to='/'>
-                    <button className="btn btn-info float-right">
-                      <i className="fas fa-arrow-left"></i>
-                      <span> Back </span>
-                    </button>
-                  </Link>
                 </div>
               </div>
             

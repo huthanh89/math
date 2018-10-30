@@ -16,7 +16,8 @@ const initialState = function(){
     coin:        0,
     rank:        0,
     inGame:      false,
-    mode:        null
+    mode:        null,
+    difficulty:  null,
   };
 };
 
@@ -29,13 +30,16 @@ function reducer (prevState=initialState(), action){
   switch (action.type){
 
     case 'SET_INITIAL_USER': {
+
+      console.log('>>>>>', action.user.difficulty);
+
       let state        = prevState;
       let user         = action.user;
       state.username   = user.username;
       state.userID     = user.userID;
       state.coin       = user.coin;
-      state.difficulty = user.difficulty;
       state.rank       = user.rank;
+      state.difficulty = user.difficulty;
       return _.clone(state);
     }
 
