@@ -45,11 +45,11 @@ class App extends React.Component {
       localStore.set('userID', user._id);
 
       props.actionInitialUser({
-        userID:     user._id,
-        username:   user.username,
-        coin:       0,
-        difficulty: 0,
-        rank:       0
+        userID:         user._id,
+        username:       user.username,
+        coin:           0,
+        gameDifficulty: 0,
+        rank:           0
       });
 
     })
@@ -68,11 +68,11 @@ class App extends React.Component {
     .then(function(response){
       let user = response.data;
       props.actionInitialUser({
-        userID:     user._id,
-        username:   user.username,
-        coin:       user.coin,
-        difficulty: user.difficulty,
-        rank:       user.rank
+        userID:         user._id,
+        username:       user.username,
+        coin:           user.coin,
+        gameDifficulty: user.gameDifficulty,
+        rank:           user.rank
 
       });
     })

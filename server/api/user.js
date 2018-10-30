@@ -30,10 +30,11 @@ const route = function(app){
             // Create a document
             
             const user = new User({
-                username: req.body.username,
-                coin:     0,
-                rank:     0,
-                created:  Date.now(),
+                username:       req.body.username,
+                coin:           0,
+                rank:           0,
+                gameDifficulty: 0,
+                created:        Date.now()
             });
             
             user.save(function (err, doc) {

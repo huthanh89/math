@@ -10,14 +10,14 @@ import _ from 'lodash';
 
 const initialState = function(){
   return {
-    amazonModal: false,
-    username:    null,
-    userID:      null,
-    coin:        0,
-    rank:        0,
-    inGame:      false,
-    mode:        null,
-    difficulty:  null,
+    amazonModal:    false,
+    username:       null,
+    userID:         null,
+    coin:           0,
+    rank:           0,
+    inGame:         false,
+    mode:           null,
+    gameDifficulty: 0,
   };
 };
 
@@ -30,16 +30,13 @@ function reducer (prevState=initialState(), action){
   switch (action.type){
 
     case 'SET_INITIAL_USER': {
-
-      console.log('>>>>>', action.user.difficulty);
-
-      let state        = prevState;
-      let user         = action.user;
-      state.username   = user.username;
-      state.userID     = user.userID;
-      state.coin       = user.coin;
-      state.rank       = user.rank;
-      state.difficulty = user.difficulty;
+      let state            = prevState;
+      let user             = action.user;
+      state.username       = user.username;
+      state.userID         = user.userID;
+      state.coin           = user.coin;
+      state.rank           = user.rank;
+      state.gameDifficulty = user.gameDifficulty;
       return _.clone(state);
     }
 
@@ -61,6 +58,12 @@ function reducer (prevState=initialState(), action){
       return _.clone(state);
     }
     
+    case 'SET_GAME_DIFFICULTY': {
+      let state            = prevState;
+      state.gameDifficulty = action.gameDifficulty;
+      return _.clone(state);
+    }
+
     case 'SET_RANK': {
       let state  = prevState;
       state.rank = action.rank;

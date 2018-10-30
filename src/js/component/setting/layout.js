@@ -67,9 +67,9 @@ class Layout extends React.Component {
     let view = this;
 
     axios.put('/api/setting', {
-      userID:     this.props.state.userID,
-      username:   this.props.state.username,
-      difficulty: this.props.state.difficulty
+      userID:         this.props.state.userID,
+      username:       this.props.state.username,
+      gameDifficulty: this.props.state.gameDifficulty
     })
     .then(function(){
       showToast("Settings Updated!", view.props);
@@ -82,18 +82,14 @@ class Layout extends React.Component {
 
   radio(){
     if($('#setting-radio0').is(':checked')){
-      this.props.actionDifficulty(0);
+      this.props.actionGameDifficulty(0);
     }
     if($('#setting-radio1').is(':checked')){
-      this.props.actionDifficulty(1);
+      this.props.actionGameDifficulty(1);
     }
     if($('#setting-radio2').is(':checked')){
-      this.props.actionDifficulty(2);
+      this.props.actionGameDifficulty(2);
     }
-  }
-
-  componentDidMount(){
-    $(`#setting-radio${this.props.state.difficulty}`).prop('checked', true);
   }
 
   saveButtonClass(){
@@ -102,6 +98,10 @@ class Layout extends React.Component {
       result += ' disabled';
     }
     return result;
+  }
+  
+  shouldCheck(difficulty){
+    return this.props.state.gameDifficulty === difficulty;
   }
 
   render() {
@@ -134,19 +134,19 @@ class Layout extends React.Component {
               <div className="form-group">
                 <label htmlFor="setting-difficulty">Difficulty</label>
                 <div className="form-check">
-                  <input className="form-check-input" type="radio" name="radio" id="setting-radio0" value="0" onChange={this.radio}/>
+                  <input checked={this.shouldCheck(0)} className="form-check-input" type="radio" name="radio" id="setting-radio0" value="0" onChange={this.radio}/>
                   <label className="form-check-label" htmlFor="radio0">
                     Easy
                   </label>
                 </div>
                 <div className="form-check">
-                  <input className="form-check-input" type="radio" name="radio" id="setting-radio1" value="1" onChange={this.radio}/>
+                  <input checked={this.shouldCheck(1)}  className="form-check-input" type="radio" name="radio" id="setting-radio1" value="1" onChange={this.radio}/>
                   <label className="form-check-label" htmlFor="radio1">
                     Medium
                   </label>
                 </div>
                 <div className="form-check disabled">
-                  <input className="form-check-input" type="radio" name="radio" id="setting-radio2" value="2" onChange={this.radio}/>
+                  <input checked={this.shouldCheck(2)} className="form-check-input" type="radio" name="radio" id="setting-radio2" value="2" onChange={this.radio}/>
                   <label className="form-check-label" htmlFor="radio2">
                     Hard
                   </label>

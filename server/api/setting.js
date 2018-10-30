@@ -24,8 +24,8 @@ const route = function(app){
                 }
                 else {
 
-                    user.username   = req.body.username;
-                    user.difficulty = req.body.difficulty;
+                    user.username       = req.body.username;
+                    user.gameDifficulty = req.body.gameDifficulty;
 
                     user.save(function (err, doc) {
                         if (err) {

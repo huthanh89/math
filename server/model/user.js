@@ -10,11 +10,11 @@ const Schema   = mongoose.Schema;
 //-----------------------------------------------------------------------------//
 
 const schema = new Schema({
-    username:   String,
-    coin:       Number,
-    rank:       String,
-    difficulty: Number,
-    rank:       Number,
+    username:       String,
+    coin:           Number,
+    rank:           String,
+    gameDifficulty: Number,
+    rank:           Number,
     updated: { 
         type:    Date, 
         default: Date.now 

@@ -20,12 +20,11 @@ class Layout extends React.Component {
     super(props);
 
     let mode       = props.match.params.type;
-    let difficulty = props.state.difficulty;
+    let difficulty = props.state.gameDifficulty;
 
     props.actionUpdateInGame(true);
     props.actionRestart(mode, difficulty);
     props.actionSetMode(mode);
-    //props.actionAmazonModal(true);
   }
 
   componentDidUpdate(){

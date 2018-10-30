@@ -30,10 +30,10 @@ function mapDispatchToProps(dispatch) {
                 username:  username
             });
         },
-        actionDifficulty: function (difficulty){
+        actionGameDifficulty: function (gameDifficulty){
             return dispatch({
-                type: 'SET_DIFFICULTY',
-                difficulty: difficulty
+                type:           'SET_GAME_DIFFICULTY',
+                gameDifficulty: gameDifficulty
             });
         }
     };
