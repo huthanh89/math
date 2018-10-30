@@ -24,6 +24,12 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
+        actionInitialUser: function (user){
+            return dispatch({
+                type: 'SET_INITIAL_USER',
+                user:  user
+            });
+        },
         actionSetUserID: function (userID){
             return dispatch({
                 type:  'SET_USERID',

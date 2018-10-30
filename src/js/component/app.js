@@ -44,9 +44,13 @@ class App extends React.Component {
       let user = response.data;
       localStore.set('userID', user._id);
 
-      props.actionSetUserName(user.username);
-      props.actionSetUserID(user._id);
-      props.actionSetCoin(parseInt(user.coin));
+      props.actionInitialUser({
+        userID:     user._id,
+        username:   user.username,
+        coin:       user.coin,
+        difficulty: user.coin
+      });
+
     })
     .catch(function (error) {
       console.log(error);
@@ -62,9 +66,12 @@ class App extends React.Component {
     })
     .then(function(response){
       let user = response.data;
-      props.actionSetUserName(user.username);
-      props.actionSetUserID(user._id);
-      props.actionSetCoin(parseInt(user.coin));
+      props.actionInitialUser({
+        userID:     user._id,
+        username:   user.username,
+        coin:       user.coin,
+        difficulty: user.coin
+      });
     })
     .catch(function (error) {
       console.log(error);

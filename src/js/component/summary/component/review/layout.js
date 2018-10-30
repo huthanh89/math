@@ -32,7 +32,6 @@ class Component extends React.Component {
     .catch(function (error) {
       console.log(error);
     });
-
   }
 
   tableBody() {

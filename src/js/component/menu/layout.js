@@ -2,12 +2,11 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import React from 'react';
-import User  from './user/layout.js';
-import Coin  from './coin/layout.js';
-import Mode  from './mode/layout.js';
-import Nav   from './nav/layout.js';
-import Ad    from '../ad/layout.js';
+import React  from 'react';
+import User   from './user/layout.js';
+import Rank   from './rank/layout.js';
+import Mode   from './mode/layout.js';
+import Nav    from './nav/layout.js';
 import Amazon from '../amazon/layout.js';
 
 //-----------------------------------------------------------------------------//
@@ -47,7 +46,7 @@ class Layout extends React.Component {
             <User {...this.props}/>
           </div>
           <div className="col-sm-4 col-5">
-            <Coin {...this.props}/>
+            <Rank {...this.props}/>
           </div>
         </div>
         <Mode/>

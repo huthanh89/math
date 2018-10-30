@@ -119,14 +119,14 @@ function reducer (prevState=initialState(), action){
     
     case 'SET_DIFFICULTY': {
       let state        = prevState;
-      state.difficulty = action.difficulty;
-      return state;
+      state = setDifficulty(state, action.difficulty);
+      return _.clone(state);
     }
 
     case 'SET_LOOT': {
       let state  = prevState;
       state.loot = action.loot;
-      return state;
+      return _.clone(state);
     }
 
     case 'SET_REWARD': {
@@ -150,7 +150,7 @@ function reducer (prevState=initialState(), action){
       state = setUserAnswer(state, action.userAnswer);
       state = incrementLevel(state);
       state = setReward(state);
-      return state;
+      return _.clone(state);
     }
     
     case 'RESTART': {
@@ -160,7 +160,7 @@ function reducer (prevState=initialState(), action){
       if(state.levels.length){
         setReward(state);
       }
-      return state;
+      return _.clone(state);;
     }
     
     default: {

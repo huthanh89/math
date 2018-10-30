@@ -3,6 +3,7 @@
 //-----------------------------------------------------------------------------//
 
 import   $      from 'jquery';
+import   axios  from 'axios';
 import   React  from 'react';
 import { Link } from 'react-router-dom';
 
@@ -14,10 +15,24 @@ class Layout extends React.Component {
 
   constructor(props){
     super(props);
+    this.save  = this.save.bind(this);
     this.radio = this.radio.bind(this);
-    this.state = {
+    this.changedName = this.changedName.bind(this);
+  }
+
+  changedName(){
+    this.props.actionSetUserName($('#setting-username').val());
+  }
+
+  save(){
+    axios.put('/api/setting', {
+      userID:     this.props.state.userID,
+      username:   this.props.state.username,
       difficulty: this.props.state.difficulty
-    };
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
 
   radio(){
@@ -33,10 +48,16 @@ class Layout extends React.Component {
   }
 
   componentDidMount(){
-    $(`#setting-radio${this.state.difficulty}`).prop('checked', true);
+    $(`#setting-radio${this.props.state.difficulty}`).prop('checked', true);
   }
 
   render() {
+
+    let state    =  this.props.state;
+    let username = '';
+    if(state.username){
+      username = state.username;
+    }
 
     return (
       <div className="row" id="setting-container">
@@ -52,35 +73,43 @@ class Layout extends React.Component {
 
             <div className="card-body">
 
-              <h4>
-                Difficulty
-              </h4>
+              <div className="form-group">
+                <label htmlFor="setting-username">Username</label>
+                <input type="text" value={username} onChange={this.changedName} className="form-control form-control-sm" id="setting-username"/>
+              </div>
 
-              <div className="form-check">
-                <input className="form-check-input" type="radio" name="radio" id="setting-radio0" value="0" onChange={this.radio}/>
-                <label className="form-check-label" htmlFor="radio0">
-                  Easy
-                </label>
+              <div className="form-group">
+                <label htmlFor="setting-difficulty">Difficulty</label>
+                <div className="form-check">
+                  <input className="form-check-input" type="radio" name="radio" id="setting-radio0" value="0" onChange={this.radio}/>
+                  <label className="form-check-label" htmlFor="radio0">
+                    Easy
+                  </label>
+                </div>
+                <div className="form-check">
+                  <input className="form-check-input" type="radio" name="radio" id="setting-radio1" value="1" onChange={this.radio}/>
+                  <label className="form-check-label" htmlFor="radio1">
+                    Medium
+                  </label>
+                </div>
+                <div className="form-check disabled">
+                  <input className="form-check-input" type="radio" name="radio" id="setting-radio2" value="2" onChange={this.radio}/>
+                  <label className="form-check-label" htmlFor="radio2">
+                    Hard
+                  </label>
+                </div>
               </div>
-              <div className="form-check">
-                <input className="form-check-input" type="radio" name="radio" id="setting-radio1" value="1" onChange={this.radio}/>
-                <label className="form-check-label" htmlFor="radio1">
-                  Medium
-                </label>
-              </div>
-              <div className="form-check disabled">
-                <input className="form-check-input" type="radio" name="radio" id="setting-radio2" value="2" onChange={this.radio}/>
-                <label className="form-check-label" htmlFor="radio2">
-                  Hard
-                </label>
-              </div>
+
 
               <hr></hr>
-              
+
               <div className="row">
                 <div className="col-12">
+                  <button className="btn btn-primary ml-2 float-right" onClick={this.save}>
+                    <span> Update </span>
+                  </button>
                   <Link to='/'>
-                    <button className="btn btn-info mt-2 float-right">
+                    <button className="btn btn-info float-right">
                       <i className="fas fa-arrow-left"></i>
                       <span> Back </span>
                     </button>

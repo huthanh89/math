@@ -28,6 +28,16 @@ function reducer (prevState=initialState(), action){
 
   switch (action.type){
 
+    case 'SET_INITIAL_USER': {
+      let state        = prevState;
+      let user         = action.user;
+      state.username   = user.username;
+      state.userID     = user.userID;
+      state.coin       = user.coin;
+      state.difficulty = user.difficulty;
+      return _.clone(state);
+    }
+
     case 'SET_USERNAME': {
       let state      = prevState;
       state.username = action.username;

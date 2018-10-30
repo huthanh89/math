@@ -37,9 +37,9 @@ class Layout extends React.Component {
             <b className="d-block mb-2">
               {this.props.state.username}
             </b>
-            <i className="fas fa-fw fa-trophy mr-2 fa-lg"></i>
+            <i className="fas fa-fw fa-coins mr-2 fa-lg"></i>
             <b>
-              {this.props.state.rank}
+              {this.props.state.coin}
             </b>
           </div>
         
