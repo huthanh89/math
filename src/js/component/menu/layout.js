@@ -4,7 +4,7 @@
 
 import React  from 'react';
 import User   from './user/layout.js';
-import Rank   from './rank/layout.js';
+import Coin   from './coin/layout.js';
 import Mode   from './mode/layout.js';
 import Nav    from './nav/layout.js';
 import Amazon from '../amazon/layout.js';
@@ -46,7 +46,7 @@ class Layout extends React.Component {
             <User {...this.props}/>
           </div>
           <div className="col-sm-4 col-5">
-            <Rank {...this.props}/>
+            <Coin {...this.props}/>
           </div>
         </div>
         <Mode/>

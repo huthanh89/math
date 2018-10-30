@@ -13,16 +13,11 @@ import { Link } from 'react-router-dom';
 
 class Layout extends React.Component {
 
-
   constructor(){
-    
     super();
-
     this.state = {
       users: []
     };
-
-    
   }
   
   componentDidMount(){
@@ -76,7 +71,7 @@ class Layout extends React.Component {
             <div className="card-header border-light text-center">
               <i className="fas fa-fw fa-trophy mr-2"></i>
               <span>
-                Global Ranking
+                Global Ranking (Top 100)
               </span>
             </div>
 

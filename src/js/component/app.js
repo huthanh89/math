@@ -47,8 +47,9 @@ class App extends React.Component {
       props.actionInitialUser({
         userID:     user._id,
         username:   user.username,
-        coin:       user.coin,
-        difficulty: user.coin
+        coin:       0,
+        difficulty: 0,
+        rank:       0
       });
 
     })
@@ -70,7 +71,9 @@ class App extends React.Component {
         userID:     user._id,
         username:   user.username,
         coin:       user.coin,
-        difficulty: user.coin
+        difficulty: user.difficulty,
+        rank:       user.rank
+
       });
     })
     .catch(function (error) {

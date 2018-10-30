@@ -6,6 +6,31 @@ import   $      from 'jquery';
 import   axios  from 'axios';
 import   React  from 'react';
 import { Link } from 'react-router-dom';
+import { css }  from 'glamor';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+//-----------------------------------------------------------------------------//
+
+function showToast(message){
+  toast.success(message, {
+    toastId: 1,
+    position: toast.POSITION.BOTTOM_CENTER,
+    autoClose: 2500,
+    className: css({
+      opacity: '0.85'
+    }),
+    bodyClassName: css({
+      fontSize:  '21px',
+      textAlign: 'center'
+    })
+  });
+
+  setTimeout(function(){
+    toast.dismiss(1);
+  }, 2000);
+
+}
 
 //-----------------------------------------------------------------------------//
 // Component
@@ -29,6 +54,9 @@ class Layout extends React.Component {
       userID:     this.props.state.userID,
       username:   this.props.state.username,
       difficulty: this.props.state.difficulty
+    })
+    .then(function(){
+      showToast("Settings Updated!");
     })
     .catch(function (error) {
       console.log(error);
@@ -75,7 +103,7 @@ class Layout extends React.Component {
 
               <div className="form-group">
                 <label htmlFor="setting-username">Username</label>
-                <input type="text" value={username} onChange={this.changedName} className="form-control form-control-sm" id="setting-username"/>
+                <input type="text" value={username} onChange={this.changedName} className="form-control form-control-sm" id="setting-username"  maxLength="15"/>
               </div>
 
               <div className="form-group">
@@ -120,6 +148,9 @@ class Layout extends React.Component {
             </div>
           </div>
         </div>
+
+        <ToastContainer/>
+
       </div>
     );
   }

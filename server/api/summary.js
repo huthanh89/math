@@ -12,17 +12,37 @@ const User = require('../model/user.js');
 const route = function(app){
     app.route('/api/summary')
         .put(function (req, res) {
-            User.findOne({
-                _id: req.body.userID
-            },function (err, user) {
+            
+            User.find({},function (err, users) {
+
+                let targetUser = _.find(users, function(user){ 
+                    return user._id == req.body.userID;
+                })
+
                 if (err) {
                     console.log(err);
+                    res.sendStatus(400);
                 } 
+                else if(targetUser==null){
+                    res.sendStatus(400);
+                }
                 else {
 
-                    user.coin += req.body.coin;
+                    let rank = users.length;
 
-                    user.save(function (err, doc) {
+                    users.forEach(function(user){
+
+                        console.log(user.coin, targetUser.coin, rank)
+
+                        if(user.coin < targetUser.coin){
+                            rank -= 1;
+                        }
+                    });
+
+                    targetUser.coin += req.body.coin;
+                    targetUser.rank  = rank;
+
+                    targetUser.save(function (err, doc) {
                         if (err) {
                             console.log(err);
                         } 
@@ -33,6 +53,7 @@ const route = function(app){
 
                 }
             });
+
         })
 }
 

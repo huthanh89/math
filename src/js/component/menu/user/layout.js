@@ -34,12 +34,12 @@ class Layout extends React.Component {
           <img id="menu-avatar-image" src={`asset/${creature.src}`} alt="avatar"/>
 
           <div className="d-inline-block">
-            <b className="d-block mb-2">
-              {this.props.state.username}
-            </b>
-            <i className="fas fa-fw fa-coins mr-2 fa-lg"></i>
+            <i className="fas fa-fw fa-trophy mr-2 fa-lg"></i>
             <b>
-              {this.props.state.coin}
+              {this.props.state.rank}
+            </b>
+            <b className="d-block mt-2">
+              {this.props.state.username}
             </b>
           </div>
         

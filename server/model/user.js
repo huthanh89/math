@@ -14,6 +14,7 @@ const schema = new Schema({
     coin:       Number,
     rank:       String,
     difficulty: Number,
+    rank:       Number,
     updated: { 
         type:    Date, 
         default: Date.now 

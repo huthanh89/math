@@ -35,6 +35,7 @@ function reducer (prevState=initialState(), action){
       state.userID     = user.userID;
       state.coin       = user.coin;
       state.difficulty = user.difficulty;
+      state.rank       = user.rank;
       return _.clone(state);
     }
 
