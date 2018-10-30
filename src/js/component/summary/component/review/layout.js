@@ -111,9 +111,6 @@ class Component extends React.Component {
 
   render() {
 
-
-    console.log('>>>',  this.props.state);
-
     let tableBody = this.tableBody();
 
     return (

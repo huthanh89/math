@@ -30,10 +30,9 @@ class App extends React.Component {
     this.getUser(props);
   }
 
-  setupNewUser(){
+  setupNewUser(props){
 
     let username = uniqid('user_');
-    let view     = this;
 
     // Post a new user.
     
@@ -42,12 +41,12 @@ class App extends React.Component {
     })
     .then(function(response){
 
-      localStore.set('userID', response.data._id);
+      let user = response.data;
+      localStore.set('userID', user._id);
 
-      view.setState({
-        username: response.data.username,
-        id:       response.data._id
-      });
+      props.actionSetUserName(user.username);
+      props.actionSetUserID(user._id);
+      props.actionSetCoin(parseInt(user.coin));
     })
     .catch(function (error) {
       console.log(error);
@@ -75,7 +74,7 @@ class App extends React.Component {
   getUser (props){
     let userID = localStore.get('userID');
     if(userID === undefined){
-      this.setupNewUser();
+      this.setupNewUser(props);
     }else{
       this.fetchUser(userID, props);
     }
