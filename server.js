@@ -55,9 +55,7 @@ app.use(function(req, res, next){
 
 // Initialize api routes:
 
-require('./server/api/user.js')(app)
-require('./server/api/rank.js')(app)
-require('./server/api/summary.js')(app)
+require('./server/api/module.js')(app)
 
 // If the use land in any of these urls, send them to the base url.
 
