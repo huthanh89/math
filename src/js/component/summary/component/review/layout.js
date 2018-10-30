@@ -43,7 +43,7 @@ class Component extends React.Component {
     TotalCorrect = 0;
 
     function createRows() {
-      let levels = view.props.levels;
+      let levels = view.props.state.levels;
       let rows   = [];
 
       _.forEach(levels, function(level, index){
