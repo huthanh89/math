@@ -6,20 +6,21 @@ const path        = require('path');
 const express     = require('express');
 const compression = require('compression')
 const app         = express();
-/*
+const config      = require('./server/config.js');
 const mongoose    = require('mongoose');
 
 //-----------------------------------------------------------------------------//
 // Schema
 //-----------------------------------------------------------------------------//
 
+/*
 const User = require('./server/model/user.js');
 
 //-----------------------------------------------------------------------------//
 // Connect to Mongo DB
 //-----------------------------------------------------------------------------//
 
-mongoose.connect('mongodb://localhost/test', {
+mongoose.connect(config.dbAddress, {
     useNewUrlParser: true
 });
 
@@ -59,49 +60,50 @@ app.set('view engine', 'html');
 
 app.use(compression());
 
+/*
+// Debug
 app.use('/', function(req, res, next){
-    console.log('MathTingz', req.url);
+    console.log('MathTingz--------', req.url);
     next()
 });
-
-// Tell how to serve files and where to look.
-
-app.use('/',           express.static(__dirname + '/dist'));
-app.use('/mathtingz',  express.static(__dirname + '/dist'));
-app.use('/menu',       express.static(__dirname + '/dist'));
-app.use('/game',       express.static(__dirname + '/dist'));
-app.use('/game/:type', express.static(__dirname + '/dist'));
-app.use('/summary',    express.static(__dirname + '/dist'));
-
-//-----------------------------------------------------------------------------//
-// Handle route.
-//-----------------------------------------------------------------------------//
-
-app.get('/', function(req, res){
-    res.render('index.html');
-});
-
-app.get('/menu', function(req, res){
-    res.render('index.html');
-});
-
-app.get('/game', function(req, res){
-    res.render('index.html');
-});
-
-app.get('/game/:type', function(req, res){
-    res.render('index.html');
-});
-
-app.get('/summary', function(req, res){
-    res.render('index.html');
-});
-
-/*
-app.get('/*', function(req, res){
-    res.redirect("/mathtingz/");
-});
 */
+
+//-----------------------------------------------------------------------------//
+// Handle routes.
+//-----------------------------------------------------------------------------//
+
+// If the use land in any of these urls, send them to the base url.
+
+let badUrls = [
+    '/game/:type',
+    '/summary',
+    '/loot'
+]
+
+badUrls.forEach(function(url){
+    app.get(`${config.baseUrl}${url}`, function(req, res){
+        res.redirect(`${config.baseUrl}`);
+    });
+    
+});
+
+
+let urls = [
+    '/',
+    '/menu',
+    '/game',
+    '/game/:type',
+    '/summary',
+    '/setting',
+    '/rank'
+]
+
+urls.forEach(function(url){
+    app.use(`${config.baseUrl}${url}`,  express.static(__dirname + '/dist'));
+    app.get(`${config.baseUrl}${url}`, function(req, res){
+        res.render('index.html');
+    });
+});
 
 //-----------------------------------------------------------------------------//
 // Start Application
@@ -109,6 +111,6 @@ app.get('/*', function(req, res){
 // Listen app on the following port.
 //-----------------------------------------------------------------------------//
 
-app.listen(3002, () => console.log('Math App listening on port 3002'))
+app.listen(config.port, () => console.log(`Math App listening on port ${config.port}`))
 
 //-----------------------------------------------------------------------------//
