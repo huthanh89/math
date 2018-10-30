@@ -33,7 +33,7 @@ class Layout extends React.Component {
         <Input {..._.assignWith(this.props, state.appProps)}/>
         <Ad/>
         <Reward {...this.props}/>
-        <Review {...state}/>
+        <Review {...this.props}/>
       </div>
     );
   }

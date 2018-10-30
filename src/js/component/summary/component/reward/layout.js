@@ -2,10 +2,9 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import _          from 'lodash';
-import acc        from 'accounting';
-import React      from 'react';
-import localStore from 'store';
+import _     from 'lodash';
+import acc   from 'accounting';
+import React from 'react';
 
 //-----------------------------------------------------------------------------//
 
@@ -24,9 +23,8 @@ class Component extends React.Component {
   // Add points to over all score.
 
   componentDidMount(){
-    let coin = localStore.get('coin');
-    coin = coin + this.getTotalCoin();
-    localStore.set('coin', coin);
+    let coin = this.props.state.coin;
+    coin     = coin + this.getTotalCoin();
     this.props.actionSetCoin(coin);
   }
   

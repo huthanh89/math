@@ -3,6 +3,7 @@
 //-----------------------------------------------------------------------------//
 
 import   acc    from 'accounting';
+import   axios  from 'axios';
 import   React  from 'react';
 import { Link } from 'react-router-dom';
 
@@ -11,6 +12,60 @@ import { Link } from 'react-router-dom';
 //-----------------------------------------------------------------------------//
 
 class Layout extends React.Component {
+
+
+  constructor(){
+    
+    super();
+
+    this.state = {
+      users: []
+    };
+
+    
+  }
+  
+  componentDidMount(){
+    
+    let view = this;
+
+    // Fetch rank info. 
+  
+    axios.get('/api/rank')
+      .then(function (response) {
+        view.setState({
+          users: response.data
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  getItems(){
+
+    let result = [];
+
+    this.state.users.forEach(function(user, index){
+      result.push(
+        <tr key={index}>
+          <td>
+            {index + 1}
+          </td>
+          <td>
+            {user.username}
+          </td>
+          <td>
+            {acc.format(user.coin)}
+          </td>
+        </tr>
+      );
+    });
+
+    return result;
+
+  }
+
   render() {
 
     return (
@@ -43,17 +98,7 @@ class Layout extends React.Component {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>
-                          1
-                        </td>
-                        <td>
-                          {this.props.state.user}
-                        </td>
-                        <td>
-                          {acc.format(this.props.state.coin)}
-                        </td>
-                      </tr>
+                      {this.getItems()}
                     </tbody>
                   </table>
                 </div>

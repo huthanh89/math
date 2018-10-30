@@ -2,6 +2,7 @@
 // Import
 //-----------------------------------------------------------------------------//
 
+import axios           from 'axios';
 import uniqid          from 'uniqid';
 import localStore      from 'store';
 import React           from 'react';
@@ -26,33 +27,60 @@ class App extends React.Component {
 
   constructor(props){
     super(props);
-    props.actionSetUser(this.updateUser());
-    props.actionSetCoin(this.updateCoin());
+    this.getUser(props);
   }
 
-  componentWillUpdate(){
-    this.props.actionSetUser(this.updateUser());
-    this.props.actionSetCoin(this.updateCoin());
+  setupNewUser(){
+
+    let username = uniqid('user_');
+    let view     = this;
+
+    // Post a new user.
+    
+    axios.post('/api/user', {
+      username: username
+    })
+    .then(function(response){
+
+      localStore.set('userID', response.data._id);
+
+      view.setState({
+        username: response.data.username,
+        id:       response.data._id
+      });
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
   }
 
-  updateUser (){
-    let user = localStore.get('user');
-    if(user === undefined){
-      user = uniqid('user_');
-      localStore.set('user', user);
+  fetchUser(userID, props){
+    axios.get('/api/user', {
+      params: {
+        userID: userID
+      }
+    })
+    .then(function(response){
+      let user = response.data;
+      props.actionSetUserName(user.username);
+      props.actionSetUserID(user._id);
+      props.actionSetCoin(parseInt(user.coin));
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
+  getUser (props){
+    let userID = localStore.get('userID');
+    if(userID === undefined){
+      this.setupNewUser();
+    }else{
+      this.fetchUser(userID, props);
     }
-    return user;
   }
 
-  updateCoin (){
-    let coin = localStore.get('coin');
-    if(coin === undefined){
-      localStore.set('coin', 0);
-      coin = 0;
-    }
-    return coin;
-  }
-  
   render(){
     return (
       <div>

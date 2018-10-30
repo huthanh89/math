@@ -11,7 +11,8 @@ import _ from 'lodash';
 const initialState = function(){
   return {
     amazonModal: false,
-    user:        null,
+    username:    null,
+    userID:      null,
     coin:        0,
     rank:        0,
     inGame:      false,
@@ -27,41 +28,46 @@ function reducer (prevState=initialState(), action){
 
   switch (action.type){
 
-    case 'SET_USER': {
+    case 'SET_USERNAME': {
+      let state      = prevState;
+      state.username = action.username;
+      return _.clone(state);
+    }
+
+    case 'SET_USERID': {
       let state  = prevState;
-      state.user = action.user;
-      return state;
+      state.userID = action.userID;
+      return _.clone(state);
     }
 
     case 'SET_COIN': {
       let state  = prevState;
       state.coin = action.coin;
-      return state;
+      return _.clone(state);
     }
 
     case 'AMAZON_MODAL': {
       let state  = prevState;
       state.amazonModal = action.flag;
-      return state;
+      return _.clone(state);
     }
 
     case 'SET_MODE': {
       let state  = prevState;
       state.mode = action.mode;
-      return state;
+      return _.clone(state);
     }
 
     case 'SHOW_AD': {
       let state       = prevState;
       state.advertise = action.flag;
-      return state;
+      return _.clone(state);
     }
-
 
     case 'UPDATE_INGAME': {
       let state = prevState;
       state.inGame = action.flag;
-      return state;
+      return _.clone(state);
     }
     
     default: {

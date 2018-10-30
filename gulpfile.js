@@ -154,7 +154,7 @@ gulp.task('start-server', () => {
     nodemon({
         script: 'server.js',
         ext:    'js html',
-        watch: ['server.js'],
+        watch: ['server.js', 'server/'],
         env:  { 'NODE_ENV': 'development' }
     });
 

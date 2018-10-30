@@ -10,14 +10,16 @@ const Schema   = mongoose.Schema;
 //-----------------------------------------------------------------------------//
 
 const schema = new Schema({
-    username:  String,
-    name:      String,
-    coin:      String,
-    rank:      String,
-    date: { 
-        type: Date, 
+    username:   String,
+    coin:       Number,
+    rank:       String,
+    difficulty: Number,
+    updated: { 
+        type:    Date, 
         default: Date.now 
-    }
+    },
+    created: Date
+
 });
 
 //-----------------------------------------------------------------------------//
@@ -30,6 +32,6 @@ const Model = mongoose.model('user', schema);
 // Export
 //-----------------------------------------------------------------------------//
 
-exports.Model = Model;
+module.exports = Model;
 
 //-----------------------------------------------------------------------------//

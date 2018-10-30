@@ -3,6 +3,7 @@
 //-----------------------------------------------------------------------------//
 
 import _      from 'lodash';
+import axios  from 'axios';
 import moment from 'moment';
 import acc    from 'accounting';
 import React  from 'react';
@@ -18,6 +19,21 @@ var TotalCorrect = null;
 //-----------------------------------------------------------------------------//
 
 class Component extends React.Component {
+
+  componentDidMount(){
+    this.updateCoin();
+  }
+
+  updateCoin(){
+    axios.put('/api/summary', {
+      coin:   this.getTotalCoin(),
+      userID: this.props.state.userID
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
+  }
 
   tableBody() {
 
@@ -79,7 +95,7 @@ class Component extends React.Component {
   
   getReward(){
     let reward = 0;
-    this.props.levels.forEach(function(level){
+    this.props.state.levels.forEach(function(level){
       if(level.correct){
         reward += level.reward;
       }
@@ -89,11 +105,14 @@ class Component extends React.Component {
 
   getTotalCoin(){
     let reward = this.getReward();
-    let loot   = this.props.loot;
+    let loot   = this.props.state.loot;
     return reward + loot;
   }
 
   render() {
+
+
+    console.log('>>>',  this.props.state);
 
     let tableBody = this.tableBody();
 

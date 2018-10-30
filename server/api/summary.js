@@ -2,6 +2,7 @@
 // Import
 //-----------------------------------------------------------------------------//
 
+const _    = require('lodash');
 const User = require('../model/user.js');
 
 //-----------------------------------------------------------------------------//
@@ -9,38 +10,27 @@ const User = require('../model/user.js');
 //-----------------------------------------------------------------------------//
 
 const route = function(app){
-    
-    app.route('/api/user')
-        
-        .get(function (req, res) {
+    app.route('/api/summary')
+        .put(function (req, res) {
             User.findOne({
-                _id: req.query.userID
-            },function (err, doc) {
+                _id: req.body.userID
+            },function (err, user) {
                 if (err) {
                     console.log(err);
                 } 
                 else {
-                    res.send(doc)
-                }
-            });
-        })
 
-        .post(function (req, res) {
+                    user.coin += req.body.coin;
 
-            // Create a document
-            
-            const user = new User({
-                username: req.body.username,
-                coin:     0,
-                created:  Date.now(),
-            });
-            
-            user.save(function (err, doc) {
-                if (err) {
-                    console.log(err);
-                } 
-                else {
-                    res.send(doc)
+                    user.save(function (err, doc) {
+                        if (err) {
+                            console.log(err);
+                        } 
+                        else {
+                            res.send(doc)
+                        }
+                    });
+
                 }
             });
         })

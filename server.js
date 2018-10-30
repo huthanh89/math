@@ -8,16 +8,10 @@ const compression = require('compression')
 const app         = express();
 const config      = require('./server/config.js');
 const mongoose    = require('mongoose');
+const bodyParser  = require('body-parser');
 
 //-----------------------------------------------------------------------------//
-// Schema
-//-----------------------------------------------------------------------------//
-
-/*
-const User = require('./server/model/user.js');
-
-//-----------------------------------------------------------------------------//
-// Connect to Mongo DB
+// Connect to Mongo Database
 //-----------------------------------------------------------------------------//
 
 mongoose.connect(config.dbAddress, {
@@ -27,26 +21,14 @@ mongoose.connect(config.dbAddress, {
 mongoose.Promise = global.Promise;
 
 //-----------------------------------------------------------------------------//
-// Create a document
-
-const user = new User.Model({
-    name: 'goo',
-    coin: 88
-});
-
-user.save(function (err) {
-    if (err) {
-        console.log(err);
-    } 
-    else {
-        console.log('meow');
-    }
-});
-*/
-
-//-----------------------------------------------------------------------------//
 // Configure App
 //-----------------------------------------------------------------------------//
+
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
+app.use(bodyParser.json());
 
 // Tell express to look for views in the following directory.
 
@@ -59,11 +41,10 @@ app.set('view engine', 'html');
 // Use compression to GZip files size.
 
 app.use(compression());
-
 /*
-// Debug
-app.use('/', function(req, res, next){
-    console.log('MathTingz--------', req.url);
+// Debug Logger
+app.use(function(req, res, next){
+    console.log('Logger--------', req.url);
     next()
 });
 */
@@ -71,6 +52,12 @@ app.use('/', function(req, res, next){
 //-----------------------------------------------------------------------------//
 // Handle routes.
 //-----------------------------------------------------------------------------//
+
+// Initialize api routes:
+
+require('./server/api/user.js')(app)
+require('./server/api/rank.js')(app)
+require('./server/api/summary.js')(app)
 
 // If the use land in any of these urls, send them to the base url.
 
@@ -84,7 +71,6 @@ badUrls.forEach(function(url){
     app.get(`${config.baseUrl}${url}`, function(req, res){
         res.redirect(`${config.baseUrl}`);
     });
-    
 });
 
 
@@ -103,6 +89,11 @@ urls.forEach(function(url){
     app.get(`${config.baseUrl}${url}`, function(req, res){
         res.render('index.html');
     });
+});
+
+app.use('/', express.static(__dirname + '/dist'));
+app.get('/', function(req, res){
+    res.render('index.html');
 });
 
 //-----------------------------------------------------------------------------//

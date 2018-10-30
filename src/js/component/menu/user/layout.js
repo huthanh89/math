@@ -35,11 +35,11 @@ class Layout extends React.Component {
 
           <div className="d-inline-block">
             <b className="d-block mb-2">
-              {this.props.state.user}
+              {this.props.state.username}
             </b>
             <i className="fas fa-fw fa-trophy mr-2 fa-lg"></i>
             <b>
-              1
+              {this.props.state.rank}
             </b>
           </div>
         
