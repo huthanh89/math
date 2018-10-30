@@ -41,8 +41,9 @@ app.set('view engine', 'html');
 // Use compression to GZip files size.
 
 app.use(compression());
+
 /*
-// Debug Logger
+// Middleware Logger
 app.use(function(req, res, next){
     console.log('Logger--------', req.url);
     next()

@@ -2,10 +2,8 @@
 // Sever Configuration
 //-----------------------------------------------------------------------------//
 
-exports.port = 3002;
-
+exports.port      = 3002;
 exports.dbAddress = 'mongodb://localhost/test';
-
-exports.baseUrl = '/mathtingz';
+exports.baseUrl   = '/mathtingz';
 
 //-----------------------------------------------------------------------------//
