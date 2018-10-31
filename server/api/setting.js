@@ -2,7 +2,6 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-const _    = require('lodash');
 const User = require('../model/user.js');
 
 //-----------------------------------------------------------------------------//
@@ -24,7 +23,6 @@ const route = function(app){
                 }
                 else {
 
-                    user.username       = req.body.username;
                     user.gameDifficulty = req.body.gameDifficulty;
 
                     user.save(function (err, doc) {

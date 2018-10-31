@@ -45,14 +45,20 @@ class Layout extends React.Component {
     this.radioChange  = this.radioChange.bind(this);
     this.state = {
       fetching:       false,
-      gameDifficulty: props.state.gameDifficulty
+      gameDifficulty: 0
     };
+
+    this.username = React.createRef();
+    this.email    = React.createRef();
+    this.password = React.createRef();
   }
 
   handleSubmit (event){
     event.preventDefault();
+    console.log('submit', this.username.current.value);
+    console.log('submit', this.email.current.value);
     if(!this.state.fetching){
-      this.save();
+      //this.save();
     }
   }
 
@@ -64,15 +70,17 @@ class Layout extends React.Component {
 
     axios.put('/api/setting', {
       userID:         this.props.state.userID,
-      gameDifficulty: this.state.gameDifficulty
+      username:       this.props.state.username,
+      gameDifficulty: this.props.state.gameDifficulty
     })
     .then(function(){
-      view.props.actionGameDifficulty(view.state.gameDifficulty);
+      props.actionGameDifficulty(view.state.gameDifficulty);
+      props.actionSetUserName($('#setting-username').val());
       showToast("Settings Updated!", view.props);
     })
     .catch(function (error) {
       console.log(error);
-      view.props.history.push('/');
+      props.history.push('/');
     });
   }
 
@@ -110,6 +118,12 @@ class Layout extends React.Component {
 
   render() {
 
+    let state    =  this.props.state;
+    let username = '';
+    if(state.username){
+      username = state.username;
+    }
+
     return (
       <div className="row" id="setting-container">
         <div className="col-lg-5 col-md-8 col-center">
@@ -125,6 +139,21 @@ class Layout extends React.Component {
             <div className="card-body">
 
               <form onSubmit={this.handleSubmit}>
+
+                <div className="form-group">
+                  <label htmlFor="setting-username">Username</label>
+                  <input type="text" ref={this.username} defaultValue={username} className="form-control form-control-sm" id="setting-username"  maxLength="15"/>
+                </div>
+                
+                <div className="form-group">
+                  <label htmlFor="setting-email">Email</label>
+                  <input type="email" ref={this.email} className="form-control form-control-sm" id="setting-email" maxLength="30" required/>
+                </div>
+                
+                <div className="form-group">
+                  <label htmlFor="setting-password">Password</label>
+                  <input type="password" ref={this.password} className="form-control form-control-sm" id="setting-password" maxLength="15" required/>
+                </div>
 
                 <div className="form-group">
                   <label htmlFor="setting-difficulty">Difficulty</label>

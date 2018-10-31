@@ -12,6 +12,7 @@ const initialState = function(){
   return {
     amazonModal:    false,
     username:       null,
+    email:          null,
     userID:         null,
     coin:           0,
     rank:           0,
@@ -43,6 +44,12 @@ function reducer (prevState=initialState(), action){
     case 'SET_USERNAME': {
       let state      = prevState;
       state.username = action.username;
+      return _.clone(state);
+    }
+
+    case 'SET_EMAIL': {
+      let state   = prevState;
+      state.email = action.email;
       return _.clone(state);
     }
 
