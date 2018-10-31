@@ -50,11 +50,13 @@ app.set('view engine', 'html');
 
 app.use(compression());
 
+/*
 // Middleware Logger
 app.use(function(req, res, next){
     console.log('Logger--------', req.url);
-    next()
+    next();
 });
+*/
 
 //-----------------------------------------------------------------------------//
 // Handle routes.
@@ -77,7 +79,6 @@ badUrls.forEach(function(url){
         res.redirect(`${config.baseUrl}`);
     });
 });
-
 
 let urls = [
     '/',
