@@ -92,14 +92,22 @@ class Layout extends React.Component {
     }
   }
 
-  saveButtonClass(){
-    let result = 'btn btn-primary ml-2 float-right';
+  saveButton(){
     if(this.state.fetching){
-      result += ' disabled';
+      return(
+        <button className='btn btn-primary ml-2 float-right disabled'>
+          <i className="fas fa-spinner fa-spin mr-2"></i>                    
+          <span> Save </span>
+        </button>
+      );
     }
-    return result;
+    return(
+      <button className='btn btn-primary ml-2 float-right' onClick={this.save}>
+        <span> Save </span>
+      </button>
+    );
   }
-  
+
   shouldCheck(difficulty){
     return this.props.state.gameDifficulty === difficulty;
   }
@@ -157,9 +165,7 @@ class Layout extends React.Component {
 
               <div className="row">
                 <div className="col-12">
-                  <button className={this.saveButtonClass()} onClick={this.save}>
-                    <span> Save </span>
-                  </button>
+                  {this.saveButton()}
                 </div>
               </div>
             
