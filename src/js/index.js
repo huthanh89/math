@@ -24,7 +24,7 @@ const store = createStore(
 $( document ).ready(function() {
   render(
     <Provider store={store}>
-      <Router basename={'/mathtingz/'}>
+      <Router>
         <Route 
           path="/" 
           component={App} 
