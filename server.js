@@ -50,13 +50,11 @@ app.set('view engine', 'html');
 
 app.use(compression());
 
-/*
 // Middleware Logger
 app.use(function(req, res, next){
     console.log('Logger--------', req.url);
     next()
 });
-*/
 
 //-----------------------------------------------------------------------------//
 // Handle routes.
@@ -96,11 +94,6 @@ urls.forEach(function(url){
     app.get(`${url}`, function(req, res){
         res.render('index.html');
     });
-});
-
-app.use('/', express.static(__dirname + '/dist'));
-app.get('/', function(req, res){
-    res.render('index.html');
 });
 
 //-----------------------------------------------------------------------------//
