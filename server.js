@@ -75,7 +75,7 @@ let badUrls = [
 ]
 
 badUrls.forEach(function(url){
-    app.get(`${config.baseUrl}${url}`, function(req, res){
+    app.get(`${url}`, function(req, res){
         res.redirect(`${config.baseUrl}`);
     });
 });
@@ -92,8 +92,8 @@ let urls = [
 ]
 
 urls.forEach(function(url){
-    app.use(`${config.baseUrl}${url}`,  express.static(__dirname + '/dist'));
-    app.get(`${config.baseUrl}${url}`, function(req, res){
+    app.use(`${url}`,  express.static(__dirname + '/dist'));
+    app.get(`${url}`, function(req, res){
         res.render('index.html');
     });
 });
