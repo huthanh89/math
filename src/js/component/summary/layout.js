@@ -18,6 +18,11 @@ import { Redirect } from 'react-router-dom';
 
 class Layout extends React.Component {
   
+  constructor(props){
+    super(props);
+    props.actionSetGameCompleted(true);
+  }
+
   render() {
 
     let state = this.props.state;

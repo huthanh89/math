@@ -2,10 +2,11 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import Ad       from './ad/layout.js';
-import Reward   from './reward/layout.js';
-import React    from 'react';
-import { Link } from 'react-router-dom';
+import Ad           from './ad/layout.js';
+import Reward       from './reward/layout.js';
+import React        from 'react';
+import { Link }     from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 //-----------------------------------------------------------------------------//
 
@@ -60,10 +61,21 @@ class Component extends React.Component {
     }
 
     componentDidMount(){
-        this.timer = window.setInterval(this.clock, 1000);
+        if(!this.props.state.gameCompleted){
+            this.timer = window.setInterval(this.clock, 1000);
+        }
     }
 
     render () {
+
+        // If user tries to back space from summary, redirect them to home.
+
+        if(this.props.state.gameCompleted){
+            return (
+                <Redirect to="/"/>
+            );
+        }
+
         return (
             <div className="adsense-fullview-container">
                 <div className="adsense-fullview">

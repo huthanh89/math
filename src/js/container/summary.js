@@ -22,6 +22,12 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
 
     return {
+        actionSetGameCompleted: function (flag){
+            return dispatch({
+                type: 'SET_GAME_COMPLETED',
+                flag:  flag
+            });
+        },
         actionSetCoin: function (coin){
             return dispatch({
                 type: 'SET_COIN',

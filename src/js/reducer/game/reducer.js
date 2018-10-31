@@ -56,9 +56,6 @@ function setUserAnswer(state, userAnswer) {
 
 function incrementLevel(state) {
   state.currentLevel = state.currentLevel + 1;
-  if(state.currentLevel === 10){
-    state.gameCompleted = true;
-  }
   return state;
 }
 
@@ -109,6 +106,11 @@ function setDifficulty(state, difficulty) {
   return state;
 }
 
+function setGameCompleted(state, gameCompleted) {
+  state.gameCompleted = gameCompleted;
+  return state;
+}
+
 //-----------------------------------------------------------------------------//
 // Reducer
 //-----------------------------------------------------------------------------//
@@ -117,6 +119,12 @@ function reducer (prevState=initialState(), action){
 
   switch (action.type){
     
+    case 'SET_GAME_COMPLETED': {
+      let state = prevState;
+      state     = setGameCompleted(state, action.flag);
+      return _.clone(state);
+    }
+
     case 'SET_DIFFICULTY': {
       let state        = prevState;
       state = setDifficulty(state, action.difficulty);

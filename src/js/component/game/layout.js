@@ -2,12 +2,12 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import React      from 'react';
-import Nav        from './component/nav/layout.js';
-import Star       from './component/star/layout.js';
-import Round      from './component/round/layout.js';
-import Question   from './component/question/layout.js';
-import Input      from './component/input/layout.js';
+import React        from 'react';
+import Nav          from './component/nav/layout.js';
+import Star         from './component/star/layout.js';
+import Round        from './component/round/layout.js';
+import Question     from './component/question/layout.js';
+import Input        from './component/input/layout.js';
 import { Redirect } from 'react-router-dom';
 
 //-----------------------------------------------------------------------------//
@@ -42,17 +42,11 @@ class Layout extends React.Component {
       this.props.actionEndTime(currentLevel - 1, time);
     }
 
-    // Update the game complete flag if game is over.
-
-    if(this.props.state.gameCompleted){
-      this.props.actionUpdateInGame(false);
-    }
-    
   }
 
   render() {
 
-    if(this.props.state.gameCompleted){
+    if(this.props.state.currentLevel === 10){
       return (
         <Redirect to="/loot"/>
       );
