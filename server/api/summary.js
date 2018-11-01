@@ -27,19 +27,24 @@ const route = function(app){
                 }
                 else {
 
+                    // Update Rank.
+
                     let rank = users.length + 1;
                     let coin = targetUser.coin + req.body.coin;
-
                     users.forEach(function(user){
-
                         if(user.coin < coin){
                             rank -= 1;
                         }
-
                     });
 
-                    targetUser.coin  = coin;
-                    targetUser.rank  = rank;
+                    targetUser.coin = coin;
+                    targetUser.rank = rank;
+
+                    // Update store coin.
+
+                    targetUser.storeCoin += req.body.coin;
+
+                    // Save model to database.
 
                     targetUser.save(function (err, doc) {
                         if (err) {

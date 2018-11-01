@@ -19,10 +19,26 @@ const schema = new Schema({
         sparse: true,
         trim:   true
     },
-    coin:           Number,
-    rank:           String,
-    gameDifficulty: Number,
-    rank:           Number,
+    coin: {
+        type:    Number, 
+        default: 0
+    },
+    storeCoin: {
+        type:    Number, 
+        default: 0
+    },
+    monsters: {
+        type: Array,
+        default: []
+    },
+    rank: {
+        type:    Number, 
+        default: 0
+    },
+    gameDifficulty: {
+        type:    Number, 
+        default: 0
+    },
     updated: { 
         type:    Date, 
         default: Date.now 
