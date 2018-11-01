@@ -149,7 +149,7 @@ class Layout extends React.Component {
             
             <div className="form-group">
               <label htmlFor="setting-password">Password</label>
-              <input type="password" ref={this.password} className="form-control form-control-sm" id="setting-password" minLength="4" maxLength="15" required/>
+              <input type="password" ref={this.password} className="form-control form-control-sm" id="setting-password" minLength="2" maxLength="15" required/>
             </div>
             
             <hr></hr>

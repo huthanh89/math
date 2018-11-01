@@ -2,14 +2,15 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-const User = require('../model/user.js');
+const crypto = require('crypto');
+const User   = require('../model/user.js');
 
 //-----------------------------------------------------------------------------//
 // API Route
 //-----------------------------------------------------------------------------//
 
 const route = function(app){
-    
+
     app.route('/api/user')
         
         .get(function (req, res) {
@@ -32,6 +33,8 @@ const route = function(app){
 
         .post(function (req, res) {
 
+            let salt = crypto.randomBytes(64).toString('hex')
+
             // Create a document
             
             const user = new User({
@@ -40,7 +43,7 @@ const route = function(app){
                 rank:           0,
                 gameDifficulty: 0,
                 created:        Date.now(),
-                email:          undefined
+                salt:           salt
             });
 
             user.save(function (err, doc) {

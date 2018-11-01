@@ -2,7 +2,8 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-const User = require('../model/user.js');
+const crypto = require('crypto');
+const User   = require('../model/user.js');
 
 //-----------------------------------------------------------------------------//
 // API Route
@@ -13,11 +14,9 @@ const route = function(app){
     app.route('/api/login')
         .get(function (req, res) {
 
-            console.log(req.query);
-
+            
             User.findOne({
-                email:    req.query.email,
-                password: req.query.password
+                email: req.query.email,
             },function (err, doc) {
                 if (err) {
                     res.status(400).send('Error looking up username');
@@ -27,7 +26,17 @@ const route = function(app){
                         res.status(400).send('Incorrect email or password');
                     }
                     else{
-                        res.send(doc)
+                        
+                        let iterations = 10000;
+                        let hash       = crypto.pbkdf2Sync(req.query.password, doc.salt, iterations, 64, 'sha1').toString('hex');
+
+                        if(doc.password == hash){
+                            res.send(doc);
+                        }
+                        else{
+                            res.status(400).send('Incorrect email or password');
+                        }
+                        
                     }
                 }
             });

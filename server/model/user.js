@@ -10,9 +10,9 @@ const Schema   = mongoose.Schema;
 //-----------------------------------------------------------------------------//
 
 const schema = new Schema({
-    username:  String,
-    password:  String,
-    salt:      String,
+    username: String,
+    password: String,
+    salt:     String,
     email: {
         type:   String, 
         unique: true,

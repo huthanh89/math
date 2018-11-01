@@ -2,7 +2,9 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-const User = require('../model/user.js');
+const crypto = require('crypto');
+const User   = require('../model/user.js');
+const config = require('../config.js');
 
 //-----------------------------------------------------------------------------//
 // API Route
@@ -27,9 +29,14 @@ const route = function(app){
                 }
                 else {
 
-                    user.username = req.body.username;
-                    user.email    = req.body.email;
-                    user.password = req.body.password;
+                    console.log('salt', config.salt);
+
+                    let iterations = 10000;
+                    let hash       = crypto.pbkdf2Sync(req.body.password, config.salt, iterations, 64, 'sha1').toString('hex');
+                    
+                    user.username  = req.body.username;
+                    user.email     = req.body.email;
+                    user.password  = hash;
 
                     user.save(function (err, doc) {
                         if (err) {
