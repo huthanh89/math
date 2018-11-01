@@ -69,10 +69,13 @@ class Layout extends React.Component {
                 </div>
 
                 <div className="col-md-4 col-6" style={{'whiteSpace':'nowrap'}}>
-                  <i className="fas fa-fw fa-coins mr-1 fa-lg"></i>
-                  <b>
-                    {acc.format(this.props.state.storeCoin)}
-                  </b>
+                  <div className="float-right">
+                    <i className="fas fa-fw fa-coins mr-1 fa-lg"></i>
+                    <b>
+                      {acc.format(this.props.state.storeCoin)}
+                    </b>
+
+                  </div>
                   
                 </div>
               </div>
