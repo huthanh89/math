@@ -35,7 +35,7 @@ class Layout extends React.Component {
             <div className="col-3">
                 <Link to='/setting'>
                   <button className="btn btn-outline-light btn-lg menu-setting-button">
-                    <i className="fas fa-user-cog fa-lg d-block"></i>
+                    <i className="fas fa-cogs fa-lg d-block"></i>
                   </button>
                   <span className="menu-setting-title">Setting</span>
                 </Link>

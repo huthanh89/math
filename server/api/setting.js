@@ -15,8 +15,7 @@ const route = function(app){
                 _id: req.body.userID
             },function (err, user) {
                 if (err) {
-                    console.log(err);
-                    res.sendStatus(400);
+                    res.status(500).send('Could not find user settings');
                 } 
                 else if(user==null){
                     res.sendStatus(400);
@@ -27,7 +26,7 @@ const route = function(app){
 
                     user.save(function (err, doc) {
                         if (err) {
-                            console.log(err);
+                            res.status(500).send('Could not update settings');
                         } 
                         else {
                             res.send(doc);

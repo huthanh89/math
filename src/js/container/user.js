@@ -3,7 +3,7 @@
 //-----------------------------------------------------------------------------//
 
 import   _         from 'lodash';
-import   Setting   from '../component/setting/layout.js';
+import   User      from '../component/user/layout.js';
 import { connect } from 'react-redux';
 
 //-----------------------------------------------------------------------------//
@@ -35,12 +35,6 @@ function mapDispatchToProps(dispatch) {
                 type:  'SET_EMAIL',
                 email:  email
             });
-        },
-        actionGameDifficulty: function (gameDifficulty){
-            return dispatch({
-                type:           'SET_GAME_DIFFICULTY',
-                gameDifficulty: gameDifficulty
-            });
         }
     };
 }
@@ -52,6 +46,6 @@ function mapDispatchToProps(dispatch) {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Setting);
+)(User);
 
 //-----------------------------------------------------------------------------//

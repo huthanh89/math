@@ -118,7 +118,7 @@ class Layout extends React.Component {
             <div className="card-header border-light text-center">
               <i className="fas fa-fw fa-cogs mr-2"></i>
               <span>
-                Settings
+                Game Settings
               </span>
             </div>
 
@@ -152,6 +152,13 @@ class Layout extends React.Component {
 
                 <div className="row">
                   <div className="col-12">
+
+                    <Link to='/user'>
+                      <button className='btn btn-secondary mr-2 float-left'>
+                        <i className="fas fa-user-cog"></i>
+                      </button>
+                    </Link>
+
                     {this.saveButton()}
                     <Link to='/'>
                       <button className='btn btn-secondary mr-2 float-right'>

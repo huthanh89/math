@@ -15,6 +15,7 @@ const bodyParser  = require('body-parser');
 //-----------------------------------------------------------------------------//
 
 mongoose.connect(`${config.dbAddress}${config.dbName}`, {
+    useCreateIndex:  true,
     useNewUrlParser: true
 });
 
@@ -25,7 +26,7 @@ mongoose.connection.on('connected', function () {
 }); 
 
 mongoose.connection.on('error',function (err) {  
-    console.log(`Error Connection to Math database: ${err}`);
+    console.error(`Error Connection to Math database: ${err}`);
 }); 
 
 //-----------------------------------------------------------------------------//
@@ -87,6 +88,7 @@ let urls = [
     '/game/:type',
     '/summary',
     '/setting',
+    '/user',
     '/rank'
 ]
 

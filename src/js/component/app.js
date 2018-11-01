@@ -8,6 +8,7 @@ import localStore      from 'store';
 import React           from 'react';
 import Menu            from '../container/menu.js';
 import Setting         from '../container/setting.js';
+import User            from '../container/user.js';
 import Game            from '../container/game.js';
 import Summary         from '../container/summary.js';
 import Store           from '../container/store.js';
@@ -70,10 +71,10 @@ class App extends React.Component {
       props.actionInitialUser({
         userID:         user._id,
         username:       user.username,
+        email:          user.email,
         coin:           user.coin,
         gameDifficulty: user.gameDifficulty,
         rank:           user.rank
-
       });
     })
     .catch(function (error) {
@@ -97,10 +98,11 @@ class App extends React.Component {
         <Route path="/game/:type" component={Game} />
         <Route path="/summary"    component={Summary} />
         <Route path="/contact"    component={Contact} />
-        <Route path="/Setting"    component={Setting} />
-        <Route path="/Rank"       component={Rank} />
-        <Route path="/Share"      component={Share} />
-        <Route path="/Store"      component={Store} />
+        <Route path="/setting"    component={Setting} />
+        <Route path="/user"       component={User} />
+        <Route path="/rank"       component={Rank} />
+        <Route path="/share"      component={Share} />
+        <Route path="/store"      component={Store} />
         <Route path="/adfullview" component={AdsenseFullView} />
         <Route path="/loot"       component={Loot} />
         <Footer/>

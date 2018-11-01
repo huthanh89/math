@@ -24,18 +24,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        actionSetUserName: function (username){
-            return dispatch({
-                type:     'SET_USERNAME',
-                username:  username
-            });
-        },
-        actionSetEmail: function (email){
-            return dispatch({
-                type:  'SET_EMAIL',
-                email:  email
-            });
-        },
         actionGameDifficulty: function (gameDifficulty){
             return dispatch({
                 type:           'SET_GAME_DIFFICULTY',

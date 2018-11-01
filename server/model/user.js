@@ -11,6 +11,13 @@ const Schema   = mongoose.Schema;
 
 const schema = new Schema({
     username:       String,
+    password:       String,
+    email: {
+        type:   String, 
+        unique: true,
+        sparse: true,
+        trim:   true
+    },
     coin:           Number,
     rank:           String,
     gameDifficulty: Number,
@@ -20,7 +27,6 @@ const schema = new Schema({
         default: Date.now 
     },
     created: Date
-
 });
 
 //-----------------------------------------------------------------------------//

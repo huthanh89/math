@@ -19,6 +19,7 @@ const initialState = function(){
     inGame:         false,
     mode:           null,
     gameDifficulty: 0,
+    message:        0
   };
 };
 
@@ -34,10 +35,17 @@ function reducer (prevState=initialState(), action){
       let state            = prevState;
       let user             = action.user;
       state.username       = user.username;
+      state.email          = user.email;
       state.userID         = user.userID;
       state.coin           = user.coin;
       state.rank           = user.rank;
       state.gameDifficulty = user.gameDifficulty;
+      return _.clone(state);
+    }
+
+    case 'SET_MESSAGE': {
+      let state     = prevState;
+      state.message = action.messages;
       return _.clone(state);
     }
 

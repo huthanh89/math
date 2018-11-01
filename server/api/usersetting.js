@@ -2,7 +2,6 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-const _    = require('lodash');
 const User = require('../model/user.js');
 
 //-----------------------------------------------------------------------------//
@@ -10,49 +9,34 @@ const User = require('../model/user.js');
 //-----------------------------------------------------------------------------//
 
 const route = function(app){
-    app.route('/api/summary')
+    app.route('/api/usersetting')
         .put(function (req, res) {
-
-            User.find({},function (err, users) {
-
-                let targetUser = _.find(users, function(user){ 
-                    return user._id == req.body.userID;
-                })
-
+            User.findOne({
+                _id: req.body.userID
+            },function (err, user) {
                 if (err) {
-                    res.status(500).send('Error finding user');
+                    res.sendStatus(500);
                 } 
-                else if(targetUser==null){
-                    res.status(500).send('User not found');
+                else if(user==null){
+                    res.sendStatus(400);
                 }
                 else {
 
-                    let rank = users.length + 1;
-                    let coin = targetUser.coin + req.body.coin;
+                    user.username = req.body.username;
+                    user.email    = req.body.email;
+                    user.password = req.body.password;
 
-                    users.forEach(function(user){
-
-                        if(user.coin < coin){
-                            rank -= 1;
-                        }
-
-                    });
-
-                    targetUser.coin  = coin;
-                    targetUser.rank  = rank;
-
-                    targetUser.save(function (err, doc) {
+                    user.save(function (err, doc) {
                         if (err) {
-                            res.status(500).send('Could not update user data');
+                            res.status(500).send('Email has already been taken');
                         } 
                         else {
-                            res.send(doc)
+                            res.send(doc);
                         }
                     });
 
                 }
             });
-
         })
 }
 

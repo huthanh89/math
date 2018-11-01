@@ -24,6 +24,12 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
+        actionMessage: function (message){
+            return dispatch({
+                type:   'SET_MESSAGE',
+                message: message
+            });
+        },
         actionInitialUser: function (user){
             return dispatch({
                 type: 'SET_INITIAL_USER',

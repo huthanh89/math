@@ -10,14 +10,15 @@ const User = require('../model/user.js');
 
 const route = function(app){
     
-    app.route('/api/user')
+    app.route('/api/login')
         
         .get(function (req, res) {
             User.findOne({
-                _id: req.query.userID
+                email:    req.query.email,
+                password: req.query.password
             },function (err, doc) {
                 if (err) {
-                    res.status(500).send('User Data not found');
+                    console.log(err);
                 } 
                 else {
                     res.send(doc)
@@ -25,28 +26,6 @@ const route = function(app){
             });
         })
 
-        .post(function (req, res) {
-
-            // Create a document
-            
-            const user = new User({
-                username:       req.body.username,
-                coin:           0,
-                rank:           0,
-                gameDifficulty: 0,
-                created:        Date.now(),
-                email:          undefined
-            });
-
-            user.save(function (err, doc) {
-                if (err) {
-                    res.status(500).send('Could initiate player data');
-                } 
-                else {
-                    res.send(doc)
-                }
-            });
-        })
 }
 
 //-----------------------------------------------------------------------------//

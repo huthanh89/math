@@ -2,8 +2,9 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import Creatures from 'lib/creature.js';
-import React     from 'react';
+import   Creatures from 'lib/creature.js';
+import   React     from 'react';
+import { Link }    from 'react-router-dom';
 
 //-----------------------------------------------------------------------------//
 // Component
@@ -30,19 +31,19 @@ class Layout extends React.Component {
     return (
       <div className="row">
         <div className="col-12" id="menu-user-container">
-          
-          <img id="menu-avatar-image" src={`asset/${creature.src}`} alt="avatar"/>
+          <Link to='/user'>
+            <img id="menu-avatar-image" src={`asset/${creature.src}`} alt="avatar"/>
 
-          <div className="d-inline-block">
-            <i className="fas fa-fw fa-trophy mr-2 fa-lg"></i>
-            <b>
-              {this.props.state.rank}
-            </b>
-            <b className="d-block mt-2">
-              {this.props.state.username}
-            </b>
-          </div>
-        
+            <div className="d-inline-block text-white">
+              <i className="fas fa-fw fa-trophy mr-2 fa-lg"></i>
+              <b>
+                {this.props.state.rank}
+              </b>
+              <b className="d-block mt-2">
+                {this.props.state.username}
+              </b>
+            </div>
+          </Link>
         </div>
       </div>
     );
