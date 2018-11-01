@@ -82,7 +82,13 @@ function reducer (prevState=initialState(), action){
       state.storeCoin = action.storeCoin;
       return _.clone(state);
     }
-    
+
+    case 'ADD_MONSTER': {
+      let state = prevState;
+      state.monsters.push(action.id);
+      return _.clone(state);
+    }
+
     case 'SET_GAME_DIFFICULTY': {
       let state            = prevState;
       state.gameDifficulty = action.gameDifficulty;

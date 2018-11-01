@@ -13,8 +13,9 @@ import 'react-toastify/dist/ReactToastify.css';
 //-----------------------------------------------------------------------------//
 
 function showToast(message, props){
+  let toastID = Date.now();
   toast.success(message, {
-    toastId: 1,
+    toastId: toastID,
     position: toast.POSITION.BOTTOM_CENTER,
     autoClose: 2500,
     className: css({
@@ -28,7 +29,7 @@ function showToast(message, props){
 
   setTimeout(function(){
     props.history.push('/');
-    toast.dismiss(1);
+    toast.dismiss(toastID);
   }, 2000);
 
 }
@@ -71,7 +72,6 @@ class Layout extends React.Component {
       showToast("Settings Updated!", view.props);
     })
     .catch(function (error) {
-      console.log(error);
       view.props.history.push('/');
     });
   }

@@ -11,6 +11,15 @@ import React from 'react';
 
 class Layout extends React.Component {
 
+  constructor(props){
+    super(props);
+    this.clickedBuy = this.clickedBuy.bind(this);
+  }
+
+  clickedBuy(){
+    this.props.buyItem(this.props.creature);
+  }
+
   isLocked(){
     return this.props.creature.price > this.props.state.coin;
   }
@@ -22,11 +31,22 @@ class Layout extends React.Component {
       );
     }
     else{
-      return(
-        <button className="btn btn-sm btn-primary store-item">
-          Buy
-        </button>
-      );
+
+      if(this.props.state.storeCoin < this.props.creature.price){
+        return(
+          <button className="btn btn-sm btn-secondary store-item disabled">
+            Buy
+          </button>
+        );
+      }
+      else{
+        return(
+          <button className="btn btn-sm btn-primary store-item" onClick={this.clickedBuy}>
+            Buy
+          </button>
+        );
+      }
+
     }
   }
 
@@ -72,6 +92,7 @@ class Layout extends React.Component {
           {this.getActionItem()}
         </td>
       </tr>
+      
     );
   }
 }

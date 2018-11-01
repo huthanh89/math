@@ -30,6 +30,18 @@ function mapDispatchToProps(dispatch) {
                 flag:  flag,
             });
         },
+        actionAddMonster: function (id){
+            return dispatch({
+                type: 'ADD_MONSTER',
+                id:    id,
+            });
+        },
+        actionSetStoreCoin: function (storeCoin){
+            return dispatch({
+                type:     'SET_STORE_COIN',
+                storeCoin: storeCoin
+            });
+        }
     };
 }
 

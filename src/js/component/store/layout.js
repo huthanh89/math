@@ -2,17 +2,74 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import   acc    from 'accounting';
-import   React  from 'react';
-import   Item   from './item/layout.js';
-import { Link } from 'react-router-dom';
-import Creatures from 'lib/creature.js';
+import   acc       from 'accounting';
+import   React     from 'react';
+import   Item      from './item/layout.js';
+import { Link }    from 'react-router-dom';
+import   Creatures from 'lib/creature.js';
+import   axios     from 'axios';
+import { css }     from 'glamor';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+//-----------------------------------------------------------------------------//
+
+function showToast(message){
+
+  let toastID = Date.now();
+
+  toast.success(message, {
+    toastId:  toastID,
+    position: toast.POSITION.BOTTOM_CENTER,
+    autoClose: 2500,
+    className: css({
+      opacity: '0.85'
+    }),
+    bodyClassName: css({
+      fontSize:  '21px',
+      textAlign: 'center'
+    })
+  });
+
+  setTimeout(function(){
+    toast.dismiss(toastID);
+  }, 2000);
+
+}
 //-----------------------------------------------------------------------------//
 // Component
 //-----------------------------------------------------------------------------//
 
 class Layout extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      fetching: false
+    };
+    this.buyItem = this.buyItem.bind(this);
+  }
+
+  buyItem(creature){
+
+    this.setState({fetching: true});
+
+    let view = this;
+
+    axios.put('/api/store', {
+      userID:       this.props.state.userID,
+      monsterID:    creature.id,
+      monsterPrice: creature.price
+    })
+    .then(function(response){
+      view.props.actionAddMonster(creature.id);
+      view.props.actionSetStoreCoin(response.data.storeCoin);
+      showToast(`Purchased ${creature.name}`);
+    })
+    .catch(function (error) {
+      console.log('error', error);
+    });
+  }
 
   unlockedCount(){
 
@@ -32,7 +89,7 @@ class Layout extends React.Component {
     let items = [];
     let view = this;
     Creatures.forEach(function(creature){
-      items.push(<Item {...view.props} creature={creature} key={creature.id}/>);
+      items.push(<Item {...view.props} creature={creature} key={creature.id} buyItem={view.buyItem} />);
     });
     return items;
   }
@@ -41,6 +98,9 @@ class Layout extends React.Component {
 
     return (
       <div className="row" id="store-container">
+
+        <ToastContainer/>
+  
         <div className="col-lg-7 col-center">
           <div className="card bg-dark border-light">
 
@@ -64,7 +124,7 @@ class Layout extends React.Component {
                 <div className="col-md-4 col-3 store-head-text">
                   <i className="fas fa-fw fa-fish mr-1 fa-lg"></i>
                   <b>
-                    1 / 20
+                    {this.props.state.monsters.length} / 20
                   </b>
                 </div>
 
