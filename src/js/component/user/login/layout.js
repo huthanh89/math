@@ -144,7 +144,7 @@ class Layout extends React.Component {
 
             <div className="form-group">
               <label htmlFor="setting-email">Email</label>
-              <input type="email" ref={this.email} className="form-control form-control-sm" id="setting-email" minLength="5" maxLength="30" required/>
+              <input type="text" ref={this.email} className="form-control form-control-sm" id="setting-email" minLength="5" maxLength="30" required/>
             </div>
             
             <div className="form-group">
