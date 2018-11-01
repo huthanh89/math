@@ -47,10 +47,8 @@ class Layout extends React.Component {
       error:    null
     };
 
-    this.username = React.createRef();
     this.email    = React.createRef();
     this.password = React.createRef();
-    this.confirm  = React.createRef();
   }
 
   handleSubmit (event){
@@ -66,12 +64,9 @@ class Layout extends React.Component {
 
     let view = this;
 
-    axios.put('/api/usersetting', {
-      userID:   this.props.state.userID,
-      username: this.username.current.value,
+    axios.put('/api/login', {
       email:    this.email.current.value,
-      password: this.password.current.value,
-      confirm:  this.confirm.current.value
+      password: this.password.current.value
     })
     .then(function(){
       view.setState({
@@ -140,7 +135,7 @@ class Layout extends React.Component {
 
             <div className="form-group">
               <label htmlFor="setting-email">Email</label>
-              <input type="email" ref={this.email} defaultValue={this.props.state.email} className="form-control form-control-sm" id="setting-email" minLength="5" maxLength="30" required/>
+              <input type="email" ref={this.email} className="form-control form-control-sm" id="setting-email" minLength="5" maxLength="30" required/>
             </div>
             
             <div className="form-group">

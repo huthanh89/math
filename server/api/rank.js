@@ -21,7 +21,7 @@ const route = function(app){
                 }, function(err, docs){
                 
                     if(err){
-                        res.status(500).send('Could not update player data');
+                        res.status(400).send('Could not update player data');
                     }else{
                         res.send(docs);
                     }

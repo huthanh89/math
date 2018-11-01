@@ -20,10 +20,10 @@ const route = function(app){
                 })
 
                 if (err) {
-                    res.status(500).send('Error finding user');
+                    res.status(400).send('Error finding user');
                 } 
                 else if(targetUser==null){
-                    res.status(500).send('User not found');
+                    res.status(400).send('User not found');
                 }
                 else {
 
@@ -43,7 +43,7 @@ const route = function(app){
 
                     targetUser.save(function (err, doc) {
                         if (err) {
-                            res.status(500).send('Could not update user data');
+                            res.status(400).send('Could not update user data');
                         } 
                         else {
                             res.send(doc)

@@ -17,7 +17,7 @@ const route = function(app){
                 _id: req.query.userID
             },function (err, doc) {
                 if (err) {
-                    res.status(500).send('User Data not found');
+                    res.status(400).send('User Data not found');
                 } 
                 else {
                     res.send(doc)
@@ -40,7 +40,7 @@ const route = function(app){
 
             user.save(function (err, doc) {
                 if (err) {
-                    res.status(500).send('Could initiate player data');
+                    res.status(400).send('Could initiate player data');
                 } 
                 else {
                     res.send(doc)

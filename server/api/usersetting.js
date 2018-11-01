@@ -11,14 +11,19 @@ const User = require('../model/user.js');
 const route = function(app){
     app.route('/api/usersetting')
         .put(function (req, res) {
+
+            if (req.body.password !== req.body.confirm) {
+                res.status(400).send('Confirmed password does not match');
+            } 
+
             User.findOne({
                 _id: req.body.userID
             },function (err, user) {
                 if (err) {
-                    res.sendStatus(500);
+                    res.status(400).send('User data not found');
                 } 
                 else if(user==null){
-                    res.sendStatus(400);
+                    res.status(400).send('User does not exist');
                 }
                 else {
 
@@ -28,7 +33,7 @@ const route = function(app){
 
                     user.save(function (err, doc) {
                         if (err) {
-                            res.status(500).send('Email has already been taken');
+                            res.status(400).send('Email has already been taken');
                         } 
                         else {
                             res.send(doc);
