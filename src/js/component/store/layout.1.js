@@ -52,27 +52,29 @@ class Layout extends React.Component {
             </div>
 
             <div className="card-body">
-              <div className="row mb-2">
+              <div className="row">
 
-                <div className="col-md-4 col-3 store-head-text">
-                  <i className="fas fa-fw fa-unlock mr-1 fa-lg"></i>
-                  <b>
-                    {this.unlockedCount()} / {Creatures.length}
-                  </b>
-                </div>
-
-                <div className="col-md-4 col-3 store-head-text">
-                  <i className="fas fa-fw fa-fish mr-1 fa-lg"></i>
-                  <b>
-                    1 / 20
-                  </b>
-                </div>
-
-                <div className="col-md-4 col-6" style={{'whiteSpace':'nowrap'}}>
-                  <i className="fas fa-fw fa-coins mr-1 fa-lg"></i>
-                  <b>
-                    {acc.format(this.props.state.storeCoin)}
-                  </b>
+                <div className="col-3">
+                    <div className="d-block float-right mb-2">
+                      <div className="d-block mb-2">
+                        <i className="fas fa-fw fa-fish mr-2 fa-lg"></i>
+                        <b>
+                          1 / 20
+                        </b>
+                      </div>
+                      <div className="d-block">
+                        <i className="fas fa-fw fa-coins mr-2 fa-lg"></i>
+                        <b>
+                          {acc.format(this.props.state.storeCoin)}
+                        </b>
+                      </div>
+                    </div>
+                    <div>
+                      <i className="fas fa-fw fa-unlock mr-2 fa-lg"></i>
+                        <b>
+                          {this.unlockedCount()} / {Creatures.length}
+                        </b>
+                    </div>
                   
                 </div>
               </div>

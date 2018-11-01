@@ -83,7 +83,8 @@ class Layout extends React.Component {
         coin:           user.coin,
         storeCoin:      user.storeCoin,
         gameDifficulty: user.gameDifficulty,
-        rank:           user.rank
+        rank:           user.rank,
+        monsters:       user.monsters
       });
       localStore.set('userID', user._id);
       showToast("Login Successful", view.props);

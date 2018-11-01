@@ -4055,6 +4055,9 @@ nav {
   bottom: 0;
   background-color: #2e2e2e;
 }
+.store-head-text {
+  white-space: nowrap;
+}
 .store-item {
   display: block;
   margin-top: 10px;

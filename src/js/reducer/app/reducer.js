@@ -20,7 +20,8 @@ const initialState = function(){
     inGame:         false,
     mode:           null,
     gameDifficulty: 0,
-    message:        0
+    message:        0,
+    monsters:       []
   };
 };
 
@@ -42,6 +43,7 @@ function reducer (prevState=initialState(), action){
       state.storeCoin      = user.storeCoin;
       state.rank           = user.rank;
       state.gameDifficulty = user.gameDifficulty;
+      state.monsters       = user.monsters;
       return _.clone(state);
     }
 

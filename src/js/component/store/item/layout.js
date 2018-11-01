@@ -15,12 +15,18 @@ class Layout extends React.Component {
     return this.props.creature.price > this.props.state.coin;
   }
 
-  getLockIcon(){
+  getActionItem(){
     if(this.isLocked()){
-      return "fas fa-fw fa-lg fa-lock store-item text-secondary";
+      return (
+        <i className="fas fa-lg fa-lock store-item text-secondary"></i>
+      );
     }
     else{
-      return "fas fa-fw fa-lg fa-check store-item text-success";
+      return(
+        <button className="btn btn-sm btn-primary store-item">
+          Buy
+        </button>
+      );
     }
   }
 
@@ -63,7 +69,7 @@ class Layout extends React.Component {
           </span>
         </td>
         <td>
-          <i className={this.getLockIcon()}></i>
+          {this.getActionItem()}
         </td>
       </tr>
     );
