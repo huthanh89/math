@@ -2,7 +2,8 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-const User = require('../model/user.js');
+const mongoose = require('mongoose');
+const User     = require('../model/user.js');
 
 //-----------------------------------------------------------------------------//
 // API Route
@@ -23,8 +24,12 @@ const route = function(app){
             }
             else {
 
-                user.monsters.push(req.body.monsterID);
                 user.storeCoin -= req.body.monsterPrice;
+                
+                user.monsters.push({
+                    monsterID: mongoose.Types.ObjectId(),
+                    typeID:    req.body.monsterID
+                });
 
                 user.save(function (err, doc) {
                     if (err) {
