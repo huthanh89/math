@@ -29,10 +29,8 @@ const route = function(app){
                 }
                 else {
 
-                    console.log('salt', config.salt);
-
                     let iterations = 10000;
-                    let hash       = crypto.pbkdf2Sync(req.body.password, config.salt, iterations, 64, 'sha1').toString('hex');
+                    let hash       = crypto.pbkdf2Sync(req.body.password, user.salt, iterations, 64, 'sha1').toString('hex');
                     
                     user.username  = req.body.username;
                     user.email     = req.body.email;
