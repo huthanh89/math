@@ -58,6 +58,12 @@ function mapDispatchToProps(dispatch) {
                 type: 'AMAZON_MODAL',
                 flag:  flag,
             });
+        },
+        actionSetStoreCoin: function (storeCoin){
+            return dispatch({
+                type:     'SET_STORE_COIN',
+                storeCoin: storeCoin
+            });
         }
     };
 }

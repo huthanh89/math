@@ -81,6 +81,7 @@ class Layout extends React.Component {
         username:       user.username,
         email:          user.email,
         coin:           user.coin,
+        storeCoin:      user.storeCoin,
         gameDifficulty: user.gameDifficulty,
         rank:           user.rank
       });

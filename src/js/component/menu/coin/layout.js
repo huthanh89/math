@@ -22,6 +22,12 @@ class Layout extends React.Component {
                 {acc.format(this.props.state.coin)}
               </b>
             </div>
+            <div className="d-block mb-2">
+              <i className="fas fa-fw fa-store mr-2 fa-lg"></i>
+              <b>
+                {acc.format(this.props.state.storeCoin)}
+              </b>
+            </div>
         </div>
       </div>
     );

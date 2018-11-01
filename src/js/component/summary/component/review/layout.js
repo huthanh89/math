@@ -33,6 +33,7 @@ class Component extends React.Component {
       console.log(response);
       let data= response.data;
       props.actionSetCoin(data.coin);
+      props.actionSetStoreCoin(data.storeCoin);
       props.actionSetRank(data.rank);
     })
     .catch(function (error) {

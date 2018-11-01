@@ -30,9 +30,22 @@ class App extends React.Component {
     this.getUser(props);
   }
 
+  setUserState(user){
+    this.props.actionInitialUser({
+      userID:         user._id,
+      username:       user.username,
+      email:          user.email,
+      coin:           user.coin,
+      storeCoin:      user.storeCoin,
+      gameDifficulty: user.gameDifficulty,
+      rank:           user.rank
+    });
+  }
+
   setupNewUser(props){
 
     let username = uniqid('user_');
+    let view     = this;
 
     // Post a new user.
     
@@ -40,18 +53,9 @@ class App extends React.Component {
       username: username
     })
     .then(function(response){
-
       let user = response.data;
       localStore.set('userID', user._id);
-
-      props.actionInitialUser({
-        userID:         user._id,
-        username:       user.username,
-        coin:           0,
-        gameDifficulty: 0,
-        rank:           0
-      });
-
+      view.setUserState(user);
     })
     .catch(function (error) {
       console.log(error);
@@ -70,14 +74,7 @@ class App extends React.Component {
     })
     .then(function(response){
       let user = response.data;
-      props.actionInitialUser({
-        userID:         user._id,
-        username:       user.username,
-        email:          user.email,
-        coin:           user.coin,
-        gameDifficulty: user.gameDifficulty,
-        rank:           user.rank
-      });
+      view.setUserState(user);
     })
     .catch(function () {
       view.setupNewUser(props);

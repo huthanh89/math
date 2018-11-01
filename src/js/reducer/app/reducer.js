@@ -15,6 +15,7 @@ const initialState = function(){
     email:          null,
     userID:         null,
     coin:           0,
+    storeCoin:      0,
     rank:           0,
     inGame:         false,
     mode:           null,
@@ -38,6 +39,7 @@ function reducer (prevState=initialState(), action){
       state.email          = user.email;
       state.userID         = user.userID;
       state.coin           = user.coin;
+      state.storeCoin      = user.storeCoin;
       state.rank           = user.rank;
       state.gameDifficulty = user.gameDifficulty;
       return _.clone(state);
@@ -70,6 +72,12 @@ function reducer (prevState=initialState(), action){
     case 'SET_COIN': {
       let state  = prevState;
       state.coin = action.coin;
+      return _.clone(state);
+    }
+
+    case 'SET_STORE_COIN': {
+      let state       = prevState;
+      state.storeCoin = action.storeCoin;
       return _.clone(state);
     }
     

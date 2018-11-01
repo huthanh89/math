@@ -17,17 +17,27 @@ class Layout extends React.Component {
         <div className="row mb-2">
           <div className="col-12">
             <div className="float-right">
-              <i className="fas fa-coins mr-2 fa-lg"></i>
-              <b id="menu-coin" >
-                {acc.format(this.props.state.coin)} 
-              </b>
+              <div className="d-block mb-2">
+                <i className="fas fa-fw fa-coins mr-2 fa-lg"></i>
+                <b id="menu-coin" >
+                  {acc.format(this.props.state.coin)} 
+                </b>
+              </div>
+              <div className="d-block">
+                <i className="fas fa-fw fa-store mr-2 fa-lg"></i>
+                <b id="menu-coin" >
+                  {acc.format(this.props.state.storeCoin)} 
+                </b>
+              </div>
             </div>
+
             <div>
               <i className="fas fa-trophy mr-2 fa-lg"></i>
               <b id="menu-place" >
                 {this.props.state.rank}
               </b>
             </div>
+
           </div>
         </div>
       </div>

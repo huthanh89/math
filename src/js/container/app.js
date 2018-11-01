@@ -53,7 +53,7 @@ function mapDispatchToProps(dispatch) {
                 type: 'SET_COIN',
                 coin:  coin
             });
-        },
+        }
     };
 }
 
