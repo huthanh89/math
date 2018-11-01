@@ -2,10 +2,11 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import   $      from 'jquery';
-import   axios  from 'axios';
-import   React  from 'react';
-import { css }  from 'glamor';
+import   $        from 'jquery';
+import   axios    from 'axios';
+import   React    from 'react';
+import { css }    from 'glamor';
+import localStore from 'store';
 import { toast, ToastContainer } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
@@ -64,22 +65,35 @@ class Layout extends React.Component {
 
     let view = this;
 
-    axios.put('/api/login', {
-      email:    this.email.current.value,
-      password: this.password.current.value
+    axios.get('/api/login', {
+      params: {
+        email:    this.email.current.value,
+        password: this.password.current.value
+      }
     })
-    .then(function(){
+    .then(function(response){
       view.setState({
         error: null
       });
-      view.props.actionSetUserName(view.username.current.value);
-      showToast("Settings Updated!", view.props);
+      let user = response.data;
+      view.props.actionInitialUser({
+        userID:         user._id,
+        username:       user.username,
+        email:          user.email,
+        coin:           user.coin,
+        gameDifficulty: user.gameDifficulty,
+        rank:           user.rank
+      });
+      localStore.set('userID', user._id);
+      showToast("Login Successful", view.props);
     })
     .catch(function (error) {
-      view.setState({
-        fetching: false,
-        error:    error.response.data
-      });
+      if(error.response){
+        view.setState({
+          fetching: false,
+          error:    error.response.data
+        });
+      }
     });
   }
 
@@ -99,10 +113,6 @@ class Layout extends React.Component {
     }
   }
 
-  shouldCheck(difficulty){
-    return this.state.gameDifficulty === difficulty;
-  }
-
   closeError(){
     $('#usersetting-alert').hide();
   }
@@ -112,7 +122,6 @@ class Layout extends React.Component {
       $('#usersetting-alert').show();
       return(
         <div className="alert alert-danger alert-dismissible fade show" id="usersetting-alert" role="alert">
-          <strong>Failed:</strong> 
           <span> {this.state.error}</span>
           <button type="button" className="close" data-dismiss="alert" aria-label="Close" onClick={this.closeError}>
             <span aria-hidden="true">&times;</span>

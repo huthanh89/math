@@ -81,10 +81,12 @@ class Layout extends React.Component {
       showToast("Settings Updated!", view.props);
     })
     .catch(function (error) {
-      view.setState({
-        fetching: false,
-        error:    error.response.data
-      });
+      if(error.response){
+        view.setState({
+          fetching: false,
+          error:    error.response.data
+        });
+      }
     });
   }
 
@@ -104,10 +106,6 @@ class Layout extends React.Component {
     }
   }
 
-  shouldCheck(difficulty){
-    return this.state.gameDifficulty === difficulty;
-  }
-
   closeError(){
     $('#usersetting-alert').hide();
   }
@@ -117,7 +115,6 @@ class Layout extends React.Component {
       $('#usersetting-alert').show();
       return(
         <div className="alert alert-danger alert-dismissible fade show" id="usersetting-alert" role="alert">
-          <strong>Failed:</strong> 
           <span> {this.state.error}</span>
           <button type="button" className="close" data-dismiss="alert" aria-label="Close" onClick={this.closeError}>
             <span aria-hidden="true">&times;</span>

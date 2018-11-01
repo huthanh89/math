@@ -35,6 +35,12 @@ function mapDispatchToProps(dispatch) {
                 type:  'SET_EMAIL',
                 email:  email
             });
+        },
+        actionInitialUser: function (user){
+            return dispatch({
+                type: 'SET_INITIAL_USER',
+                user:  user
+            });
         }
     };
 }

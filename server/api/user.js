@@ -20,7 +20,12 @@ const route = function(app){
                     res.status(400).send('User Data not found');
                 } 
                 else {
-                    res.send(doc)
+                    if(doc==null){
+                        res.status(400).send('Could not find user data');
+                    }
+                    else{
+                        res.send(doc)
+                    }
                 }
             });
         })
