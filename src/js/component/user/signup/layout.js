@@ -78,6 +78,7 @@ class Layout extends React.Component {
         error: null
       });
       view.props.actionSetUserName(view.username.current.value);
+      view.props.actionSetEmail(view.email.current.value);
       showToast("Settings Updated!", view.props);
     })
     .catch(function (error) {

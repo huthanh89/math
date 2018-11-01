@@ -89,6 +89,7 @@ let urls = [
     '/summary',
     '/setting',
     '/user',
+    '/store',
     '/rank'
 ]
 
