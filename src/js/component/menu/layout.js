@@ -17,7 +17,6 @@ class Layout extends React.Component {
 
   constructor (props){
     super(props);
-    this.clickedShare = this.clickedShare.bind(this);
     let mode          = props.state.mode;
     let difficulty    = props.state.difficulty;
     props.actionRestart(mode, difficulty);
@@ -27,14 +26,6 @@ class Layout extends React.Component {
     if(this.props.state.amazonModal){
       this.refs.amazonComponent.openModal();
     }
-  }
-
-  clickedShare(){
-    let link = 'https://www.facebook.com/sharer/sharer.php?u=http%3A//cloudresume.net/mathtingz/';
-    window.open(
-      link,
-      '_blank'
-    );
   }
 
   render() {

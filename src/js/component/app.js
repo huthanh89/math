@@ -15,7 +15,6 @@ import Store           from '../container/store.js';
 import Footer          from './footer/layout.js';
 import Contact         from './contact/layout.js';
 import Rank            from '../container/rank.js';
-import Share           from './share/layout.js';
 import Loot            from '../container/loot.js';
 import AdsenseFullView from './adsense_fullview/layout.js';
 import { Route }       from "react-router-dom";
@@ -104,7 +103,6 @@ class App extends React.Component {
         <Route path="/setting"    component={Setting} />
         <Route path="/user"       component={User} />
         <Route path="/rank"       component={Rank} />
-        <Route path="/share"      component={Share} />
         <Route path="/store"      component={Store} />
         <Route path="/adfullview" component={AdsenseFullView} />
         <Route path="/loot"       component={Loot} />

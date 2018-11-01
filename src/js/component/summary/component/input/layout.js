@@ -31,14 +31,14 @@ class Layout extends React.Component {
             <div className="row">
               <div className="col-6">
                 <Link to='/'>
-                  <button className="btn btn-outline-light btn-lg summary-button btn-block">
+                  <button className="btn btn-info btn-lg summary-button btn-block">
                     <i className="fas fa-home fa-lg mb-2"></i>
                     <span>Home</span>
                   </button>
                 </Link>
               </div>
               <div className="col-6">
-                <button className="btn btn-outline-light btn-lg summary-button btn-block" onClick={this.clickedRestart}>
+                <button className="btn btn-info btn-lg summary-button btn-block" onClick={this.clickedRestart}>
                   <i className="fas fa-sync-alt fa-lg"></i>
                   <span>Restart</span>
                 </button>

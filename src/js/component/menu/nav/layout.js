@@ -17,7 +17,7 @@ class Layout extends React.Component {
   }
   
   clickedShare(){
-    let link = 'https://www.facebook.com/sharer/sharer.php?u=http%3A//cloudresume.net/mathtingz/';
+    let link = 'https://www.facebook.com/sharer/sharer.php?u=http%3A//bigmonstar.net./';
     window.open(
       link,
       '_blank'
