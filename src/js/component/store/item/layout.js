@@ -2,8 +2,9 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import acc   from 'accounting';
-import React from 'react';
+import acc        from 'accounting';
+import React      from 'react';
+import GameConfig from 'lib/gameconfig.js';
 
 //-----------------------------------------------------------------------------//
 // Component
@@ -32,7 +33,9 @@ class Layout extends React.Component {
     }
     else{
 
-      if(this.props.state.storeCoin < this.props.creature.price){
+      if(this.props.state.storeCoin < this.props.creature.price ||
+          this.props.state.monsters.length >= GameConfig.maxPool
+        ){
         return(
           <button className="btn btn-sm btn-secondary store-item disabled">
             Buy

@@ -2,13 +2,14 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import   acc       from 'accounting';
-import   React     from 'react';
-import   Item      from './item/layout.js';
-import { Link }    from 'react-router-dom';
-import   Creatures from 'lib/creature.js';
-import   axios     from 'axios';
-import { css }     from 'glamor';
+import   acc        from 'accounting';
+import   React      from 'react';
+import   Item       from './item/layout.js';
+import { Link }     from 'react-router-dom';
+import   Creatures  from 'lib/creature.js';
+import   GameConfig from 'lib/gameconfig.js';
+import   axios      from 'axios';
+import { css }      from 'glamor';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -94,6 +95,24 @@ class Layout extends React.Component {
     return items;
   }
 
+  getPoolCount(){
+    if(this.props.state.monsters.length >= GameConfig.maxPool)
+    {
+      return(
+        <b className="text-danger">
+          {this.props.state.monsters.length} / {GameConfig.maxPool}
+        </b>
+      );
+    }
+    else{
+      return(
+        <b>
+          {this.props.state.monsters.length} / {GameConfig.maxPool}
+        </b>
+      );
+    }
+  }
+
   render() {
 
     return (
@@ -123,9 +142,7 @@ class Layout extends React.Component {
 
                 <div className="col-md-4 col-3 store-head-text">
                   <i className="fas fa-fw fa-fish mr-1 fa-lg"></i>
-                  <b>
-                    {this.props.state.monsters.length} / 20
-                  </b>
+                  {this.getPoolCount()}
                 </div>
 
                 <div className="col-md-4 col-6" style={{'whiteSpace':'nowrap'}}>
