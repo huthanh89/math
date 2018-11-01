@@ -57,7 +57,7 @@ class Layout extends React.Component {
                   <div className="d-block float-right mb-2">
                     <i className="fas fa-fw fa-coins mr-2 fa-lg"></i>
                     <b>
-                      {acc.format(this.props.state.coin)}
+                      {acc.format(this.props.state.storeCoin)}
                     </b>
                   </div>
                   <div>

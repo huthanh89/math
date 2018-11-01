@@ -30,7 +30,6 @@ class Component extends React.Component {
       userID: this.props.state.userID
     })
     .then(function (response) {
-      console.log(response);
       let data= response.data;
       props.actionSetCoin(data.coin);
       props.actionSetStoreCoin(data.storeCoin);

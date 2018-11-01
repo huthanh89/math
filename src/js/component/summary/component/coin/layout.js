@@ -18,13 +18,13 @@ class Layout extends React.Component {
           <div className="col-12">
             <div className="float-right">
               <div className="d-block mb-2">
-                <i className="fas fa-fw fa-coins mr-2 fa-lg"></i>
+                <i className="fas fa-fw fa-medal mr-2 fa-lg"></i>
                 <b id="menu-coin" >
                   {acc.format(this.props.state.coin)} 
                 </b>
               </div>
               <div className="d-block">
-                <i className="fas fa-fw fa-store mr-2 fa-lg"></i>
+                <i className="fas fa-fw fa-coins mr-2 fa-lg"></i>
                 <b id="menu-coin" >
                   {acc.format(this.props.state.storeCoin)} 
                 </b>
