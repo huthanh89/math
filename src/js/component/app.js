@@ -61,6 +61,9 @@ class App extends React.Component {
   }
 
   fetchUser(userID, props){
+    
+    let view = this;
+
     axios.get('/api/user', {
       params: {
         userID: userID
@@ -77,8 +80,8 @@ class App extends React.Component {
         rank:           user.rank
       });
     })
-    .catch(function (error) {
-      console.log(error);
+    .catch(function () {
+      view.setupNewUser(props);
     });
   }
 
