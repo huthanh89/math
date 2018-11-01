@@ -4,14 +4,13 @@
 
 const crypto = require('crypto');
 const User   = require('../model/user.js');
-const config = require('../config.js');
 
 //-----------------------------------------------------------------------------//
 // API Route
 //-----------------------------------------------------------------------------//
 
 const route = function(app){
-    app.route('/api/usersetting')
+    app.route('/api/signup')
         .put(function (req, res) {
 
             if (req.body.password !== req.body.confirm) {

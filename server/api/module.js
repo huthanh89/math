@@ -7,7 +7,7 @@ const api = function(app){
     require('./rank.js')(app)
     require('./summary.js')(app)
     require('./setting.js')(app)
-    require('./usersetting.js')(app)
+    require('./signup.js')(app)
     require('./login.js')(app)
 }
 

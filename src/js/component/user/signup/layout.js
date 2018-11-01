@@ -66,7 +66,7 @@ class Layout extends React.Component {
 
     let view = this;
 
-    axios.put('/api/usersetting', {
+    axios.put('/api/signup', {
       userID:   this.props.state.userID,
       username: this.username.current.value,
       email:    this.email.current.value,
