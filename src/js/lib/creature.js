@@ -4,7 +4,7 @@ var Creatures = [
         id:       0,
         price:    0,
         levelExp: 10,
-        feed:     300,
+        feed:     335,
         bonus:    100,
         name:    'Shrimp',
         src:     'avatar_shrimp.png'
@@ -13,7 +13,7 @@ var Creatures = [
         id:       1,
         price:    25000,
         levelExp: 10000,
-        feed:     40000,
+        feed:     53230,
         bonus:    1000,
         name:    'Tuna',
         src:     'avatar_tuna.png'
@@ -22,7 +22,7 @@ var Creatures = [
         id:       2,
         price:    155000,
         levelExp: 10000,
-        feed:     170000,
+        feed:     170430,
         bonus:    10000,
         name:    'Octopus',
         src:     'avatar_octopus.png'

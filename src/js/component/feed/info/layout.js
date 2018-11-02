@@ -29,6 +29,15 @@ class Layout extends React.Component {
       let level   = Math.floor(this.monster.level);
       let percent = _.round(this.monster.level - level, 2) * 100;
 
+
+      function maxCrown(){
+        if(level === 100){
+          return(<i className="fas fa-crown ml-2"></i>);
+        }else{
+          return(<div></div>);
+        }
+      }
+
       return(
         <div>
 
@@ -37,9 +46,12 @@ class Layout extends React.Component {
               <img className="feed-avatar-image" src={`asset/${creature.src}`} alt="avatar"/>
             </div>
             <div className="col-9">
-              <span>
-                Level: {Math.floor(level)}
-              </span>
+              <div style={{'fontSize': '23px'}}>
+                <span>
+                  Level: {Math.floor(level)}
+                </span>
+                {maxCrown()}
+              </div>
               <span className="d-block">
                 Name: {creature.name}
               </span>

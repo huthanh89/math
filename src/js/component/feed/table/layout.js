@@ -29,8 +29,8 @@ class Layout extends React.Component {
       return monster.monsterID === id;
     });
 
-    console.log('>>>', target);
-
+    
+    
     let monsters = _.filter(this.props.state.monsters, function(monster){
       let flag = true;
       if(id === monster.monsterID){
@@ -39,40 +39,51 @@ class Layout extends React.Component {
       if(target.typeID < monster.typeID){
         flag = false;
       }
-
+      
       return flag;
     });
 
     if(monsters.length){
 
-      return(
-        <div id="store-list">
-          <table className="table table-striped table-sm table-hover">
-            <thead>
-              <tr>
-                <th>
-                </th>
-                <th>
-                  Lv
-                </th>
-                <th>
-                  Name
-                </th>
-                <th>
-                  Feed EXP
-                </th>
-                <th>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {this.items(monsters)}
-            </tbody>
-          </table>
-        </div>
-      );
+      if(target.level === 100){
+        return(
+          <div>
+            Monster level is maxed.
+          </div>
+        );
+      }
+      else{
+        return(
+          <div id="store-list">
+            <table className="table table-striped table-sm table-hover">
+              <thead>
+                <tr>
+                  <th>
+                  </th>
+                  <th>
+                    Lv
+                  </th>
+                  <th>
+                    Name
+                  </th>
+                  <th>
+                    Feed EXP
+                  </th>
+                  <th>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.items(monsters)}
+              </tbody>
+            </table>
+          </div>
+        );
+
+      }
       
-    }else{
+    }
+    else{
       return(
         <div>
           You have no monster left to feed.
