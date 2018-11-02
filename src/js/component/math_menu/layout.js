@@ -14,7 +14,7 @@ class Layout extends React.Component {
   render() {
 
     return (
-      <div>
+      <div id="mathmenu-container">
         <div className="row">
           <div className="col-md-5 m-auto">
             <Link to='/game/add'>
