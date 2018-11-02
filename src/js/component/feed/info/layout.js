@@ -33,17 +33,18 @@ class Layout extends React.Component {
         <div>
 
           <div className="row">
-            <div className="col-6">
-              <span className="d-block">
-                Name: {creature.name}
-              </span>
+            <div className="col-3 text-right">
+              <img className="feed-avatar-image" src={`asset/${creature.src}`} alt="avatar"/>
+            </div>
+            <div className="col-9">
               <span>
                 Level: {Math.floor(level)}
               </span>
-            </div>
-            <div className="col-6 text-right">
               <span className="d-block">
-                Bonus: {this.monster.reward}
+                Name: {creature.name}
+              </span>
+              <span className="d-block">
+                Bonus: {acc.format(this.monster.reward)}
               </span>
             </div>
           </div>

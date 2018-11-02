@@ -25,8 +25,22 @@ class Layout extends React.Component {
 
     let id = this.props.match.params.id;
 
+    let target = _.find(this.props.state.monsters, function(monster){
+      return monster.monsterID === id;
+    });
+
+    console.log('>>>', target);
+
     let monsters = _.filter(this.props.state.monsters, function(monster){
-      return id !== monster.monsterID;
+      let flag = true;
+      if(id === monster.monsterID){
+        flag = false;
+      }
+      if(target.typeID < monster.typeID){
+        flag = false;
+      }
+
+      return flag;
     });
 
     if(monsters.length){
@@ -61,7 +75,7 @@ class Layout extends React.Component {
     }else{
       return(
         <div>
-          You have no monsters left to feed.
+          You have no monster left to feed.
         </div>
       );
     }

@@ -4127,3 +4127,7 @@ nav {
   background-position: right bottom;
   background-size: 200px 200px;
 }
+.feed-avatar-image {
+  height: 90px;
+  max-width: 90px;
+}

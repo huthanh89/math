@@ -2,40 +2,11 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import   React      from 'react';
-import   Info       from './info/layout.js';
-import   Table      from './table/layout.js';
-import { Link }     from 'react-router-dom';
-import   GameConfig from 'lib/gameconfig.js';
-import   axios      from 'axios';
-import { css }      from 'glamor';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
-//-----------------------------------------------------------------------------//
-
-function showToast(message){
-
-  let toastID = Date.now();
-
-  toast.success(message, {
-    toastId:  toastID,
-    position: toast.POSITION.BOTTOM_CENTER,
-    autoClose: 2500,
-    className: css({
-      opacity: '0.85'
-    }),
-    bodyClassName: css({
-      fontSize:  '21px',
-      textAlign: 'center'
-    })
-  });
-
-  setTimeout(function(){
-    toast.dismiss(toastID);
-  }, 2000);
-
-}
+import   React  from 'react';
+import   Info   from './info/layout.js';
+import   Table  from './table/layout.js';
+import { Link } from 'react-router-dom';
+import   axios  from 'axios';
 
 //-----------------------------------------------------------------------------//
 // Component
@@ -64,7 +35,6 @@ class Layout extends React.Component {
     })
     .then(function(response){
       view.props.actionUpdateMonsters(response.data);
-      //showToast(`Fed ${creature.name}`);
     })
     .catch(function (error) {
       console.log('error', error);
@@ -76,8 +46,6 @@ class Layout extends React.Component {
     return (
       <div className="row" id="feed-container">
 
-        <ToastContainer/>
-  
         <div className="col-lg-7 col-center">
           <div className="card border-light">
 
