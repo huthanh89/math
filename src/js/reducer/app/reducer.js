@@ -85,9 +85,15 @@ function reducer (prevState=initialState(), action){
 
     case 'ADD_MONSTER': {
       let state = prevState;
+      let data = action.data;
+
       state.monsters.push({
-        monsterID: action.id,
-        typeID:    action.typeID,
+        monsterID: data.monsterID,
+        typeID:    data.typeID,
+        level:     data.level,
+        exp:       data.exp,
+        feed:      data.feed,
+        bonus:     data.bonus
       });
       return _.clone(state);
     }

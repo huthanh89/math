@@ -86,6 +86,7 @@ let urls = [
     '/menu',
     '/game',
     '/summary',
+    '/feed/:id',
     '/setting',
     '/visit/:type',
     '/visit',

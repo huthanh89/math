@@ -2,11 +2,8 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import   React      from 'react';
-import   Storage    from './storage/layout.js';
-import   Feed       from './feed/layout.js';
-import { Link }     from 'react-router-dom';
-import   GameConfig from 'lib/gameconfig.js';
+import React   from 'react';
+import Storage from './storage/layout.js';
 
 //-----------------------------------------------------------------------------//
 // Component
@@ -19,14 +16,6 @@ class Layout extends React.Component {
     this.state = {
       feedID: null
     };
-  }
-
-  getView(){
-    if(this.state.feedID){
-      return(<feedID {...this.props} feedID={this.state.feedID}/>);
-    }else{
-      return(<Storage {...this.props}/>);
-    }
   }
 
   render() {
@@ -45,7 +34,7 @@ class Layout extends React.Component {
             </div>
 
             <div className="card-body">
-              {this.getView()}
+              <Storage {...this.props}/>
             </div>
 
           </div>

@@ -58,14 +58,17 @@ class Layout extends React.Component {
     let view = this;
 
     axios.put('/api/store', {
-      userID:       this.props.state.userID,
-      monsterID:    creature.id,
-      monsterPrice: creature.price
+      userID:    this.props.state.userID,
+      typeID:    creature.id,
+      price:     creature.price,
+      level:     1,
+      exp:       creature.exp,
+      feed:      creature.feed,
+      bonus:     creature.bonus
     })
     .then(function(response){
       let data = response.data;
-      console.log(data);
-      view.props.actionAddMonster(data.monsterID, data.typeID);
+      view.props.actionAddMonster(data);
       view.props.actionSetStoreCoin(data.storeCoin);
       showToast(`Purchased ${creature.name}`);
     })

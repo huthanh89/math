@@ -2,9 +2,8 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import   acc    from 'accounting';
-import   React  from 'react';
-import { Link } from 'react-router-dom';
+import acc   from 'accounting';
+import React from 'react';
 
 //-----------------------------------------------------------------------------//
 // Component

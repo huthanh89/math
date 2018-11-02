@@ -75,8 +75,6 @@ class Layout extends React.Component {
     let items = [];
     let view = this;
 
-    console.log(this.props.state);
-
     this.props.state.monsters.forEach(function(monster){
       items.push(<Item {...view.props} monster={monster} key={monster.monsterID} sellItem={view.sellItem} />);
     });

@@ -75,8 +75,6 @@ class Layout extends React.Component {
     let items = [];
     let view = this;
 
-    console.log(this.props.state);
-
     this.props.state.monsters.forEach(function(monster){
       items.push(<Item {...view.props} monster={monster} key={monster.monsterID} sellItem={view.sellItem} />);
     });
@@ -113,9 +111,9 @@ class Layout extends React.Component {
           <div className="card bg-dark border-light">
 
             <div className="card-header border-light text-center">
-              <i className="fas fa-fw fa-fish mr-2"></i>
+              <i className="fas fa-fw fa-utensils mr-2"></i>
               <span>
-                Pool
+                Feed
               </span>
             </div>
 
@@ -171,6 +169,12 @@ class Layout extends React.Component {
 
               <div className="row">
                 <div className="col-12">
+                  <Link to='/pool'>
+                    <button className="btn btn-secondary float-left">
+                      <i className="fas fa-arrow-left"></i>
+                      <span> Back </span>
+                    </button>
+                  </Link>
                   <Link to='/'>
                     <button className="btn btn-secondary float-right">
                       <span> Cancel </span>
