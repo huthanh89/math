@@ -2,8 +2,9 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import React from 'react';
-import Item  from './item/layout.js';
+import React      from 'react';
+import Item       from './item/layout.js';
+import GameConfig from 'lib/gameconfig';
 
 //-----------------------------------------------------------------------------//
 // Component
@@ -45,7 +46,7 @@ class Layout extends React.Component {
 
     if(monsters.length){
 
-      if(target.level === 100){
+      if(target.level === GameConfig.monsterMaxLv){
         return(
           <div>
             Monster level is maxed.
@@ -67,7 +68,7 @@ class Layout extends React.Component {
                     Name
                   </th>
                   <th>
-                    Feed EXP
+                    Feed Exp
                   </th>
                   <th>
                   </th>

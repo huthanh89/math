@@ -82,17 +82,24 @@ function setReward(state) {
   let reward       = Reward[difficulty];
   let levels       = state.levels;
 
+  
   if(currentLevel===0){
     levels[0].reward = reward.rewardPer;
   }
   else if(currentLevel < 10){
-    let prevLevel = levels[currentLevel - 1];
-    if(prevLevel.correct){
-      levels[currentLevel].reward = prevLevel.reward * reward.comboX;
-    }
-    else{
-      levels[currentLevel].reward = reward.rewardPer;
-    }
+    
+
+    function correctCount(levels, currentLevel){
+      let correct = 0;
+      levels.forEach(function(level){
+        if(level.correct){
+          correct +=1;
+        }
+      });
+      return correct;
+    };
+
+    levels[currentLevel].reward = reward.rewardPer * correctCount(levels);
   }
 
   state.levels = levels;

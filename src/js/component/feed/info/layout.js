@@ -2,10 +2,11 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import _         from 'lodash';
-import acc       from 'accounting';
-import React     from 'react';
-import Creatures from 'lib/creature.js';
+import _          from 'lodash';
+import acc        from 'accounting';
+import React      from 'react';
+import Creatures  from 'lib/creature.js';
+import GameConfig from 'lib/gameconfig';
 
 //-----------------------------------------------------------------------------//
 // Component
@@ -26,12 +27,19 @@ class Layout extends React.Component {
         return creatureID === creature.id;
       });
 
-      let level   = Math.floor(this.monster.level);
-      let percent = _.round(this.monster.level - level, 2) * 100;
+      let view      = this;
+      let level     = Math.floor(this.monster.level);
+      let percent   = _.round(this.monster.level - level, 2) * 100;
 
+      function currentExp(){
+        let result;
+        result = view.monster.level - level;
+        result *= view.monster.levelExp; 
+        return Math.floor(result);
+      }
 
       function maxCrown(){
-        if(level === 100){
+        if(level === GameConfig.monsterMaxLv){
           return(<i className="fas fa-crown ml-2"></i>);
         }else{
           return(<div></div>);
@@ -63,8 +71,16 @@ class Layout extends React.Component {
           
           <div className="row mt-2">
             <div className="col-12">
+              <span className="float-right">
+                {currentExp()} / {acc.format(this.monster.levelExp)} Exp
+              </span>
+            </div>
+          </div>
+          
+          <div className="row mt-2">
+            <div className="col-12">
               <div className="progress">
-                <div className="progress-bar bg-success" role="progressbar" style={{width: `${percent}%`}} aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">{percent}%</div>
+                <div className="progress-bar bg-success" role="progressbar" style={{width: `${percent}%`}} aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">{acc.format(percent, 2)}%</div>
               </div>
             </div>
           </div>

@@ -6,6 +6,12 @@ const _    = require('lodash');
 const User = require('../model/user.js');
 
 //-----------------------------------------------------------------------------//
+// Constants
+//-----------------------------------------------------------------------------//
+
+const MAX_LEVEL = 20;
+
+//-----------------------------------------------------------------------------//
 // API Route
 //-----------------------------------------------------------------------------//
 
@@ -43,8 +49,8 @@ const route = function(app){
 
                 target.level += level;
                 
-                if(target.level >= 100){
-                    target.level = 100;
+                if(target.level >= MAX_LEVEL){
+                    target.level = MAX_LEVEL;
                 }
                 
                 target.reward = Math.floor(target.level * target.bonus);
