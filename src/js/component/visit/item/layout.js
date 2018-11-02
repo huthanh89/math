@@ -50,11 +50,6 @@ class Layout extends React.Component {
             {acc.format(creature.price / 2)}
           </span>
         </td>
-        <td>
-          <button className="btn btn-sm btn-info store-item" onClick={this.clickedSell}>
-            Feed
-          </button>
-        </td>
       </tr>
       
     );

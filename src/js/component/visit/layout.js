@@ -129,7 +129,6 @@ class Layout extends React.Component {
                         <thead>
                           <tr>
                             <th>
-                              Monster
                             </th>
                             <th>
                               Lv
