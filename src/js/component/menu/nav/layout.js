@@ -65,6 +65,7 @@ class Layout extends React.Component {
               </button>
               <span className="menu-setting-title">Share</span>
             </div>
+            
           </div>
         
         </div>

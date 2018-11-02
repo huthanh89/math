@@ -2,8 +2,8 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import   acc    from 'accounting';
 import   axios  from 'axios';
+import   Item   from './item/layout';
 import   React  from 'react';
 import { Link } from 'react-router-dom';
 
@@ -40,28 +40,11 @@ class Layout extends React.Component {
   getItems(){
 
     let result = [];
-    let username = this.props.state.username;
+    let view   = this;
 
     this.state.users.forEach(function(user, index){
-
-      let rowClass = '';
-
-      if(user.username === username){
-        rowClass = 'bg-success';
-      }
-
       result.push(
-        <tr key={index} className={rowClass}>
-          <td>
-            {index + 1}
-          </td>
-          <td>
-            {user.username}
-          </td>
-          <td>
-            {acc.format(user.coin)}
-          </td>
-        </tr>
+        <Item {...view.props} key={index} user={user} index={index}/>
       );
     });
 

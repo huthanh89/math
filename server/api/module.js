@@ -10,6 +10,7 @@ const api = function(app){
     require('./signup.js')(app)
     require('./login.js')(app)
     require('./store.js')(app)
+    require('./visit.js')(app)
 }
 
 //-----------------------------------------------------------------------------//

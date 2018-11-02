@@ -3,7 +3,7 @@
 //-----------------------------------------------------------------------------//
 
 import   _         from 'lodash';
-import   Store     from '../component/store/layout.js';
+import   Sell      from '../component/sell/layout.js';
 import { connect } from 'react-redux';
 
 //-----------------------------------------------------------------------------//
@@ -24,23 +24,10 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        actionAmazonModal: function (flag){
-            return dispatch({
-                type: 'AMAZON_MODAL',
-                flag:  flag,
-            });
-        },
-        actionAddMonster: function (id, typeID){
+        actionRemoveMonster: function (id){
             return dispatch({
                 type: 'ADD_MONSTER',
-                id:     id,
-                typeID: typeID
-            });
-        },
-        actionSetStoreCoin: function (storeCoin){
-            return dispatch({
-                type:     'SET_STORE_COIN',
-                storeCoin: storeCoin
+                id:    id,
             });
         }
     };
@@ -53,6 +40,6 @@ function mapDispatchToProps(dispatch) {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Store);
+)(Sell);
 
 //-----------------------------------------------------------------------------//

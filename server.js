@@ -85,12 +85,14 @@ let urls = [
     '/',
     '/menu',
     '/game',
-    '/game/:type',
     '/summary',
     '/setting',
+    '/visit/:type',
+    '/visit',
     '/user',
     '/store',
-    '/rank'
+    '/rank',
+    '/pool'
 ]
 
 urls.forEach(function(url){

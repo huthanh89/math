@@ -2,12 +2,13 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import React  from 'react';
-import User   from './user/layout.js';
-import Coin   from './coin/layout.js';
-import Mode   from './mode/layout.js';
-import Nav    from './nav/layout.js';
-import Amazon from '../amazon/layout.js';
+import React    from 'react';
+import User     from './user/layout.js';
+import Coin     from './coin/layout.js';
+import Mode     from './mode/layout.js';
+import Nav      from './nav/layout.js';
+import Amazon   from '../amazon/layout.js';
+import { Link } from 'react-router-dom';
 
 //-----------------------------------------------------------------------------//
 // Component
@@ -41,6 +42,17 @@ class Layout extends React.Component {
           </div>
         </div>
         <Mode/>
+
+        <div className="col-md-5 col-sm-8 col-center">
+          <Link to='/pool'>
+            <button className="btn btn-success btn-lg menu-button btn-block">
+              <i className="fas fa-fw fa-fish fa-lg mr-2"></i>
+              <span>Pool</span>
+            </button>
+          </Link>
+        </div>
+
+
         <Nav/>
       </div>
     );

@@ -24,19 +24,27 @@ const route = function(app){
             }
             else {
 
-                user.storeCoin -= req.body.monsterPrice;
+                
+                let storeCoin = user.storeCoin - req.body.monsterPrice;
+                let monsterID = mongoose.Types.ObjectId();
                 
                 user.monsters.push({
-                    monsterID: mongoose.Types.ObjectId(),
+                    monsterID: monsterID,
                     typeID:    req.body.monsterID
                 });
+                
+                user.storeCoin = storeCoin;
 
                 user.save(function (err, doc) {
                     if (err) {
                         res.status(400).send('Could not update settings');
                     } 
                     else {
-                        res.send(doc);
+                        res.send({
+                            storeCoin: storeCoin,
+                            monsterID: monsterID,
+                            typeID:    req.body.monsterID
+                        });
                     }
                 });
 

@@ -3893,6 +3893,7 @@ nav {
   border-width: 3px;
   margin: 10px auto;
   padding: 20px;
+  background: rgba(67, 77, 97, 0.438);
 }
 .menu-setting-title {
   display: block;

@@ -7,8 +7,11 @@ import uniqid          from 'uniqid';
 import localStore      from 'store';
 import React           from 'react';
 import Menu            from '../container/menu.js';
+import Sell            from '../container/sell.js';
+import Pool            from '../container/pool.js';
 import Setting         from '../container/setting.js';
 import User            from '../container/user.js';
+import Visit           from '../container/visit.js';
 import Game            from '../container/game.js';
 import Summary         from '../container/summary.js';
 import Store           from '../container/store.js';
@@ -96,6 +99,8 @@ class App extends React.Component {
       <div>
         <Route exact path="/"     component={Menu} />
         <Route path="/game/:type" component={Game} />
+        <Route path="/sell/:id"   component={Sell} />
+        <Route path="/visit/:id"  component={Visit} />
         <Route path="/summary"    component={Summary} />
         <Route path="/contact"    component={Contact} />
         <Route path="/setting"    component={Setting} />
@@ -104,6 +109,7 @@ class App extends React.Component {
         <Route path="/store"      component={Store} />
         <Route path="/adfullview" component={AdsenseFullView} />
         <Route path="/loot"       component={Loot} />
+        <Route path="/pool"       component={Pool} />
         <Footer/>
       </div>
     );

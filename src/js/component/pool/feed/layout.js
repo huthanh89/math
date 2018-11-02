@@ -6,7 +6,6 @@ import   acc        from 'accounting';
 import   React      from 'react';
 import   Item       from './item/layout.js';
 import { Link }     from 'react-router-dom';
-import   Creatures  from 'lib/creature.js';
 import   GameConfig from 'lib/gameconfig.js';
 import   axios      from 'axios';
 import { css }      from 'glamor';
@@ -37,6 +36,7 @@ function showToast(message){
   }, 2000);
 
 }
+
 //-----------------------------------------------------------------------------//
 // Component
 //-----------------------------------------------------------------------------//
@@ -48,56 +48,43 @@ class Layout extends React.Component {
     this.state = {
       fetching: false
     };
-    this.buyItem = this.buyItem.bind(this);
+    this.sellItem = this.sellItem.bind(this);
   }
 
-  buyItem(creature){
+  sellItem(creature){
 
     this.setState({fetching: true});
 
     let view = this;
 
-    axios.put('/api/store', {
+    axios.put('/api/pool', {
       userID:       this.props.state.userID,
       monsterID:    creature.id,
       monsterPrice: creature.price
     })
     .then(function(response){
-      let data = response.data;
-      console.log(data);
-      view.props.actionAddMonster(data.monsterID, data.typeID);
-      view.props.actionSetStoreCoin(data.storeCoin);
-      showToast(`Purchased ${creature.name}`);
+      view.props.actionRemoveMonster(creature.id);
+      showToast(`Sold ${creature.name}`);
     })
     .catch(function (error) {
       console.log('error', error);
     });
   }
 
-  unlockedCount(){
-
-    let result = 0;
-    let coin   = this.props.state.coin;
-
-    Creatures.forEach(function(creature){
-      if(coin > creature.price){
-        result++;
-      }
-    });
-
-    return result;
-  }
-
   items(){
     let items = [];
     let view = this;
-    Creatures.forEach(function(creature){
-      items.push(<Item {...view.props} creature={creature} key={creature.id} buyItem={view.buyItem} />);
+
+    console.log(this.props.state);
+
+    this.props.state.monsters.forEach(function(monster){
+      items.push(<Item {...view.props} monster={monster} key={monster.monsterID} sellItem={view.sellItem} />);
     });
     return items;
   }
 
   getPoolCount(){
+
     if(this.props.state.monsters.length >= GameConfig.maxPool)
     {
       return(
@@ -126,38 +113,30 @@ class Layout extends React.Component {
           <div className="card bg-dark border-light">
 
             <div className="card-header border-light text-center">
-              <i className="fas fa-fw fa-store mr-2"></i>
+              <i className="fas fa-fw fa-fish mr-2"></i>
               <span>
-                Store
+                Pool
               </span>
             </div>
 
             <div className="card-body">
               <div className="row mb-2">
 
-                <div className="col-md-4 col-3 store-head-text">
-                  <i className="fas fa-fw fa-unlock mr-1 fa-lg"></i>
-                  <b>
-                    {this.unlockedCount()} / {Creatures.length}
-                  </b>
-                </div>
-
-                <div className="col-md-4 col-3 store-head-text">
-                  <i className="fas fa-fw fa-fish mr-1 fa-lg"></i>
+                <div className="col-6 store-head-text">
                   {this.getPoolCount()}
                 </div>
 
-                <div className="col-md-4 col-6" style={{'whiteSpace':'nowrap'}}>
+                <div className="col-6" style={{'whiteSpace':'nowrap'}}>
                   <div className="float-right">
                     <i className="fas fa-fw fa-coins mr-1 fa-lg"></i>
                     <b>
                       {acc.format(this.props.state.storeCoin)}
                     </b>
-
                   </div>
-                  
                 </div>
+
               </div>
+
 
               <div className="row">
                   <div className="col-12">
@@ -166,13 +145,16 @@ class Layout extends React.Component {
                         <thead>
                           <tr>
                             <th>
-                              Item
+                              Monster
+                            </th>
+                            <th>
+                              Lv
                             </th>
                             <th>
                               Name
                             </th>
                             <th>
-                              Price
+                              Bonus
                             </th>
                             <th>
                             </th>

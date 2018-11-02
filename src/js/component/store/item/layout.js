@@ -71,7 +71,6 @@ class Layout extends React.Component {
     }
   }
 
-
   render() {
 
     let creature = this.props.creature;

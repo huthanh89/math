@@ -85,7 +85,10 @@ function reducer (prevState=initialState(), action){
 
     case 'ADD_MONSTER': {
       let state = prevState;
-      state.monsters.push(action.id);
+      state.monsters.push({
+        monsterID: action.id,
+        typeID:    action.typeID,
+      });
       return _.clone(state);
     }
 

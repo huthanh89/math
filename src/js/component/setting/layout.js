@@ -154,7 +154,7 @@ class Layout extends React.Component {
                   <div className="col-12">
 
                     <Link to='/user'>
-                      <button className='btn btn-secondary mr-2 float-left'>
+                      <button className='btn btn-secondary float-left'>
                         <i className="fas fa-user-cog"></i>
                       </button>
                     </Link>

@@ -6,37 +6,9 @@ import   acc        from 'accounting';
 import   React      from 'react';
 import   Item       from './item/layout.js';
 import { Link }     from 'react-router-dom';
-import   Creatures  from 'lib/creature.js';
 import   GameConfig from 'lib/gameconfig.js';
 import   axios      from 'axios';
-import { css }      from 'glamor';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
-//-----------------------------------------------------------------------------//
-
-function showToast(message){
-
-  let toastID = Date.now();
-
-  toast.success(message, {
-    toastId:  toastID,
-    position: toast.POSITION.BOTTOM_CENTER,
-    autoClose: 2500,
-    className: css({
-      opacity: '0.85'
-    }),
-    bodyClassName: css({
-      fontSize:  '21px',
-      textAlign: 'center'
-    })
-  });
-
-  setTimeout(function(){
-    toast.dismiss(toastID);
-  }, 2000);
-
-}
 //-----------------------------------------------------------------------------//
 // Component
 //-----------------------------------------------------------------------------//
@@ -46,58 +18,54 @@ class Layout extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      fetching: false
+      fetching: false,
+      username: null,
+      coin:     0,
+      rank:     0,
+      monsters: []
     };
-    this.buyItem = this.buyItem.bind(this);
   }
 
-  buyItem(creature){
 
-    this.setState({fetching: true});
+  componentDidMount(){
+    this.getInfo();
+  }
 
+  getInfo(){
     let view = this;
-
-    axios.put('/api/store', {
-      userID:       this.props.state.userID,
-      monsterID:    creature.id,
-      monsterPrice: creature.price
+    axios.get('/api/visit', {
+      params:{
+        userID: this.props.match.params.id,
+      }
     })
     .then(function(response){
+      console.log(response);
       let data = response.data;
-      console.log(data);
-      view.props.actionAddMonster(data.monsterID, data.typeID);
-      view.props.actionSetStoreCoin(data.storeCoin);
-      showToast(`Purchased ${creature.name}`);
+      view.setState({
+        username: data.username,
+        coin:     data.coin,
+        rank:     data.rank,
+        monsters: data.monsters
+      });
     })
     .catch(function (error) {
       console.log('error', error);
     });
   }
 
-  unlockedCount(){
-
-    let result = 0;
-    let coin   = this.props.state.coin;
-
-    Creatures.forEach(function(creature){
-      if(coin > creature.price){
-        result++;
-      }
-    });
-
-    return result;
-  }
 
   items(){
     let items = [];
     let view = this;
-    Creatures.forEach(function(creature){
-      items.push(<Item {...view.props} creature={creature} key={creature.id} buyItem={view.buyItem} />);
+
+    this.state.monsters.forEach(function(monster){
+      items.push(<Item {...view.props} monster={monster} key={monster.monsterID} sellItem={view.sellItem} />);
     });
     return items;
   }
 
   getPoolCount(){
+
     if(this.props.state.monsters.length >= GameConfig.maxPool)
     {
       return(
@@ -120,44 +88,39 @@ class Layout extends React.Component {
     return (
       <div className="row" id="store-container">
 
-        <ToastContainer/>
-  
         <div className="col-lg-7 col-center">
           <div className="card bg-dark border-light">
 
             <div className="card-header border-light text-center">
-              <i className="fas fa-fw fa-store mr-2"></i>
+              <i className="fas fa-fw fa-user mr-2"></i>
               <span>
-                Store
+                {this.state.username}
               </span>
             </div>
 
             <div className="card-body">
               <div className="row mb-2">
 
-                <div className="col-md-4 col-3 store-head-text">
-                  <i className="fas fa-fw fa-unlock mr-1 fa-lg"></i>
-                  <b>
-                    {this.unlockedCount()} / {Creatures.length}
-                  </b>
+                <div className="col-6" style={{'whiteSpace':'nowrap'}}>
+                  <div className="float-left">
+                    <i className="fas fa-fw fa-trophy mr-1 fa-lg"></i>
+                    <b>
+                      {acc.format(this.state.rank)}
+                    </b>
+                  </div>
                 </div>
-
-                <div className="col-md-4 col-3 store-head-text">
-                  <i className="fas fa-fw fa-fish mr-1 fa-lg"></i>
-                  {this.getPoolCount()}
-                </div>
-
-                <div className="col-md-4 col-6" style={{'whiteSpace':'nowrap'}}>
+  
+                <div className="col-6" style={{'whiteSpace':'nowrap'}}>
                   <div className="float-right">
                     <i className="fas fa-fw fa-coins mr-1 fa-lg"></i>
                     <b>
-                      {acc.format(this.props.state.storeCoin)}
+                      {acc.format(this.state.coin)}
                     </b>
-
                   </div>
-                  
                 </div>
+
               </div>
+
 
               <div className="row">
                   <div className="col-12">
@@ -166,13 +129,16 @@ class Layout extends React.Component {
                         <thead>
                           <tr>
                             <th>
-                              Item
+                              Monster
+                            </th>
+                            <th>
+                              Lv
                             </th>
                             <th>
                               Name
                             </th>
                             <th>
-                              Price
+                              Bonus
                             </th>
                             <th>
                             </th>
@@ -189,6 +155,13 @@ class Layout extends React.Component {
 
               <div className="row">
                 <div className="col-12">
+
+                  <Link to='/rank'>
+                      <button className='btn btn-secondary float-left'>
+                        <i className="fas fa-trophy"></i>
+                      </button>
+                  </Link>
+
                   <Link to='/'>
                     <button className="btn btn-secondary float-right">
                       <span> Cancel </span>
