@@ -28,7 +28,7 @@ class Layout extends React.Component {
   getActionItem(){
     if(this.isLocked()){
       return (
-        <i className="fas fa-lg fa-lock store-item text-secondary"></i>
+        <i className="fas fa-fw fa-lock store-item "></i>
       );
     }
     else{
