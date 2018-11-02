@@ -2,9 +2,9 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import   acc        from 'accounting';
 import   React      from 'react';
-import   Item       from './item/layout.js';
+import   Info       from './info/layout.js';
+import   Table      from './table/layout.js';
 import { Link }     from 'react-router-dom';
 import   GameConfig from 'lib/gameconfig.js';
 import   axios      from 'axios';
@@ -46,18 +46,18 @@ class Layout extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      fetching: false
+      fetching: false,
     };
-    this.sellItem = this.sellItem.bind(this);
+    this.feedItem = this.feedItem.bind(this);
   }
 
-  sellItem(creature){
+  feedItem(creature){
 
     this.setState({fetching: true});
 
     let view = this;
 
-    axios.put('/api/pool', {
+    axios.put('/api/feed', {
       userID:       this.props.state.userID,
       monsterID:    creature.id,
       monsterPrice: creature.price
@@ -71,36 +71,9 @@ class Layout extends React.Component {
     });
   }
 
-  items(){
-    let items = [];
-    let view = this;
-
-    this.props.state.monsters.forEach(function(monster){
-      items.push(<Item {...view.props} monster={monster} key={monster.monsterID} sellItem={view.sellItem} />);
-    });
-    return items;
-  }
-
-  getPoolCount(){
-
-    if(this.props.state.monsters.length >= GameConfig.maxPool)
-    {
-      return(
-        <b className="text-danger">
-          {this.props.state.monsters.length} / {GameConfig.maxPool}
-        </b>
-      );
-    }
-    else{
-      return(
-        <b>
-          {this.props.state.monsters.length} / {GameConfig.maxPool}
-        </b>
-      );
-    }
-  }
-
   render() {
+
+    console.log('render');
 
     return (
       <div className="row" id="store-container">
@@ -118,53 +91,13 @@ class Layout extends React.Component {
             </div>
 
             <div className="card-body">
-              <div className="row mb-2">
 
-                <div className="col-6 store-head-text">
-                  {this.getPoolCount()}
-                </div>
+              <Info  {...this.props}/>
+              
+              <hr></hr>
 
-                <div className="col-6" style={{'whiteSpace':'nowrap'}}>
-                  <div className="float-right">
-                    <i className="fas fa-fw fa-coins mr-1 fa-lg"></i>
-                    <b>
-                      {acc.format(this.props.state.storeCoin)}
-                    </b>
-                  </div>
-                </div>
+              <Table {...this.props}/>
 
-              </div>
-
-
-              <div className="row">
-                  <div className="col-12">
-                    <div id="store-list">
-                      <table className="table table-striped table-sm table-hover">
-                        <thead>
-                          <tr>
-                            <th>
-                              Monster
-                            </th>
-                            <th>
-                              Lv
-                            </th>
-                            <th>
-                              Name
-                            </th>
-                            <th>
-                              Bonus
-                            </th>
-                            <th>
-                            </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {this.items()}
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-              </div>
               <hr></hr>
 
               <div className="row">

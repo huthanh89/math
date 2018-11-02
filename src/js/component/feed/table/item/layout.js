@@ -29,6 +29,7 @@ class Layout extends React.Component {
   render() {
 
     let creature = this.creature;
+    let monster  = this.props.monster;
 
     return (
       <tr>
@@ -37,7 +38,7 @@ class Layout extends React.Component {
         </td>
         <td>
           <span className="store-item">
-            1
+            {monster.level}
           </span>
         </td>
         <td>
@@ -47,12 +48,12 @@ class Layout extends React.Component {
         </td>
         <td>
           <span className="store-item">
-            {acc.format(creature.price / 2)}
+            {acc.format(monster.bonus)}
           </span>
         </td>
         <td>
-          <button className="btn btn-sm btn-info store-item" onClick={this.clickedSell}>
-            Feed
+          <button className="btn btn-sm btn-danger store-item" onClick={this.clickedSell}>
+            Select
           </button>
         </td>
       </tr>
