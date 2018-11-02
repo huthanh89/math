@@ -108,10 +108,18 @@ class Component extends React.Component {
     return reward;
   }
 
+  getMonsterReward(){
+    let reward = 0;
+    this.props.state.monsters.forEach(function(monster){
+      reward += monster.reward;
+    });
+    return reward;
+  }
+
   getTotalCoin(){
     let reward = this.getReward();
     let loot   = this.props.state.loot;
-    return reward + loot;
+    return reward + loot + this.getMonsterReward();
   }
 
   render() {

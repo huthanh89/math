@@ -20,6 +20,14 @@ const Difficulty = {
 
 class Component extends React.Component {
 
+  getMonsterReward(){
+    let reward = 0;
+    this.props.state.monsters.forEach(function(monster){
+      reward += monster.reward;
+    });
+    return reward;
+  }
+
   getReward(){
     let reward = 0;
     this.props.state.levels.forEach(function(level){
@@ -33,7 +41,7 @@ class Component extends React.Component {
   getTotalCoin(){
     let reward = this.getReward();
     let loot   = this.props.state.loot;
-    return reward + loot;
+    return reward + loot + this.getMonsterReward();
   }
 
   render() {
@@ -86,7 +94,15 @@ class Component extends React.Component {
                 </tr>
                 <tr className="bg-info">
                   <td>
-                    Treasure Chest
+                    Monster Reward
+                  </td>
+                  <td>
+                    {acc.format(this.getMonsterReward())}
+                  </td>
+                </tr>
+                <tr className="bg-info">
+                  <td>
+                    Treasure Loot
                   </td>
                   <td>
                     {acc.format(this.props.state.loot)}
