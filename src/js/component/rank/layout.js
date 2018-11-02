@@ -57,7 +57,7 @@ class Layout extends React.Component {
     return (
       <div className="row" id="rank-container">
         <div className="col-lg-6 col-center">
-          <div className="card bg-dark border-light">
+          <div className="card border-light">
 
             <div className="card-header border-light text-center">
               <i className="fas fa-fw fa-trophy mr-2"></i>

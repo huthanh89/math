@@ -245,9 +245,7 @@ nav{
 	margin: 25px 0;
 }
 
-#store-container{
-	margin-top: 30px;
-}
+
 
 #store-list{
 	max-height: 360px;
@@ -327,4 +325,49 @@ nav{
 .loot-treasure-image{
 	width:  200px;
 	height: 200px;
+}
+
+@card-background: rgba(45, 52, 65, 0.548);
+
+#rank-container{
+	margin-top: 30px;
+	.card{
+		background: @card-background;
+		background-image:    url("../asset/rank.png");
+		background-repeat:   no-repeat;
+		background-position: bottom;
+		background-size:     150px 200px;
+	}
+}
+
+#pool-container{
+	margin-top: 30px;
+	.card{
+		background: @card-background;
+	}
+}
+
+#feed-container{
+	margin-top: 30px;
+	.card{
+		background: @card-background;
+	}
+}
+
+#visit-container{
+	margin-top: 30px;
+	.card{
+		background: @card-background;
+	}
+}
+
+#store-container{
+	margin-top: 30px;
+	.card{
+		background: @card-background;
+		background-image:    url("../asset/store.png");
+		background-repeat:   no-repeat;
+		background-position: right bottom;
+		background-size:     200px 200px;
+	}
 }

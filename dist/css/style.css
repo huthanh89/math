@@ -4024,9 +4024,6 @@ nav {
 #contact-container {
   margin: 25px 0;
 }
-#store-container {
-  margin-top: 30px;
-}
 #store-list {
   max-height: 360px;
   overflow-y: auto;
@@ -4091,4 +4088,42 @@ nav {
 .loot-treasure-image {
   width: 200px;
   height: 200px;
+}
+#rank-container {
+  margin-top: 30px;
+}
+#rank-container .card {
+  background: rgba(45, 52, 65, 0.548);
+  background-image: url("../asset/rank.png");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 150px 200px;
+}
+#pool-container {
+  margin-top: 30px;
+}
+#pool-container .card {
+  background: rgba(45, 52, 65, 0.548);
+}
+#feed-container {
+  margin-top: 30px;
+}
+#feed-container .card {
+  background: rgba(45, 52, 65, 0.548);
+}
+#visit-container {
+  margin-top: 30px;
+}
+#visit-container .card {
+  background: rgba(45, 52, 65, 0.548);
+}
+#store-container {
+  margin-top: 30px;
+}
+#store-container .card {
+  background: rgba(45, 52, 65, 0.548);
+  background-image: url("../asset/store.png");
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: 200px 200px;
 }

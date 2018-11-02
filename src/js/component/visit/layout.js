@@ -86,10 +86,10 @@ class Layout extends React.Component {
   render() {
 
     return (
-      <div className="row" id="store-container">
+      <div className="row" id="visit-container">
 
         <div className="col-lg-7 col-center">
-          <div className="card bg-dark border-light">
+          <div className="card border-light">
 
             <div className="card-header border-light text-center">
               <i className="fas fa-fw fa-user mr-2"></i>
