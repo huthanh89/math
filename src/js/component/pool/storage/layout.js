@@ -159,6 +159,11 @@ class Layout extends React.Component {
 
         <div className="row">
           <div className="col-12">
+            <Link to='/store'>
+                <button className='btn btn-secondary float-left'>
+                  <i className="fas fa-store"></i>
+                </button>
+            </Link>
             <Link to='/'>
               <button className="btn btn-secondary float-right">
                 <span> Cancel </span>
