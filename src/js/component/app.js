@@ -7,6 +7,7 @@ import uniqid          from 'uniqid';
 import localStore      from 'store';
 import React           from 'react';
 import Menu            from '../container/menu.js';
+import MathMenu        from './math_menu/layout.js';
 import Sell            from '../container/sell.js';
 import Pool            from '../container/pool.js';
 import Setting         from '../container/setting.js';
@@ -112,6 +113,7 @@ class App extends React.Component {
         <Route path="/adfullview" component={AdsenseFullView} />
         <Route path="/loot"       component={Loot} />
         <Route path="/pool"       component={Pool} />
+        <Route path="/mathmenu"   component={MathMenu} />
         <Footer/>
       </div>
     );

@@ -85,6 +85,7 @@ let urls = [
     '/',
     '/menu',
     '/game',
+    '/mathmenu',
     '/summary',
     '/feed/:id',
     '/feed',
