@@ -2,8 +2,8 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-const mongoose = require('mongoose');
-const User     = require('../model/user.js');
+const _    = require('lodash');
+const User = require('../model/user.js');
 
 //-----------------------------------------------------------------------------//
 // API Route
@@ -11,8 +11,7 @@ const User     = require('../model/user.js');
 
 const route = function(app){
     
-    
-    app.put('/api/store', function (req, res) {
+    app.put('/api/feed', function (req, res) {
         User.findOne({
             _id: req.body.userID
         },function (err, user) {
@@ -23,37 +22,50 @@ const route = function(app){
                 res.sendStatus(400);
             }
             else {
+
+                // Search for target and feed.
                 
-                let storeCoin = user.storeCoin - req.body.price;
-                let monsterID = mongoose.Types.ObjectId();
-                
-                user.monsters.push({
-                    monsterID:  monsterID,
-                    typeID:     req.body.typeID,
-                    level:      req.body.level,
-                    levelExp:   req.body.levelExp,
-                    reward:     req.body.level * req.body.bonus,
-                    feed:       req.body.feed,
-                    bonus:      req.body.bonus
+                let monsters = user.monsters;
+                let targetID = req.body.targetID;
+                let feedID   = req.body.feedID;
+
+                let target = _.find(monsters, function(monster){
+                    return monster.monsterID == targetID;
                 });
                 
-                user.storeCoin = storeCoin;
+                let feed = _.find(monsters, function(monster){
+                    return monster.monsterID == feedID;
+                });
+
+                // Update level.
+
+                let level = (feed.level * feed.feed) / target.levelExp;
+
+                target.level += level;
+                
+                if(target.level >= 100){
+                    target.level = 100;
+                }
+                
+                target.reward = Math.floor(target.level * target.bonus);
+
+                // Update collection
+
+                monsters = _.filter(monsters, function(monster){
+                    let monsterID = monster.monsterID;
+                    return monsterID != targetID && monsterID != feedID;
+                });
+
+                monsters.push(target);
+
+                user.monsters = monsters;
 
                 user.save(function (err) {
                     if (err) {
                         res.status(400).send('Could not update settings');
                     } 
                     else {
-                        res.send({
-                            storeCoin:  storeCoin,
-                            monsterID:  monsterID,
-                            typeID:     req.body.typeID,
-                            level:      req.body.level,
-                            levelExp:   req.body.levelExp,
-                            reward:     req.body.level * req.body.bonus,
-                            feed:       req.body.feed,
-                            bonus:      req.body.bonus
-                        });
+                        res.send(monsters);
                     }
                 });
 

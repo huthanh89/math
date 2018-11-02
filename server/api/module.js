@@ -11,6 +11,7 @@ const api = function(app){
     require('./login.js')(app)
     require('./store.js')(app)
     require('./visit.js')(app)
+    require('./feed.js')(app)
 }
 
 //-----------------------------------------------------------------------------//

@@ -62,7 +62,7 @@ class Layout extends React.Component {
       typeID:    creature.id,
       price:     creature.price,
       level:     1,
-      exp:       creature.exp,
+      levelExp:  creature.levelExp,
       feed:      creature.feed,
       bonus:     creature.bonus
     })

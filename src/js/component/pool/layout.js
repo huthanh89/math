@@ -12,7 +12,6 @@ import { Link } from 'react-router-dom';
 
 class Layout extends React.Component {
 
-
   getView(){
     if(this.props.state.monsters.length){
       return(

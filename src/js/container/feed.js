@@ -24,7 +24,12 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-
+        actionUpdateMonsters: function (monsters){
+            return dispatch({
+                type:    'UPDATE_MONSTERS',
+                monsters: monsters
+            });
+        }
     };
 }
 

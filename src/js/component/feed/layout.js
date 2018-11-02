@@ -51,20 +51,20 @@ class Layout extends React.Component {
     this.feedItem = this.feedItem.bind(this);
   }
 
-  feedItem(creature){
+  feedItem(monster){
 
     this.setState({fetching: true});
 
     let view = this;
 
     axios.put('/api/feed', {
-      userID:       this.props.state.userID,
-      monsterID:    creature.id,
-      monsterPrice: creature.price
+      userID:   this.props.state.userID,
+      targetID: this.props.match.params.id,
+      feedID:   monster.monsterID
     })
     .then(function(response){
-      view.props.actionRemoveMonster(creature.id);
-      showToast(`Sold ${creature.name}`);
+      view.props.actionUpdateMonsters(response.data);
+      //showToast(`Fed ${creature.name}`);
     })
     .catch(function (error) {
       console.log('error', error);
@@ -94,7 +94,7 @@ class Layout extends React.Component {
               
               <hr></hr>
 
-              <Table {...this.props}/>
+              <Table {...this.props} feedItem={this.feedItem}/>
 
               <hr></hr>
 

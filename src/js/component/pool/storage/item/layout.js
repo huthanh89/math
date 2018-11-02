@@ -39,7 +39,7 @@ class Layout extends React.Component {
         </td>
         <td>
           <span className="store-item">
-            {monster.level}
+            {Math.floor(monster.level)}
           </span>
         </td>
         <td>
@@ -49,7 +49,7 @@ class Layout extends React.Component {
         </td>
         <td>
           <span className="store-item">
-            {acc.format(monster.bonus)}
+            {acc.format(monster.reward)}
           </span>
         </td>
         <td>

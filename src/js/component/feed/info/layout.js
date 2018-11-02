@@ -26,6 +26,9 @@ class Layout extends React.Component {
         return creatureID === creature.id;
       });
 
+      let level   = Math.floor(this.monster.level);
+      let percent = _.round(this.monster.level - level, 2) * 100;
+
       return(
         <div>
 
@@ -35,15 +38,12 @@ class Layout extends React.Component {
                 Name: {creature.name}
               </span>
               <span>
-                Level: {this.monster.level}
+                Level: {Math.floor(level)}
               </span>
             </div>
             <div className="col-6 text-right">
               <span className="d-block">
-                Bonus: {this.monster.bonus}
-              </span>
-              <span className="d-block">
-                EXP: {this.monster.exp}
+                Bonus: {this.monster.reward}
               </span>
             </div>
           </div>
@@ -51,16 +51,13 @@ class Layout extends React.Component {
           <div className="row mt-2">
             <div className="col-12">
               <div className="progress">
-                <div className="progress-bar bg-success" role="progressbar" style={{width: '75%'}} aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">75%</div>
+                <div className="progress-bar bg-success" role="progressbar" style={{width: `${percent}%`}} aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">{percent}%</div>
               </div>
             </div>
           </div>
 
-
         </div>
-
       );
-
     }
     else{
       return(

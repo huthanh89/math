@@ -83,17 +83,24 @@ function reducer (prevState=initialState(), action){
       return _.clone(state);
     }
 
+    case 'UPDATE_MONSTERS': {
+      let state = prevState;
+      state.monsters = action.monsters;
+      return _.clone(state);
+    }
+
     case 'ADD_MONSTER': {
       let state = prevState;
       let data = action.data;
 
       state.monsters.push({
-        monsterID: data.monsterID,
-        typeID:    data.typeID,
-        level:     data.level,
-        exp:       data.exp,
-        feed:      data.feed,
-        bonus:     data.bonus
+        monsterID:  data.monsterID,
+        typeID:     data.typeID,
+        level:      data.level,
+        levelExp:   data.levelExp,
+        reward:     data.reward,
+        feed:       data.feed,
+        bonus:      data.bonus
       });
       return _.clone(state);
     }

@@ -15,15 +15,14 @@ class Layout extends React.Component {
 
   constructor(props){
     super(props);
-    this.clickedSell = this.clickedSell.bind(this);
-    this.creature = _.find(Creatures, function(creature){
+    this.clickedFeed = this.clickedFeed.bind(this);
+    this.creature    = _.find(Creatures, function(creature){
       return creature.id === props.monster.typeID;
     });
-
   }
 
-  clickedSell(){
-    this.props.buyItem(this.props.monster);
+  clickedFeed(){
+    this.props.feedItem(this.props.monster);
   }
 
   render() {
@@ -38,7 +37,7 @@ class Layout extends React.Component {
         </td>
         <td>
           <span className="store-item">
-            {monster.level}
+            {Math.floor(monster.level)}
           </span>
         </td>
         <td>
@@ -48,11 +47,11 @@ class Layout extends React.Component {
         </td>
         <td>
           <span className="store-item">
-            {acc.format(monster.bonus)}
+            {acc.format(monster.level * monster.feed)}
           </span>
         </td>
         <td>
-          <button className="btn btn-sm btn-danger store-item" onClick={this.clickedSell}>
+          <button className="btn btn-sm btn-danger store-item" onClick={this.clickedFeed}>
             Select
           </button>
         </td>
