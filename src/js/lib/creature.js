@@ -14,7 +14,7 @@ var Creatures = [
         price:    25000,
         levelExp: 10000,
         feed:     53230,
-        bonus:    3,
+        bonus:    14,
         name:    'Tuna',
         src:     'avatar_tuna.png'
     },
@@ -23,7 +23,7 @@ var Creatures = [
         price:    155000,
         levelExp: 10000,
         feed:     17040,
-        bonus:    5,
+        bonus:    42,
         name:    'Octopus',
         src:     'avatar_octopus.png'
     },
@@ -31,8 +31,8 @@ var Creatures = [
         id:       3,
         price:    425000,
         levelExp: 140000,
-        feed:     440000,
-        bonus:    7,
+        feed:     340350,
+        bonus:    65,
         name:    'Turtle',
         src:     'avatar_turtle.png'
     },
@@ -40,8 +40,8 @@ var Creatures = [
         id:       4,
         price:    1000000,
         levelExp: 1646000,
-        feed:     1646000,
-        bonus:    11,
+        feed:     457680,
+        bonus:    163,
         name:    'Crab',
         src:     'avatar_crab.png'
     },
@@ -49,8 +49,8 @@ var Creatures = [
         id:       5,
         price:    5000000,
         levelExp: 16460000,
-        feed:     16460000,
-        bonus:    15,
+        feed:     7634040,
+        bonus:    515,
         name:    'Shark',
         src:     'avatar_shark.png'
     },
@@ -58,8 +58,8 @@ var Creatures = [
         id:       6,
         price:    14000000,
         levelExp: 116460000,
-        feed:     116460000,
-        bonus:    18,
+        feed:     61660350,
+        bonus:    1818,
         name:    'Killer Whale',
         src:     'avatar_killer_whale.png'
     },
@@ -67,8 +67,8 @@ var Creatures = [
         id:       7,
         price:    1000000000,
         levelExp: 1164460000,
-        feed:     1156460000,
-        bonus:    22,
+        feed:     415652000,
+        bonus:    3400,
         name:    'Whale',
         src:     'avatar_whale.png'
     }

@@ -72,7 +72,7 @@ class Layout extends React.Component {
           <div className="row mt-2">
             <div className="col-12">
               <span className="float-right">
-                {currentExp()} / {acc.format(this.monster.levelExp)} Exp
+                {acc.format(currentExp())} / {acc.format(this.monster.levelExp)} Exp
               </span>
             </div>
           </div>
