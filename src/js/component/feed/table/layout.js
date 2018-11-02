@@ -31,7 +31,6 @@ class Layout extends React.Component {
                   <thead>
                     <tr>
                       <th>
-                        Monster
                       </th>
                       <th>
                         Lv
@@ -40,7 +39,7 @@ class Layout extends React.Component {
                         Name
                       </th>
                       <th>
-                        Bonus
+                        Feed EXP
                       </th>
                       <th>
                       </th>

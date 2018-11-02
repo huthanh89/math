@@ -4029,7 +4029,7 @@ nav {
 }
 #store-list {
   max-height: 360px;
-  overflow-y: scroll;
+  overflow-y: auto;
   border: #9c9999 1px solid;
 }
 .store-avatar-image {
