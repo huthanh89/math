@@ -83,6 +83,44 @@ class Layout extends React.Component {
     }
   }
 
+  getPool(){
+    if(this.props.state.monsters.length)
+    {
+      return(
+        <div id="store-list">
+          <table className="table table-striped table-sm table-hover">
+            <thead>
+              <tr>
+                <th>
+                </th>
+                <th>
+                  Lv
+                </th>
+                <th>
+                  Name
+                </th>
+                <th>
+                  Bonus
+                </th>
+                <th>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.items()}
+            </tbody>
+          </table>
+        </div>
+      );
+    }
+    else{
+      return(
+      <div className="text-center mt-2">
+        Player has no monster.
+      </div>);
+    }
+  }
+
   render() {
 
     return (
@@ -120,36 +158,13 @@ class Layout extends React.Component {
                 </div>
 
               </div>
-
-
+              
               <div className="row">
-                  <div className="col-12">
-                    <div id="store-list">
-                      <table className="table table-striped table-sm table-hover">
-                        <thead>
-                          <tr>
-                            <th>
-                            </th>
-                            <th>
-                              Lv
-                            </th>
-                            <th>
-                              Name
-                            </th>
-                            <th>
-                              Bonus
-                            </th>
-                            <th>
-                            </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {this.items()}
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
+                <div className="col-12">
+                  {this.getPool()}
+                </div>
               </div>
+
               <hr></hr>
 
               <div className="row">
@@ -157,14 +172,9 @@ class Layout extends React.Component {
 
                   <Link to='/rank'>
                       <button className='btn btn-secondary float-left'>
-                        <i className="fas fa-trophy"></i>
+                        <i className="fas fa-arrow-left mr-1"></i>
+                        <span>Back</span>
                       </button>
-                  </Link>
-
-                  <Link to='/'>
-                    <button className="btn btn-secondary float-right">
-                      <span> Cancel </span>
-                    </button>
                   </Link>
                 </div>
               </div>

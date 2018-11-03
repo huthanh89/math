@@ -74,11 +74,7 @@ class Layout extends React.Component {
                       <span> Back </span>
                     </button>
                   </Link>
-                  <Link to='/'>
-                    <button className="btn btn-secondary float-right">
-                      <span> Cancel </span>
-                    </button>
-                  </Link>
+                  
                 </div>
               </div>
             </div>
