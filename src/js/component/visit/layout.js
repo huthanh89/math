@@ -26,7 +26,6 @@ class Layout extends React.Component {
     };
   }
 
-
   componentDidMount(){
     this.getInfo();
   }
@@ -39,7 +38,6 @@ class Layout extends React.Component {
       }
     })
     .then(function(response){
-      console.log(response);
       let data = response.data;
       view.setState({
         username: data.username,
@@ -53,7 +51,6 @@ class Layout extends React.Component {
     });
   }
 
-
   items(){
     let items = [];
     let view = this;
@@ -64,27 +61,8 @@ class Layout extends React.Component {
     return items;
   }
 
-  getPoolCount(){
-
-    if(this.props.state.monsters.length >= GameConfig.maxPool)
-    {
-      return(
-        <b className="text-danger">
-          {this.props.state.monsters.length} / {GameConfig.maxPool}
-        </b>
-      );
-    }
-    else{
-      return(
-        <b>
-          {this.props.state.monsters.length} / {GameConfig.maxPool}
-        </b>
-      );
-    }
-  }
-
   getPool(){
-    if(this.props.state.monsters.length)
+    if(this.state.monsters.length)
     {
       return(
         <div id="store-list">
