@@ -10,23 +10,22 @@ const User = require('../model/user.js');
 //-----------------------------------------------------------------------------//
 
 const route = function(app){
-    app.route('/api/rank')
-        .get(function (req, res) {
-            User.find({}
-                , ['username', 'coin']
-                , {
-                    sort: {
-                        coin: -1 
-                    }
-                }, function(err, docs){
-                
-                    if(err){
-                        res.status(400).send('Could not update player data');
-                    }else{
-                        res.send(docs);
-                    }
+
+    app.get('/api/rank', function (req, res) {
+        User.find()
+            .select(['username', 'coin'])
+            .limit(100)
+            .sort({coin: -1})
+            .lean()
+            .exec(function(err, docs){
+                if(err){
+                    res.status(400).send('Could not update player data');
+                }else{
+                    res.send(docs);
+                }
             });
-        })
+    });
+
 }
 
 //-----------------------------------------------------------------------------//
