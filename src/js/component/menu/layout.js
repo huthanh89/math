@@ -5,7 +5,6 @@
 import React    from 'react';
 import User     from './user/layout.js';
 import Coin     from './coin/layout.js';
-import Ad       from '../ad/layout.js';
 import Nav      from './nav/layout.js';
 import { Link } from 'react-router-dom';
 
@@ -49,7 +48,6 @@ class Layout extends React.Component {
           </Link>
         </div>
         <Nav/>
-        <Ad/>
       </div>
     );
   }

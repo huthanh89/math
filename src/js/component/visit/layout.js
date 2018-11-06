@@ -22,7 +22,7 @@ class Layout extends React.Component {
       username: null,
       coin:     0,
       rank:     0,
-      monsters: []
+      monsters: null
     };
   }
 
@@ -53,8 +53,7 @@ class Layout extends React.Component {
 
   items(){
     let items = [];
-    let view = this;
-
+    let view  = this;
     this.state.monsters.forEach(function(monster){
       items.push(<Item {...view.props} monster={monster} key={monster.monsterID} sellItem={view.sellItem} />);
     });
@@ -62,7 +61,10 @@ class Layout extends React.Component {
   }
 
   getPool(){
-    if(this.state.monsters.length)
+    if(this.state.monsters === null){
+      return(<div></div>);
+    }
+    else if(this.state.monsters.length)
     {
       return(
         <div id="store-list">
