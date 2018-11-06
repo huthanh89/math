@@ -16,6 +16,7 @@ class Layout extends React.Component {
   constructor(){
     super();
     this.state = {
+      count: 0,
       users: []
     };
   }
@@ -29,7 +30,8 @@ class Layout extends React.Component {
     axios.get('/api/rank')
       .then(function (response) {
         view.setState({
-          users: response.data
+          count: response.data.count,
+          users: response.data.ranks
         });
       })
       .catch(function (error) {
@@ -38,18 +40,14 @@ class Layout extends React.Component {
   }
 
   getItems(){
-
     let result = [];
     let view   = this;
-
     this.state.users.forEach(function(user, index){
       result.push(
         <Item {...view.props} key={index} user={user} index={index}/>
       );
     });
-
     return result;
-
   }
 
   render() {
@@ -94,6 +92,9 @@ class Layout extends React.Component {
 
               <div className="row">
                 <div className="col-12">
+                  <span  className="float-left text-dark">
+                    {this.state.count} Users
+                  </span>
                   <Link to='/'>
                     <button className="btn btn-secondary float-right">
                       <span> Cancel </span>

@@ -12,18 +12,21 @@ const User = require('../model/user.js');
 const route = function(app){
 
     app.get('/api/rank', function (req, res) {
-        User.find()
-            .select(['username', 'coin'])
-            .limit(100)
-            .sort({coin: -1})
-            .lean()
-            .exec(function(err, docs){
-                if(err){
-                    res.status(400).send('Could not update player data');
-                }else{
-                    res.send(docs);
-                }
+
+
+        Promise.all([
+            User.countDocuments(),
+            User.find()
+                .select(['username', 'coin'])
+                .limit(100)
+                .sort({coin: -1})
+                .lean()
+        ]).then( ([ count, ranks ]) => {
+            res.send({
+                count: count,
+                ranks: ranks
             });
+        });
     });
 
 }
