@@ -138,27 +138,20 @@ class Layout extends React.Component {
             <div className="card-body">
               <div className="row mb-2">
 
-                <div className="col-md-4 col-3 store-head-text">
+                <div className="col-4 store-head-text">
                   <i className="fas fa-fw fa-unlock mr-1 fa-lg"></i>
                   <b>
                     {this.unlockedCount()} / {Creatures.length}
                   </b>
                 </div>
 
-                <div className="col-md-4 col-3 store-head-text">
-                  <i className="fas fa-fw fa-fish mr-1 fa-lg"></i>
-                  {this.getPoolCount()}
-                </div>
-
-                <div className="col-md-4 col-6" style={{'whiteSpace':'nowrap'}}>
+                <div className="col-8" style={{'whiteSpace':'nowrap'}}>
                   <div className="float-right">
                     <i className="fas fa-fw fa-coins mr-1 fa-lg"></i>
                     <b>
                       {acc.format(this.props.state.storeCoin)}
                     </b>
-
                   </div>
-                  
                 </div>
               </div>
 
@@ -195,7 +188,8 @@ class Layout extends React.Component {
 
                   <Link to='/pool'>
                       <button className='btn btn-secondary float-left'>
-                        <i className="fas fa-fish"></i>
+                        <i className="fas fa-fish mr-2"></i>
+                        {this.getPoolCount()}
                       </button>
                   </Link>
 

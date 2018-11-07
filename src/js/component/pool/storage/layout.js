@@ -113,15 +113,6 @@ class Layout extends React.Component {
             {this.getPoolCount()}
           </div>
 
-          <div className="col-6" style={{'whiteSpace':'nowrap'}}>
-            <div className="float-right">
-              <i className="fas fa-fw fa-coins mr-1 fa-lg"></i>
-              <b>
-                {acc.format(this.props.state.storeCoin)}
-              </b>
-            </div>
-          </div>
-
         </div>
 
 
