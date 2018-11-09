@@ -56,7 +56,7 @@ class Component extends React.Component {
     render () {
         let treasure = 'treasure.png';
         return (
-            <div>
+            <div className="d-block">
                 <img className="loot-treasure-image" onClick={this.clicked} src={`asset/${treasure}`} alt="treasure"/>
             </div>
         );

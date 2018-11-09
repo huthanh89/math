@@ -114,7 +114,6 @@ class App extends React.Component {
         <Route path="/loot"       component={Loot} />
         <Route path="/pool"       component={Pool} />
         <Route path="/mathmenu"   component={MathMenu} />
-        <Footer/>
       </div>
     );
   }

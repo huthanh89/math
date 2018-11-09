@@ -52,6 +52,9 @@ class Component extends React.Component {
             return(
                 <div id="loot-container">
                     <Reward {...this.props}/>
+                    <span className="d-block">
+                        Click Me
+                    </span>
                 </div>
             );
         }
@@ -85,7 +88,10 @@ class Component extends React.Component {
                         </button>
                     </Link>
                     <span id="loot-timer">
-                        Loot Reward in {this.counter}
+                        Loot Reward in 
+                        <span id="loot-timer-number">
+                            {this.counter}
+                        </span>
                     </span>
                     {this.getView()}
                 </div>

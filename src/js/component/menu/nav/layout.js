@@ -32,16 +32,16 @@ class Layout extends React.Component {
         <div className="col-md-6 col-center">
           <div className="row">  
   
-            <div className="col-3">
-                <Link to='/setting'>
+            <div className="col-4">
+                <Link to='/user'>
                   <button className="btn btn-outline-light btn-lg menu-setting-button">
-                    <i className="fas fa-cogs fa-lg d-block"></i>
+                    <i className="fas fa-user-cog fa-lg d-block"></i>
                   </button>
-                  <span className="menu-setting-title">Setting</span>
+                  <span className="menu-setting-title">User Settings</span>
                 </Link>
             </div>
   
-            <div className="col-3">
+            <div className="col-4">
                 <Link to='/rank'>
                   <button className="btn btn-outline-light btn-lg menu-setting-button">
                     <i className="fas fa-trophy fa-lg d-block"></i>
@@ -50,7 +50,7 @@ class Layout extends React.Component {
                 </Link>
             </div>
 
-            <div className="col-3">
+            <div className="col-4">
                 <Link to='/store'>
                   <button className="btn btn-outline-light btn-lg menu-setting-button">
                     <i className="fas fa-store fa-lg d-block"></i>
@@ -58,14 +58,14 @@ class Layout extends React.Component {
                   <span className="menu-setting-title">Store</span>
                 </Link>
             </div>
-
-            <div className="col-3">
-              <button className="btn btn-outline-light btn-lg menu-setting-button" onClick={this.clickedShare}>
-                <i className="fas fa-share fa-lg d-block"></i>
-              </button>
-              <span className="menu-setting-title">Share</span>
-            </div>
-            
+            {/* 
+              <div className="col-3">
+                <button className="btn btn-outline-light btn-lg menu-setting-button" onClick={this.clickedShare}>
+                  <i className="fas fa-share fa-lg d-block"></i>
+                </button>
+                <span className="menu-setting-title">Share</span>
+              </div>
+            */}
           </div>
         
         </div>

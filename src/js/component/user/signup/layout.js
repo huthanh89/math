@@ -137,7 +137,7 @@ class Layout extends React.Component {
           <form onSubmit={this.handleSubmit}>
 
             <div className="form-group">
-              <label htmlFor="setting-username">Username</label>
+              <label htmlFor="setting-username">Change Username</label>
               <input type="text" ref={this.username} defaultValue={this.props.state.username} className="form-control form-control-sm" id="setting-username"  minLength="2" maxLength="20"/>
             </div>
             
