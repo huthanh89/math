@@ -96,7 +96,7 @@ class Layout extends React.Component {
     else{
       return(
       <div className="text-center mt-2">
-        Player has no monster.
+        This player's pool is empty.
       </div>);
     }
   }
