@@ -65,9 +65,6 @@ class Layout extends React.Component {
                     Lv
                   </th>
                   <th>
-                    Name
-                  </th>
-                  <th>
                     Feed Exp
                   </th>
                   <th>
