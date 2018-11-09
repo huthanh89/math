@@ -162,10 +162,10 @@ class Layout extends React.Component {
                         <thead>
                           <tr>
                             <th>
-                              Item
+                              Creature
                             </th>
                             <th>
-                              Name
+                              Bonus
                             </th>
                             <th>
                               Price

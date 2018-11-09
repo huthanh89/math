@@ -62,12 +62,12 @@ class Layout extends React.Component {
     }
   }
 
-  getItemName(){
+  getItemBonus(){
     if(this.isLocked()){
       return '-';
     }
     else{
-      return this.props.creature.name;
+      return this.props.creature.bonus;
     }
   }
 
@@ -82,7 +82,7 @@ class Layout extends React.Component {
         </td>
         <td>
           <span className="store-item">
-            {this.getItemName()}
+            {this.getItemBonus()}
           </span>
         </td>
         <td>

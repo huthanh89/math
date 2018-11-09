@@ -5,23 +5,23 @@ var Creatures = [
         price:    0,
         levelExp: 10,
         feed:     73,
-        bonus:    1.5,
+        bonus:    2,
         src:     'monster1.png'
     },
     {
         id:       1,
         price:    0,
-        levelExp: 10,
+        levelExp: 50,
         feed:     73,
-        bonus:    1.5,
+        bonus:    4,
         src:     'monster2.png'
     },
     {
         id:       2,
         price:    0,
-        levelExp: 10,
+        levelExp: 80,
         feed:     73,
-        bonus:    1.5,
+        bonus:    8,
         src:     'monster3.png'
     },
     {

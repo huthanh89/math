@@ -17,10 +17,10 @@ const Difficulty = {
 
 function iconClass(inGame) {
   if(inGame){
-    return classNames('btn', 'btn-outline-light');
+    return classNames('btn', 'btn-outline-light', 'game-nav-item');
   }
   else {
-    return classNames('btn', 'btn-outline-light', 'd-none');
+    return classNames('btn', 'btn-outline-light', 'game-nav-item', 'd-none');
   }
 }
 

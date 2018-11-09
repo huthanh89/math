@@ -123,12 +123,10 @@ class Layout extends React.Component {
                   <thead>
                     <tr>
                       <th>
+                        Creature
                       </th>
                       <th>
                         Lv
-                      </th>
-                      <th>
-                        Name
                       </th>
                       <th>
                         Bonus
