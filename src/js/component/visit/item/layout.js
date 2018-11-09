@@ -29,6 +29,7 @@ class Layout extends React.Component {
   render() {
 
     let creature = this.creature;
+    let monster = this.props.monster;
 
     return (
       <tr>
@@ -37,16 +38,15 @@ class Layout extends React.Component {
         </td>
         <td>
           <span className="store-item">
-            1
+            {acc.format(monster.level)}
           </span>
         </td>
         <td>
           <span className="store-item">
-            {acc.format(creature.price / 2)}
+            {acc.format(monster.reward)}
           </span>
         </td>
       </tr>
-      
     );
   }
 }

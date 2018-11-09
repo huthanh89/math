@@ -108,9 +108,9 @@ class Layout extends React.Component {
           <div className="card border-light">
 
             <div className="card-header border-light text-center">
-              <i className="fas fa-fw fa-user mr-2"></i>
+              <i className="fas fa-fw fa-home mr-2"></i>
               <span>
-                {this.state.username}
+                Visiting
               </span>
             </div>
 
@@ -119,9 +119,9 @@ class Layout extends React.Component {
 
                 <div className="col-6" style={{'whiteSpace':'nowrap'}}>
                   <div className="float-left">
-                    <i className="fas fa-fw fa-trophy mr-1 fa-lg"></i>
+                    <i className="fas fa-fw fa-user mr-1 fa-lg"></i>
                     <b>
-                      {acc.format(this.state.rank)}
+                      {this.state.username}
                     </b>
                   </div>
                 </div>
@@ -147,7 +147,6 @@ class Layout extends React.Component {
 
               <div className="row">
                 <div className="col-12">
-
                   <Link to='/rank'>
                       <button className='btn btn-info float-left'>
                         <i className="fas fa-arrow-left mr-1"></i>
