@@ -187,7 +187,7 @@ class Layout extends React.Component {
                 <div className="col-12">
 
                   <Link to='/pool'>
-                      <button className='btn btn-secondary float-left'>
+                      <button className='btn btn-info float-left'>
                         <i className="fas fa-fish mr-2"></i>
                         {this.getPoolCount()}
                       </button>

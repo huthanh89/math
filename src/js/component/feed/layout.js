@@ -69,7 +69,7 @@ class Layout extends React.Component {
               <div className="row">
                 <div className="col-12">
                   <Link to='/pool'>
-                    <button className="btn btn-secondary float-left">
+                    <button className="btn btn-info float-left">
                       <i className="fas fa-arrow-left"></i>
                       <span> Back </span>
                     </button>

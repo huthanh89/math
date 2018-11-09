@@ -151,7 +151,7 @@ class Layout extends React.Component {
                 <div className="col-12">
 
                   <Link to='/rank'>
-                      <button className='btn btn-secondary float-left'>
+                      <button className='btn btn-info float-left'>
                         <i className="fas fa-arrow-left mr-1"></i>
                         <span>Back</span>
                       </button>
