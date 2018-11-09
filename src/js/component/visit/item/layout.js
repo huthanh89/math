@@ -42,11 +42,6 @@ class Layout extends React.Component {
         </td>
         <td>
           <span className="store-item">
-            {creature.name}
-          </span>
-        </td>
-        <td>
-          <span className="store-item">
             {acc.format(creature.price / 2)}
           </span>
         </td>

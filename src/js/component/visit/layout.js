@@ -77,9 +77,6 @@ class Layout extends React.Component {
                   Lv
                 </th>
                 <th>
-                  Name
-                </th>
-                <th>
                   Bonus
                 </th>
                 <th>
