@@ -16,7 +16,7 @@ class Layout extends React.Component {
     let view   = this;
     let result = Creatures[0];
     Creatures.forEach(function(creature){
-      if(creature.price < view.props.state.coin){
+      if(creature.price < view.props.coin){
         result = creature;
       }
 
@@ -37,10 +37,10 @@ class Layout extends React.Component {
             <div className="d-inline-block text-white">
               <i className="fas fa-fw fa-trophy mr-2 fa-lg"></i>
               <b>
-                {this.props.state.rank}
+                {this.props.rank}
               </b>
               <b className="d-block mt-2">
-                {this.props.state.username}
+                {this.props.username}
               </b>
             </div>
           </Link>

@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 // Component
 //-----------------------------------------------------------------------------//
 
-class Layout extends React.Component {
+class Component extends React.Component {
 
   render() {
 
@@ -67,6 +67,6 @@ class Layout extends React.Component {
 // Export
 //-----------------------------------------------------------------------------//
 
-export default Layout;
+export default Component;
 
 //-----------------------------------------------------------------------------//

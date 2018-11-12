@@ -9,9 +9,9 @@ import { Provider }    from 'react-redux';
 import   App           from './container/app.js';
 import   reducer       from './reducer';
 import   logger        from 'redux-logger';
+import   firebase      from 'firebase/app';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { applyMiddleware, createStore } from 'redux';
-import firebase  from 'firebase';
 
 //-----------------------------------------------------------------------------//
 // Project configuration

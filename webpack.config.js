@@ -32,6 +32,13 @@ module.exports = {
 
   module: {
     rules: [
+
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
+      },
+
       {
         // When encountering .css files, use css-loader to interpret the file,
         // and style-loader to place the css into the <style> tag.
@@ -50,8 +57,12 @@ module.exports = {
         test: /.jsx?$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
-        query: {
-          presets: ['@babel/react']
+        options: {
+          presets: [
+            '@babel/react',
+            '@babel/preset-typescript',
+            '@babel/preset-flow'
+          ]
         }
       }
     ]

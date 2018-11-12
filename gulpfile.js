@@ -19,6 +19,7 @@ const concat        = require('gulp-concat');
 const merge         = require('merge-stream');
 const order         = require("gulp-order");
 const eslint        = require('gulp-eslint');
+const run           = require('gulp-run-command');
 
 //-----------------------------------------------------------------------------//
 // Tasks
@@ -172,6 +173,9 @@ gulp.task('browser', () => {
     }));
 });
 
+// Run Jest to test JavaScript files.
+
+gulp.task('test', run.default('npm test'))
 
 //-----------------------------------------------------------------------------//
 // Main tasks
