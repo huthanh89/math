@@ -5,6 +5,7 @@
 import _          from 'lodash';
 import acc        from 'accounting';
 import React      from 'react';
+import PropTypes  from 'prop-types';
 import Creatures  from 'lib/creature.js';
 import GameConfig from 'lib/gameconfig';
 
@@ -12,12 +13,12 @@ import GameConfig from 'lib/gameconfig';
 // Component
 //-----------------------------------------------------------------------------//
 
-class Layout extends React.Component {
+class Component extends React.Component {
 
   getView(){
 
     let id       = this.props.match.params.id;
-    this.monster = _.find(this.props.state.monsters, function(monster){
+    this.monster = _.find(this.props.monsters, function(monster){
       return monster.monsterID === id;
     });
 
@@ -27,9 +28,9 @@ class Layout extends React.Component {
         return creatureID === creature.id;
       });
 
-      let view      = this;
-      let level     = Math.floor(this.monster.level);
-      let percent   = _.round(this.monster.level - level, 2) * 100;
+      let view    = this;
+      let level   = Math.floor(this.monster.level);
+      let percent = _.round(this.monster.level - level, 2) * 100;
 
       function currentExp(){
         let result;
@@ -106,10 +107,14 @@ class Layout extends React.Component {
   }
 }
 
+Component.propTypes = {
+  monsters: PropTypes.array.isRequired,
+};
+
 //-----------------------------------------------------------------------------//
 // Export
 //-----------------------------------------------------------------------------//
 
-export default Layout;
+export default Component;
 
 //-----------------------------------------------------------------------------//

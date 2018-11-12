@@ -5,13 +5,14 @@
 import _         from 'lodash';
 import acc       from 'accounting';
 import React     from 'react';
+import PropTypes from 'prop-types';
 import Creatures from 'lib/creature.js';
 
 //-----------------------------------------------------------------------------//
 // Component
 //-----------------------------------------------------------------------------//
 
-class Layout extends React.Component {
+class Component extends React.Component {
 
   constructor(props){
     super(props);
@@ -56,10 +57,14 @@ class Layout extends React.Component {
   }
 }
 
+Component.propTypes = {
+  monster: PropTypes.object.isRequired,
+};
+
 //-----------------------------------------------------------------------------//
 // Export
 //-----------------------------------------------------------------------------//
 
-export default Layout;
+export default Component;
 
 //-----------------------------------------------------------------------------//

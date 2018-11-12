@@ -9,20 +9,7 @@ import { Link } from 'react-router-dom';
 // Component
 //-----------------------------------------------------------------------------//
 
-class Layout extends React.Component {
-
-  constructor (props){
-    super(props);
-    this.clickedShare = this.clickedShare.bind(this);
-  }
-  
-  clickedShare(){
-    let link = 'https://www.facebook.com/sharer/sharer.php?u=http%3A//bigmonstar.net/';
-    window.open(
-      link,
-      '_blank'
-    );
-  }
+class Component extends React.Component {
 
   render() {
 
@@ -58,14 +45,6 @@ class Layout extends React.Component {
                   <span className="menu-setting-title">Store</span>
                 </Link>
             </div>
-            {/* 
-              <div className="col-3">
-                <button className="btn btn-outline-light btn-lg menu-setting-button" onClick={this.clickedShare}>
-                  <i className="fas fa-share fa-lg d-block"></i>
-                </button>
-                <span className="menu-setting-title">Share</span>
-              </div>
-            */}
           </div>
         
         </div>
@@ -79,6 +58,6 @@ class Layout extends React.Component {
 // Export
 //-----------------------------------------------------------------------------//
 
-export default Layout;
+export default Component;
 
 //-----------------------------------------------------------------------------//

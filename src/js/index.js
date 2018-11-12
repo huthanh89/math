@@ -11,14 +11,14 @@ import   reducer       from './reducer';
 import   logger        from 'redux-logger';
 import   firebase      from 'firebase/app';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { applyMiddleware, createStore } from 'redux';
+import { applyMiddleware, createStore   } from 'redux';
 
 //-----------------------------------------------------------------------------//
 // Project configuration
 //-----------------------------------------------------------------------------//
 
 const Production  = false;
-const ReactLogger = false;
+const ReactLogger = true;
 
 // Initialize Firebase
 

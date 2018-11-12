@@ -3,6 +3,7 @@
 //-----------------------------------------------------------------------------//
 
 import React      from 'react';
+import PropTypes  from 'prop-types';
 import Item       from './item/layout.js';
 import GameConfig from 'lib/gameconfig';
 
@@ -10,7 +11,7 @@ import GameConfig from 'lib/gameconfig';
 // Component
 //-----------------------------------------------------------------------------//
 
-class Layout extends React.Component {
+class Component extends React.Component {
 
   items(monsters){
     let items = [];
@@ -26,13 +27,13 @@ class Layout extends React.Component {
 
     let id = this.props.match.params.id;
 
-    let target = _.find(this.props.state.monsters, function(monster){
+    let target = _.find(this.props.monsters, function(monster){
       return monster.monsterID === id;
     });
 
     
     
-    let monsters = _.filter(this.props.state.monsters, function(monster){
+    let monsters = _.filter(this.props.monsters, function(monster){
       let flag = true;
       if(id === monster.monsterID){
         flag = false;
@@ -104,10 +105,14 @@ class Layout extends React.Component {
   }
 }
 
+Component.propTypes = {
+  monsters: PropTypes.array.isRequired
+};
+
 //-----------------------------------------------------------------------------//
 // Export
 //-----------------------------------------------------------------------------//
 
-export default Layout;
+export default Component;
 
 //-----------------------------------------------------------------------------//

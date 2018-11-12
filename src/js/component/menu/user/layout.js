@@ -4,13 +4,14 @@
 
 import   Creatures from 'lib/creature.js';
 import   React     from 'react';
+import   PropTypes from 'prop-types';
 import { Link }    from 'react-router-dom';
 
 //-----------------------------------------------------------------------------//
 // Component
 //-----------------------------------------------------------------------------//
 
-class Layout extends React.Component {
+class Component extends React.Component {
 
   getCreature(){
     let view   = this;
@@ -25,9 +26,7 @@ class Layout extends React.Component {
   }
 
   render() {
-
     let creature = this.getCreature();
-
     return (
       <div className="row">
         <div className="col-12" id="menu-user-container">
@@ -50,10 +49,15 @@ class Layout extends React.Component {
   }
 }
 
+Component.propTypes = {
+  rank:     PropTypes.number.isRequired,
+  username: PropTypes.string
+};
+
 //-----------------------------------------------------------------------------//
 // Export
 //-----------------------------------------------------------------------------//
 
-export default Layout;
+export default Component;
 
 //-----------------------------------------------------------------------------//

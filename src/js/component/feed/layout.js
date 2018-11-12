@@ -2,17 +2,18 @@
 // Import
 //-----------------------------------------------------------------------------//
 
-import   React  from 'react';
-import   Info   from './info/layout.js';
-import   Table  from './table/layout.js';
-import { Link } from 'react-router-dom';
-import   axios  from 'axios';
+import   React     from 'react';
+import   Info      from './info/layout.js';
+import   Table     from './table/layout.js';
+import   PropTypes from 'prop-types';
+import { Link }    from 'react-router-dom';
+import   axios     from 'axios';
 
 //-----------------------------------------------------------------------------//
 // Component
 //-----------------------------------------------------------------------------//
 
-class Layout extends React.Component {
+class Component extends React.Component {
 
   constructor(props){
     super(props);
@@ -29,7 +30,7 @@ class Layout extends React.Component {
     let view = this;
 
     axios.put('/api/feed', {
-      userID:   this.props.state.userID,
+      userID:   this.props.userID,
       targetID: this.props.match.params.id,
       feedID:   monster.monsterID
     })
@@ -86,10 +87,14 @@ class Layout extends React.Component {
   }
 }
 
+Component.propTypes = {
+  userID: PropTypes.string,
+};
+
 //-----------------------------------------------------------------------------//
 // Export
 //-----------------------------------------------------------------------------//
 
-export default Layout;
+export default Component;
 
 //-----------------------------------------------------------------------------//
